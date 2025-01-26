@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638734993463569290
+  platformSettingsDirtyTick: 638735143544747420
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -152,8 +152,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 136
+      x: 94
+      y: 138
       width: 20
       height: 20
     spriteID: b718d3b278dc440a78b40204787533a0
@@ -173,8 +173,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 26
-      y: 136
+      x: 116
+      y: 138
       width: 20
       height: 20
     spriteID: 30a8241a7461949cca7f1e056ad44c2f
@@ -194,8 +194,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 114
+      x: 94
+      y: 116
       width: 20
       height: 20
     spriteID: 45605b82e01b0411d8a68739b332b302
@@ -215,8 +215,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 26
-      y: 114
+      x: 116
+      y: 116
       width: 20
       height: 20
     spriteID: 9e2a242da446d4292b58ce2070e71c4e
@@ -236,8 +236,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 92
+      x: 94
+      y: 94
       width: 20
       height: 20
     spriteID: 049d8f8bc2afc467f85614386f4d6426
@@ -257,8 +257,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 26
-      y: 92
+      x: 116
+      y: 94
       width: 20
       height: 20
     spriteID: 3dacbfd4ecc534145afd4808ba521112
@@ -278,8 +278,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 70
+      x: 94
+      y: 72
       width: 20
       height: 20
     spriteID: db45110ed3ea048b79ff14e1c6ed281e
@@ -299,8 +299,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 26
-      y: 70
+      x: 116
+      y: 72
       width: 20
       height: 20
     spriteID: 21ab3521c7fe44fd2bb46cc0d1e239f8
@@ -320,8 +320,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 48
+      x: 94
+      y: 50
       width: 20
       height: 20
     spriteID: ccc87995488804aeda14587e1b45b28d
@@ -341,8 +341,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 26
-      y: 48
+      x: 116
+      y: 50
       width: 20
       height: 20
     spriteID: 045a812f0b8324ca78acdb5007c75562
@@ -362,11 +362,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 26
-      width: 20
-      height: 20
-    spriteID: f60b38e9b6058488fbbb1ffb9f056dc1
+      x: 1
+      y: 4
+      width: 24
+      height: 24
+    spriteID: 88098492b051a4bb09e4cd8629a5ab0a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -383,11 +383,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 26
-      y: 26
-      width: 20
-      height: 20
-    spriteID: 07e1b0e2e6a37441aace92ef67b33742
+      x: 25
+      y: 4
+      width: 24
+      height: 24
+    spriteID: 69cdc8aa9d74d41eebd6d33710bf9121
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -404,11 +404,116 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 48
-      y: 26
-      width: 20
-      height: 20
-    spriteID: 8e21901e9ebba42d8ac9c6d50de2b8cb
+      x: 49
+      y: 4
+      width: 24
+      height: 24
+    spriteID: e32bba0c1c63b426ca8e534bb674ca78
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 4
+      width: 24
+      height: 24
+    spriteID: 02c906c214df04b81a357319a6945270
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 97
+      y: 4
+      width: 24
+      height: 24
+    spriteID: 1b08ccf27fbbb4aef91b94af2786cffc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 121
+      y: 4
+      width: 24
+      height: 24
+    spriteID: 8c9c771dfd01f4eba8fa299b4d250fcc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 145
+      y: 4
+      width: 24
+      height: 24
+    spriteID: 7fa93c2dda38543e6b484601cfb90e9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_17
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 46
+      width: 32
+      height: 32
+    spriteID: f362ca0d1bb5f40d4a2b1bab0c103836
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -429,10 +534,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 208
-        y: 68
-        width: 320
-        height: 160
+        x: 118
+        y: 66
+        width: 410
+        height: 221
       spriteId: aea0dcdb3b4bf4af7b62f3b9064a69d7
     linkedCells: []
     parentIndex: -1
