@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Juice Refrences")]
     [SerializeField] Transform speedBoostFire;
     [SerializeField] ParticleSystem[] boostParticleSystem;
+    [SerializeField] float treadJitterAmount = 0.1f;
+    [SerializeField] TrailRenderer treadLeft;
+    [SerializeField] TrailRenderer treadRight;
 
     float steeringInput = 0;
     float steeringFactor = 0;
@@ -133,12 +136,19 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(StartVisualDriftRotation());
 
 
+            EmitTreads(false);
             sprite.transform.DOComplete();
-            sprite.transform.DOLocalJump(sprite.transform.localPosition, 0.8f, 1, driftRotationSpeed * 1.5f);
+            sprite.transform.DOLocalJump(sprite.transform.localPosition, 0.8f, 1, driftRotationSpeed * 1.5f).OnComplete(() => EmitTreads(true));
 
             isDrifting = true;
         }
 
+    }
+
+    void EmitTreads(bool emitting)
+    {
+        treadLeft.emitting = emitting;
+        treadRight.emitting = emitting;
     }
 
 
