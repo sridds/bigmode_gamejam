@@ -55,7 +55,7 @@ MonoBehaviour:
   targetStandDistance: 4
   moveSpeed: 1.8
   lungeDistance: 5
-  lungeWaitTime: 0.3
+  lungeWaitTime: 0.5
   lungeTravelTime: 0.2
   lungeCooldown: 1
   standStillAfterLungeTime: 0.5
