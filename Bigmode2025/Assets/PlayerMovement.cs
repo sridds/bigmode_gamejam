@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform sprite;
 
+    [Header("Juice Refrences")]
+    [SerializeField] Transform speedBoostFire;
+    [SerializeField] ParticleSystem[] boostParticleSystem;
+
     float steeringInput = 0;
     float steeringFactor = 0;
     float driftDirection = 0; //gets set to steeringInput when drift starts
@@ -107,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
         else if (isDrifting) //Happens one time once drifting ends
         {
             //Put ending drift juice here.
+
+
             rotationAngle = visualRotationAngle;
             rb.AddForce(carDirection * driftBoost, ForceMode2D.Impulse);
             driftBoost = 0;
@@ -125,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
 
             //Juice on drift start
             StartCoroutine(StartVisualDriftRotation());
+
+
             sprite.transform.DOComplete();
             sprite.transform.DOLocalJump(sprite.transform.localPosition, 0.8f, 1, driftRotationSpeed * 1.5f);
 
@@ -147,16 +155,35 @@ public class PlayerMovement : MonoBehaviour
             steeringFactor = steeringInput;
             rotationAngle -= steeringFactor * turnSharpness * rb.linearVelocity.magnitude / (rb.linearVelocity.magnitude - maxSpeed + 1);
             visualRotationAngle = rotationAngle;
+
+
+            foreach (ParticleSystem p in boostParticleSystem)
+            {
+                if (!p.isEmitting)
+                {
+                    p.Play();
+                }
+            }
+
         }
         else
         {
             steeringFactor = steeringInput;
             rotationAngle -= steeringFactor * turnSharpness * rb.linearVelocity.magnitude;
             visualRotationAngle = rotationAngle;
+
+            foreach (ParticleSystem p in boostParticleSystem)
+            {
+                if (p.isEmitting)
+                {
+                    p.Stop();
+                }
+            }
         }
 
         carDirection = DegreesToVector2(rotationAngle + 90);
 
+        speedBoostFire.localEulerAngles = new Vector3(0,0,visualRotationAngle);
     }
 
     IEnumerator StartVisualDriftRotation()
