@@ -17,6 +17,7 @@ public class SpearEnemyAIScript : MonoBehaviour
     [SerializeField] float lungeTravelTime = 0.3f;
     [SerializeField] float lungeCooldown = 1f;
     [SerializeField] float standStillAfterLungeTime = 0.2f;
+
     //If the player is right at the edge of the target distance, this prevents weird stuttering movement
     [SerializeField] float walkingCooldown = 0.1f;
     float timer = 0.1f;
@@ -24,11 +25,14 @@ public class SpearEnemyAIScript : MonoBehaviour
     public bool lunging = false;
     public bool canLunge = true;
 
+    EnemyHealthScript healthScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        healthScript = GetComponent<EnemyHealthScript>();
     }
 
     // Update is called once per frame
@@ -79,6 +83,7 @@ public class SpearEnemyAIScript : MonoBehaviour
         //while lunging sprite change
         spriteRenderer.color = Color.red;
 
+        healthScript.InvincibilityFrames(lungeTravelTime);
 
         //Lunge lerp
         float elapsed = 0.0f;
@@ -93,6 +98,14 @@ public class SpearEnemyAIScript : MonoBehaviour
             yield return null;
         }
 
+        //waiting before enemy can lunge again
+        StartCoroutine(LungeEnding());
+
+        yield return null;
+    }
+
+    IEnumerator LungeEnding()
+    {
         //Stagger after lunge
         spriteRenderer.color = Color.green;
 
@@ -110,6 +123,15 @@ public class SpearEnemyAIScript : MonoBehaviour
         //back to normal
         spriteRenderer.color = Color.white;
         yield return null;
+    }
+
+    public void StopLunge()
+    {
+        StopAllCoroutines();
+        lunging = false;
+
+        StartCoroutine(LungeEnding());
+
     }
 
     private void OnDestroy()

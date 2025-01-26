@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class EnemyHealthScript : MonoBehaviour
+public class PlayerHealthScript : MonoBehaviour
 {
     public float health = 100;
+    [SerializeField] float invincibilityTime = 0.2f;
     float timer = 0;
-
     private void Update()
     {
         timer -= Time.deltaTime;
@@ -12,23 +12,24 @@ public class EnemyHealthScript : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("TakingDamage");
         if (timer <= 0)
         {
+            Debug.Log("ActuallyTakingDamage");
             health -= damage;
 
             if (health <= 0)
             {
                 Die();
             }
+            else
+            {
+                timer = invincibilityTime;
+            }
         }
     }
     void Die()
     {
-        Destroy(gameObject);
-    }
-
-    public void InvincibilityFrames(float invincibilityTime)
-    {
-        timer = invincibilityTime;
+        Debug.Log("Dead");
     }
 }
