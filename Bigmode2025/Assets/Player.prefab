@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageToDeal: 100
   healthScript: {fileID: 2186051920022347723}
+  blood: {fileID: 1716785605240490535, guid: 2fb8d2551a1324c2e9d667c97ce73f35, type: 3}
 --- !u!1 &1397786231346476385
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +460,7 @@ MonoBehaviour:
   collisionShakeMax: 1.1
   collisionShakeMultiplier: 0.022
   collisionShakeVibrado: 35
+  carDirection: {x: 0, y: 0}
   animationAngle: 167.7696
 --- !u!114 &2186051920022347723
 MonoBehaviour:
@@ -490,7 +492,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
