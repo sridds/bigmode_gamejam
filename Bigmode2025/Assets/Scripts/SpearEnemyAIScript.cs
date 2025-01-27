@@ -14,6 +14,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     Rigidbody2D rb;
 
+    [Header("Attacking and Movement")]
     [SerializeField] float targetStandDistance = 5;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float lungeDistance = 8;
@@ -119,6 +120,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     public IEnumerator LungeAttack()
     {
+
         rb.linearVelocity = Vector3.zero;
 
         _renderer.sprite = _preChargeFace;
@@ -129,7 +131,9 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         _animator.SetBool("Walking", false);
 
-        Vector3 targetPosition = (spriteObject.transform.up * lungeDistance) + transform.position;
+        Vector3 predictedPosition = player.GetComponent<Rigidbody2D>().linearVelocity * lungeWaitTime;
+
+        Vector3 targetPosition = ((spriteObject.transform.up * lungeDistance) + transform.position) + predictedPosition;
 
         shakeHolder.transform.DOShakePosition(0.4f, new Vector3(0.5f, 0.0f), 25, 90, false, true, ShakeRandomnessMode.Full);
 
