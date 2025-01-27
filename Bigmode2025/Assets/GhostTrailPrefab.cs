@@ -19,7 +19,7 @@ public class GhostTrailPrefab : MonoBehaviour
     {
         _renderer.sprite = renderer.sprite;
         _renderer.sortingLayerName = renderer.sortingLayerName;
-        _renderer.sortingOrder = renderer.sortingOrder;
+        _renderer.sortingOrder = renderer.sortingOrder - 1;
 
         _renderer.DOFade(0.0f, _trailDestroyTime);
     }

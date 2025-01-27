@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 2186051920022347723}
   - component: {fileID: 4590925118996357041}
   - component: {fileID: 4996619900881277986}
+  - component: {fileID: 1216862205616998793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -451,6 +452,7 @@ MonoBehaviour:
   driftRotationSpeed: 0.15
   rb: {fileID: 6026991223852364711}
   sprite: {fileID: 1698824936063049756}
+  ghostTrailBoost: {fileID: 1216862205616998793}
   speedBoostFire: {fileID: 4467627077660325776}
   boostParticleSystem:
   - {fileID: 8390573336632585310}
@@ -548,6 +550,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.9
+--- !u!114 &1216862205616998793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564028432565699867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f18369eeb444f6d939429d0042d8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 460394958696149377}
+  _ghostTrailPrefab: {fileID: 6996266058654513919, guid: 7b2e9fc1d08934b88b019552e0b93edf, type: 3}
+  _trailInterval: 0.1
 --- !u!1 &1579110397586391126
 GameObject:
   m_ObjectHideFlags: 0

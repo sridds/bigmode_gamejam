@@ -37,6 +37,7 @@ public class GhostTrail : MonoBehaviour
         {
             GhostTrailPrefab prefab = Instantiate(_ghostTrailPrefab, renderer.transform.position, renderer.transform.rotation);
             prefab.SetGhostTrail(renderer);
+            prefab.transform.localScale = renderer.gameObject.transform.localScale;
         }
     }
 

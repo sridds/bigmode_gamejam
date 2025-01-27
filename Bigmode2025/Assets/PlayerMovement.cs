@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform sprite;
 
     [Header("Juice Refrences")]
+    [SerializeField] GhostTrail ghostTrailBoost;
     [SerializeField] Transform speedBoostFire;
     [SerializeField] ParticleSystem[] boostParticleSystem;
     [SerializeField] float treadJitterAmount = 0.1f;
@@ -125,7 +126,8 @@ public class PlayerMovement : MonoBehaviour
         else if (isDrifting) //Happens one time once drifting ends
         {
             //Put ending drift juice here.
-
+            ghostTrailBoost.SetGhostTrailEnabled(true);
+            Invoke(nameof(StopEmittingGhost), 1.0f);
 
             rotationAngle = visualRotationAngle;
             rb.AddForce(carDirection * driftBoost, ForceMode2D.Impulse);
@@ -154,6 +156,11 @@ public class PlayerMovement : MonoBehaviour
             isDrifting = true;
         }
 
+    }
+
+    void StopEmittingGhost()
+    {
+        ghostTrailBoost.SetGhostTrailEnabled(false);
     }
 
     void EmitTreads(bool emitting)
