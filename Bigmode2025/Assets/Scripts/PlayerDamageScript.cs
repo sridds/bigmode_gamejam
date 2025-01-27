@@ -19,7 +19,7 @@ public class PlayerDamageScript : MonoBehaviour
 
             Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
 
-            Instantiate(blood, collision.gameObject.transform.position, lookRot);
+            if(collision.gameObject.GetComponent<EnemyHealthScript>().CanTakeDamage()) Instantiate(blood, collision.gameObject.transform.position, lookRot);
         }
     }
 }

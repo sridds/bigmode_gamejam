@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDecapitate: 1
   decapitatedHead: {fileID: 5454758951481553267, guid: d0c06c3ce9a7d44f083e226269580e92, type: 3}
-  health: 100
+  health: 1
 --- !u!61 &7623350287096019679
 BoxCollider2D:
   m_ObjectHideFlags: 0

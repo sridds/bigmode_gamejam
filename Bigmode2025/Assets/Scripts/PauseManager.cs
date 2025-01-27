@@ -11,17 +11,17 @@ public class PauseManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
-        }
 
-        if (isPaused)
-        {
-            pauseMenuObject.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
-            pauseMenuObject.SetActive(false);
-            Time.timeScale = 1;
+            if (isPaused)
+            {
+                pauseMenuObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                pauseMenuObject.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 

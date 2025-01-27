@@ -16,7 +16,7 @@ public class DamageHitbox : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            healthScript.InvincibilityFrames(0.2f);
+            //healthScript.InvincibilityFrames(0.01f);
             spearEnemyAIScript.StopLunge();
             collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(damageToDeal);
         }

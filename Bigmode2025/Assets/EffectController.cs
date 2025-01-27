@@ -32,6 +32,13 @@ public class EffectController : MonoBehaviour
         consistantFrequency = frequency;
     }
 
+    public IEnumerator FreezeFrame(float freezeFrameDuration)
+    {
+        Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(freezeFrameDuration);
+        Time.timeScale = 1.0f;
+    }
+
     public IEnumerator InstantScreenShake(float duration, float amplitude, float frequency, bool doFadeOut)
     {
         instantAmplitude += amplitude;
@@ -42,15 +49,15 @@ public class EffectController : MonoBehaviour
 
             while (elapsed < duration)
             {
-                instantAmplitude -= amplitude * Time.deltaTime / duration;
-                instantFrequency -= frequency * Time.deltaTime / duration;
-                elapsed += Time.deltaTime;
+                instantAmplitude -= amplitude * Time.unscaledDeltaTime / duration;
+                instantFrequency -= frequency * Time.unscaledDeltaTime / duration;
+                elapsed += Time.unscaledDeltaTime;
                 yield return null;
             }
         }
         else
         {
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSecondsRealtime(duration);
             instantAmplitude -= amplitude;
             instantFrequency -= frequency;
         }

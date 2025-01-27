@@ -5,7 +5,7 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] private bool canDecapitate = true;
     [SerializeField] private GameObject decapitatedHead;
         
-    public float health = 100;
+    public float health = 1;
     float timer = 0;
 
     bool destroyFlag = false;
@@ -13,6 +13,13 @@ public class EnemyHealthScript : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
+    }
+
+    public bool CanTakeDamage()
+    {
+        if (timer <= 0) return true;
+
+        return false;
     }
 
     public void TakeDamage(float damage)
@@ -34,7 +41,9 @@ public class EnemyHealthScript : MonoBehaviour
         if (canDecapitate)
         {
             GameObject g = Instantiate(decapitatedHead, transform.position, Quaternion.identity);
-            EffectController.instance.InstantScreenShake(0.3f, 15, 200, true);
+
+            EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
+            EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 15, 200, true));
         }
 
         Destroy(gameObject);
