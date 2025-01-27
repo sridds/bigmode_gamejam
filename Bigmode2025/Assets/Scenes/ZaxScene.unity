@@ -257,11 +257,6 @@ Transform:
   - {fileID: 1326795466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &432774038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1564028432565699867, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
-  m_PrefabInstance: {fileID: 5672300234224968286}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &485550056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -636,7 +631,7 @@ GameObject:
   - component: {fileID: 1340607522}
   - component: {fileID: 1340607521}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -652,7 +647,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5b800f164c326764fba5a5469b5c6265, type: 2}
+  m_Material: {fileID: 6200000, guid: 134868800af3a4f41b8c3cc30e6dfdc6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8648,78 +8643,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3170057707197420355, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
   m_PrefabInstance: {fileID: 5672300234224968286}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &2103457656
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432774038}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.9
---- !u!58 &2103457657
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432774038}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.8
 --- !u!1 &2146338624
 GameObject:
   m_ObjectHideFlags: 0
@@ -8858,10 +8781,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.16666667
+    y: 0.055555556
+    width: 0.6666667
+    height: 0.8888889
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -8981,18 +8904,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9116332223800942939, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
-    - {fileID: 4878626867321340595, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1564028432565699867, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2103457657}
-    - targetCorrespondingSourceObject: {fileID: 1564028432565699867, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2103457656}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
