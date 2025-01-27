@@ -29,6 +29,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     public bool lunging = false;
     public bool canLunge = true;
+    public bool isTerrified;
 
     EnemyHealthScript healthScript;
 
@@ -57,6 +58,8 @@ public class SpearEnemyAIScript : MonoBehaviour
     [SerializeField]
     private Animator _animator;
 
+    float terrifiedTimer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -68,8 +71,14 @@ public class SpearEnemyAIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!lunging)
+        if (!lunging && !isTerrified)
         {
+            if (Vector2.Distance(player.transform.position, transform.position) < 4.0f)
+            {
+                isTerrified = true;
+                return;
+            }
+
             MoveTowardsPlayer();
 
             _animator.SetBool("Walking", true);
@@ -92,6 +101,21 @@ public class SpearEnemyAIScript : MonoBehaviour
 
                     spear.transform.DOLocalMoveX(-1.2f, 0.5f).SetEase(Ease.OutQuad);
                 }
+            }
+        }
+
+        if (isTerrified)
+        {
+            terrifiedTimer += Time.deltaTime;
+            _animator.SetBool("Walking", false);
+            _animator.SetBool("Scared", true);
+            _renderer.sprite = _shockedFace;
+
+            if (terrifiedTimer >= 1.5f)
+            {
+                isTerrified = false;
+                _animator.SetBool("Scared", false);
+                terrifiedTimer = 0.0f;
             }
         }
     }

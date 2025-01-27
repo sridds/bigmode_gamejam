@@ -31,9 +31,10 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (destroyFlag) return;
 
-        if (canDecapitate && FindObjectOfType<PlayerMovement>().IsDrifting)
+        if (canDecapitate)
         {
             GameObject g = Instantiate(decapitatedHead, transform.position, Quaternion.identity);
+            EffectController.instance.InstantScreenShake(0.3f, 15, 200, true);
         }
 
         Destroy(gameObject);
