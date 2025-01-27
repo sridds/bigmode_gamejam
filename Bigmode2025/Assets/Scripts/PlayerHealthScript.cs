@@ -11,6 +11,9 @@ public class PlayerHealthScript : MonoBehaviour
     Tween collisionShake;
     [SerializeField] float damageShakeAmount;
     [SerializeField] int damageShakeVibrado;
+    [SerializeField] float whiteFlashDuration;
+    [SerializeField] Material whiteFlashMaterial, defaultMaterial;
+    [SerializeField] SpriteRenderer[] spriteRenderers;
 
 
     private void Update()
@@ -27,6 +30,9 @@ public class PlayerHealthScript : MonoBehaviour
             collisionShake.Complete();
             collisionShake = sprite.transform.DOShakePosition(0.65f, damageShakeAmount, damageShakeVibrado);
 
+            StopCoroutine(DamageFlash());
+            StartCoroutine(DamageFlash());
+
             if (health <= 0)
             {
                 Die();
@@ -38,7 +44,24 @@ public class PlayerHealthScript : MonoBehaviour
         }
     }
 
-    
+    IEnumerator DamageFlash()
+    {
+
+        int i = 0;
+        foreach (SpriteRenderer renderer in spriteRenderers)
+        {
+            renderer.material = whiteFlashMaterial;
+            i++;
+        }
+        yield return new WaitForSeconds(whiteFlashDuration);
+
+        i = 0;
+        foreach (SpriteRenderer renderer in spriteRenderers)
+        {
+            renderer.material = defaultMaterial;
+            i++;
+        }
+    }
 
     void Die()
     {

@@ -239,8 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b55f038c12ec6a4285c1a7d62a5ad9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToDeal: 100
+  damageMultiplier: 1
   healthScript: {fileID: 2186051920022347723}
+  movementScript: {fileID: 6167206479985840192}
   blood: {fileID: 1716785605240490535, guid: 2fb8d2551a1324c2e9d667c97ce73f35, type: 3}
 --- !u!1 &1397786231346476385
 GameObject:
@@ -362,7 +363,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.45, y: 1.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1698824936063049756}
@@ -444,9 +445,9 @@ MonoBehaviour:
   acceleration: 9
   decceleration: 3
   turnSharpness: 0.25
-  driftTurnSharpness: 0.35
+  driftTurnSharpness: 0.3
   driftTurnDelta: 3.5
-  driftFriction: 0.8
+  driftFriction: 1.3
   TimeUntilMaxDrift: 3
   driftBoostMaxSpeed: 23
   driftRotationSpeed: 0.15
@@ -464,6 +465,7 @@ MonoBehaviour:
   collisionShakeVibrado: 35
   carDirection: {x: 0, y: 0}
   animationAngle: 167.7696
+  currentSpeed: 0
 --- !u!114 &2186051920022347723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +480,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   invincibilityTime: 0.2
+  sprite: {fileID: 1698824936063049756}
+  damageShakeAmount: 0.5
+  damageShakeVibrado: 35
+  whiteFlashDuration: 0.1
+  whiteFlashMaterial: {fileID: -876546973899608171, guid: d5955b62bf2b70e4cb0581f49d12eae8, type: 3}
+  defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  spriteRenderers:
+  - {fileID: 460394958696149377}
 --- !u!58 &4590925118996357041
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5509,9 +5519,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingLayerID: 1246840953
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3374513199969318733, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

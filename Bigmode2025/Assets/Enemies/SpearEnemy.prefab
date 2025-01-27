@@ -251,6 +251,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDecapitate: 1
   decapitatedHead: {fileID: 5454758951481553267, guid: d0c06c3ce9a7d44f083e226269580e92, type: 3}
+  spriteRenderers:
+  - {fileID: 6566671108236356149}
+  - {fileID: 3325129832029353035}
+  whiteFlashDuration: 0.1
+  whiteFlashMaterial: {fileID: -876546973899608171, guid: d5955b62bf2b70e4cb0581f49d12eae8, type: 3}
+  defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   health: 30
 --- !u!61 &7623350287096019679
 BoxCollider2D:

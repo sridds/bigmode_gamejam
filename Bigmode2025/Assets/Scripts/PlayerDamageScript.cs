@@ -25,4 +25,6 @@ public class PlayerDamageScript : MonoBehaviour
             if(collision.gameObject.GetComponent<EnemyHealthScript>().CanTakeDamage()) Instantiate(blood, collision.gameObject.transform.position, lookRot);
         }
     }
+
+
 }
