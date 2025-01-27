@@ -131,9 +131,9 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         _animator.SetBool("Walking", false);
 
-        Vector3 predictedPosition = player.GetComponent<Rigidbody2D>().linearVelocity * lungeWaitTime;
-
-        Vector3 targetPosition = ((spriteObject.transform.up * lungeDistance) + transform.position) + predictedPosition;
+        Vector3 playerVelocity = player.GetComponent<Rigidbody2D>().linearVelocity * lungeWaitTime;
+        Vector3 predictedPosition = (player.transform.position + playerVelocity);
+        Vector3 targetPosition = ((predictedPosition - transform.position).normalized * lungeDistance) + transform.position;
 
         shakeHolder.transform.DOShakePosition(0.4f, new Vector3(0.5f, 0.0f), 25, 90, false, true, ShakeRandomnessMode.Full);
 
