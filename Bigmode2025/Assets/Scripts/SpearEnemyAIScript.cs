@@ -27,6 +27,28 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     EnemyHealthScript healthScript;
 
+    [Header("Faces")]
+    [SerializeField]
+    private Sprite _neutralFace;
+
+    [SerializeField]
+    private Sprite _shockedFace;
+
+    [SerializeField]
+    private Sprite _preChargeFace;
+
+    [SerializeField]
+    private Sprite _chargeFace;
+
+    [SerializeField]
+    private Sprite _worriedFace;
+
+    [SerializeField]
+    private Sprite _decapitatedFace;
+
+    [SerializeField]
+    private SpriteRenderer _renderer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +63,15 @@ public class SpearEnemyAIScript : MonoBehaviour
         if (!lunging)
         {
             MoveTowardsPlayer();
+
+            if (Vector3.Distance(player.transform.position, transform.position) < 5.0f)
+            {
+                _renderer.sprite = _shockedFace;
+            }
+            else
+            {
+                _renderer.sprite = _neutralFace;
+            }
         }
     }
 
@@ -70,6 +101,7 @@ public class SpearEnemyAIScript : MonoBehaviour
     {
         rb.linearVelocity = Vector3.zero;
 
+        _renderer.sprite = _preChargeFace;
         lunging = true;
         //gearing up for lunge sprite change
         spriteRenderer.color = Color.yellow;
@@ -78,6 +110,8 @@ public class SpearEnemyAIScript : MonoBehaviour
         Vector3 targetPosition = (spriteObject.transform.up * lungeDistance) + transform.position;
 
         yield return new WaitForSeconds(lungeWaitTime);
+
+        _renderer.sprite = _chargeFace;
         damageHitbox.SetActive(true);
 
         //while lunging sprite change
