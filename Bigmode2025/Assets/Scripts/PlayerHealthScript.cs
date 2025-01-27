@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealthScript : MonoBehaviour
@@ -5,6 +7,12 @@ public class PlayerHealthScript : MonoBehaviour
     public float health = 100;
     [SerializeField] float invincibilityTime = 0.2f;
     float timer = 0;
+    [SerializeField] Transform sprite;
+    Tween collisionShake;
+    [SerializeField] float damageShakeAmount;
+    [SerializeField] int damageShakeVibrado;
+
+
     private void Update()
     {
         timer -= Time.deltaTime;
@@ -16,6 +24,9 @@ public class PlayerHealthScript : MonoBehaviour
         {
             health -= damage;
 
+            collisionShake.Complete();
+            collisionShake = sprite.transform.DOShakePosition(0.65f, damageShakeAmount, damageShakeVibrado);
+
             if (health <= 0)
             {
                 Die();
@@ -26,6 +37,9 @@ public class PlayerHealthScript : MonoBehaviour
             }
         }
     }
+
+    
+
     void Die()
     {
         Debug.Log("Dead");

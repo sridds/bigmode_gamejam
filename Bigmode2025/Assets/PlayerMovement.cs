@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     bool isDrifting = false;
     bool driftQueued = false;
     [HideInInspector] public float animationAngle;
-
+    [HideInInspector] public float currentSpeed;
 
     public Vector2 Velocity { get { return rb.linearVelocity; } }
     public bool IsDrifting { get { return isDrifting; } }
@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         SetInputVector(inputVector);
+        currentSpeed = rb.linearVelocity.magnitude;
     }
 
     private void LateUpdate()

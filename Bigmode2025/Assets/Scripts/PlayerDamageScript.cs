@@ -3,17 +3,20 @@ using UnityEngine;
 public class PlayerDamageScript : MonoBehaviour
 {
 
-    [SerializeField] float damageToDeal = 100;
+    [SerializeField] float damageMultiplier = 100;
     [SerializeField] PlayerHealthScript healthScript;
+    [SerializeField] PlayerMovement movementScript;
+
     [SerializeField] GameObject blood;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damageToDeal);
+            collision.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damageMultiplier * movementScript.currentSpeed);
 
-            var dir = FindObjectOfType<PlayerMovement>().Velocity.normalized;
+            var dir = FindFirstObjectByType<PlayerMovement>().Velocity.normalized;
             Debug.DrawRay(dir, dir * 5.0f, Color.blue, 5.0f);
 
 

@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 27
+  m_SortingLayerID: 1246840953
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 720576816162832010, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,11 +146,11 @@ MonoBehaviour:
   spear: {fileID: 6747061161462635843}
   trail: {fileID: 3916152875794526599}
   targetStandDistance: 4
-  moveSpeed: 1.8
-  lungeDistance: 5
-  lungeWaitTime: 0.5
+  moveSpeed: 2.2
+  lungeDistance: 6
+  lungeWaitTime: 0.6
   lungeTravelTime: 0.2
-  lungeCooldown: 1
+  lungeCooldown: 3
   standStillAfterLungeTime: 0.5
   walkingCooldown: 0.1
   lunging: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDecapitate: 1
   decapitatedHead: {fileID: 5454758951481553267, guid: d0c06c3ce9a7d44f083e226269580e92, type: 3}
-  health: 1
+  health: 30
 --- !u!61 &7623350287096019679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -655,9 +655,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 26
+  m_SortingLayerID: 1246840953
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -7336445925827157944, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -935,9 +935,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 28
+  m_SortingLayerID: 1246840953
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 6517446564882737872, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
