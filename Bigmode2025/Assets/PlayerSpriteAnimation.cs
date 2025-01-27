@@ -20,7 +20,6 @@ public class PlayerSpriteAnimation : MonoBehaviour
 
         float angleSizePerSprite = 360 / (carSprites.Length-1);
         targetSprite = Mathf.RoundToInt(carAngle / angleSizePerSprite);
-        Debug.Log(targetSprite);
 
         float angleMultiplier = (targetSprite - (carAngle / angleSizePerSprite)) * betweenFrameRotationAmount;
         carSpriteRenderer.transform.eulerAngles = new Vector3(0, 0, -angleMultiplier);

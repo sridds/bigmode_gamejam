@@ -34,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float treadJitterAmount = 0.1f;
     [SerializeField] TrailRenderer treadLeft;
     [SerializeField] TrailRenderer treadRight;
+    [SerializeField] float collisionShakeMax;
+    [SerializeField] float collisionShakeMultiplier;
+    [SerializeField] int collisionShakeVibrado;
+
 
     float steeringInput = 0;
     float steeringFactor = 0;
@@ -46,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
     bool isDrifting = false;
     bool driftQueued = false;
     [HideInInspector] public float animationAngle;
+
+    Tween collisionShake;
+    
 
     void Update()
     {
@@ -150,8 +157,6 @@ public class PlayerMovement : MonoBehaviour
         treadLeft.emitting = emitting;
         treadRight.emitting = emitting;
     }
-
-
     void ApplySteering()
     {
         if (isDrifting)
@@ -195,7 +200,6 @@ public class PlayerMovement : MonoBehaviour
 
         speedBoostFire.localEulerAngles = new Vector3(0,0,visualRotationAngle);
     }
-
     IEnumerator StartVisualDriftRotation()
     {
         float elapsed = 0;
@@ -207,12 +211,26 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
     }
+
+    //Collision
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            rotationAngle = Vector2ToDegrees(Vector2.Reflect(DegreesToVector2(rotationAngle), DegreesToVector2(Vector2ToDegrees(collision.GetContact(0).normal) - 90)));
+            
+            //Shake the car on collision
+            collisionShake.Complete();
+            float shakeAmount = Mathf.Clamp(collisionShakeMultiplier * collision.GetContact(0).normalImpulse, 0, collisionShakeMax);
+            collisionShake = sprite.transform.DOShakePosition(0.65f, shakeAmount, collisionShakeVibrado);
+        }
+    }
+
+    //Helper Functions
     public void SetInputVector(Vector2 inputVector)
     {
         steeringInput = inputVector.x;
     }
-
-    //Helper Functions
     Vector2 DegreesToVector2(float degrees)
     {
         Vector2 vectorAngle;
