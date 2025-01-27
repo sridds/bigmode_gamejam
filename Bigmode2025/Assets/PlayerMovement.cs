@@ -150,8 +150,6 @@ public class PlayerMovement : MonoBehaviour
         treadLeft.emitting = emitting;
         treadRight.emitting = emitting;
     }
-
-
     void ApplySteering()
     {
         if (isDrifting)
@@ -195,7 +193,6 @@ public class PlayerMovement : MonoBehaviour
 
         speedBoostFire.localEulerAngles = new Vector3(0,0,visualRotationAngle);
     }
-
     IEnumerator StartVisualDriftRotation()
     {
         float elapsed = 0;
@@ -207,12 +204,21 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
     }
+
+    //Collision
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            rotationAngle = Vector2ToDegrees(collision.GetContact(0).normal) + 90;
+        }
+    }
+
+    //Helper Functions
     public void SetInputVector(Vector2 inputVector)
     {
         steeringInput = inputVector.x;
     }
-
-    //Helper Functions
     Vector2 DegreesToVector2(float degrees)
     {
         Vector2 vectorAngle;
