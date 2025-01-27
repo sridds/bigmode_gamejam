@@ -51,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
     bool driftQueued = false;
     [HideInInspector] public float animationAngle;
 
+
+    public Vector2 Velocity { get { return rb.linearVelocity; } }
+    public bool IsDrifting { get { return isDrifting; } }
+
     Tween collisionShake;
     
 

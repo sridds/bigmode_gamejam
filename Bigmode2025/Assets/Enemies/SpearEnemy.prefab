@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7102e4aa4a7b05b4696d4fa51b99f37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDecapitate: 1
+  decapitatedHead: {fileID: 5454758951481553267, guid: d0c06c3ce9a7d44f083e226269580e92, type: 3}
   health: 100
 --- !u!61 &7623350287096019679
 BoxCollider2D:
