@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     float rotationAngle = 0;
     float visualRotationAngle = 0;
 
-    Vector2 carDirection;
+    public Vector2 carDirection;
     bool isDrifting = false;
     bool driftQueued = false;
     [HideInInspector] public float animationAngle;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class SpearEnemyAIScript : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class SpearEnemyAIScript : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] GameObject spriteObject;
     [SerializeField] GameObject damageHitbox;
+    [SerializeField] GameObject shakeHolder;
+    [SerializeField] GameObject spear;
+    [SerializeField] GhostTrail trail;
 
     Rigidbody2D rb;
 
@@ -49,6 +53,9 @@ public class SpearEnemyAIScript : MonoBehaviour
     [SerializeField]
     private SpriteRenderer _renderer;
 
+    [SerializeField]
+    private Animator _animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,13 +71,26 @@ public class SpearEnemyAIScript : MonoBehaviour
         {
             MoveTowardsPlayer();
 
-            if (Vector3.Distance(player.transform.position, transform.position) < 5.0f)
+            _animator.SetBool("Walking", true);
+            _renderer.sprite = _neutralFace;
+
+            if (player.transform.position.x > transform.position.x)
             {
-                _renderer.sprite = _shockedFace;
+                if (!_renderer.flipX)
+                {
+                    _renderer.flipX = true;
+
+                    spear.transform.DOLocalMoveX(1.2f, 0.5f).SetEase(Ease.OutQuad);
+                }
             }
             else
             {
-                _renderer.sprite = _neutralFace;
+                if (_renderer.flipX)
+                {
+                    _renderer.flipX = false;
+
+                    spear.transform.DOLocalMoveX(-1.2f, 0.5f).SetEase(Ease.OutQuad);
+                }
             }
         }
     }
@@ -107,7 +127,16 @@ public class SpearEnemyAIScript : MonoBehaviour
         spriteRenderer.color = Color.yellow;
         canLunge = false;
 
+        _animator.SetBool("Walking", false);
+
         Vector3 targetPosition = (spriteObject.transform.up * lungeDistance) + transform.position;
+
+        shakeHolder.transform.DOShakePosition(0.4f, new Vector3(0.5f, 0.0f), 25, 90, false, true, ShakeRandomnessMode.Full);
+
+        // calculate spear rotation
+        var dir = (targetPosition - transform.position).normalized;
+        Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
+        spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), lungeWaitTime, RotateMode.FastBeyond360);
 
         yield return new WaitForSeconds(lungeWaitTime);
 
@@ -124,7 +153,9 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         Vector3 startPos = transform.position;
 
-        while(elapsed < lungeTravelTime)
+        trail.SetGhostTrailEnabled(true);
+
+        while (elapsed < lungeTravelTime)
         {
             transform.position = Vector3.Lerp(startPos, targetPosition, elapsed / lungeTravelTime);
 
@@ -145,8 +176,10 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         damageHitbox.SetActive(false);
 
+        trail.SetGhostTrailEnabled(false);
         yield return new WaitForSeconds(standStillAfterLungeTime);
 
+        spear.transform.DOLocalRotateQuaternion(Quaternion.identity, 0.5f);
         lunging = false;
 
         //waiting before enemy can lunge again
