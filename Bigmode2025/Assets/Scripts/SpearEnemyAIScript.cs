@@ -59,6 +59,7 @@ public class SpearEnemyAIScript : MonoBehaviour
     private Animator _animator;
 
     float terrifiedTimer;
+    bool canBeTerrified = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -71,14 +72,20 @@ public class SpearEnemyAIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!lunging && !isTerrified)
+        if (Vector2.Distance(player.transform.position, transform.position) < 4.0f && canBeTerrified)
         {
-            if (Vector2.Distance(player.transform.position, transform.position) < 4.0f)
-            {
-                isTerrified = true;
-                return;
-            }
+            isTerrified = true;
+            terrifiedTimer = 0.0f;
+        }
 
+        if (isTerrified)
+        {
+            TerrifiedState();
+            return;
+        }
+
+        if (!lunging)
+        {
             MoveTowardsPlayer();
 
             _animator.SetBool("Walking", true);
@@ -103,21 +110,27 @@ public class SpearEnemyAIScript : MonoBehaviour
                 }
             }
         }
+    }
 
-        if (isTerrified)
+    void TerrifiedState()
+    {
+        terrifiedTimer += Time.deltaTime;
+        _animator.SetBool("Walking", false);
+        _animator.SetBool("Scared", true);
+        _renderer.sprite = _shockedFace;
+
+        if (terrifiedTimer >= 0.5f)
         {
-            terrifiedTimer += Time.deltaTime;
-            _animator.SetBool("Walking", false);
-            _animator.SetBool("Scared", true);
-            _renderer.sprite = _shockedFace;
-
-            if (terrifiedTimer >= 1.5f)
-            {
-                isTerrified = false;
-                _animator.SetBool("Scared", false);
-                terrifiedTimer = 0.0f;
-            }
+            CancelTerrifiedState();
         }
+    }
+
+    void CancelTerrifiedState()
+    {
+        isTerrified = false;
+        _animator.SetBool("Scared", false);
+        _renderer.sprite = _neutralFace;
+        terrifiedTimer = 0.0f;
     }
 
     void MoveTowardsPlayer()
@@ -144,16 +157,15 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     public IEnumerator LungeAttack()
     {
-
         rb.linearVelocity = Vector3.zero;
 
+        canBeTerrified = false;
+        CancelTerrifiedState();
         _renderer.sprite = _preChargeFace;
         lunging = true;
         //gearing up for lunge sprite change
         spriteRenderer.color = Color.yellow;
         canLunge = false;
-
-        _animator.SetBool("Walking", false);
 
         Vector3 playerVelocity = player.GetComponent<Rigidbody2D>().linearVelocity * (lungeWaitTime + lungeTravelTime);
         Vector3 predictedPosition = (player.transform.position + playerVelocity);
@@ -209,6 +221,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         spear.transform.DOLocalRotateQuaternion(Quaternion.identity, 0.5f);
         lunging = false;
+        canBeTerrified = true;
 
         //waiting before enemy can lunge again
         yield return new WaitForSeconds(lungeCooldown);
