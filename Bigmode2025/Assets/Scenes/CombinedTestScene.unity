@@ -266,7 +266,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 1432215797}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -7671,6 +7671,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352860591}
   m_CullTransparentMesh: 1
+--- !u!4 &1432215797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3170057707197420355, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+  m_PrefabInstance: {fileID: 448056645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1432491587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13176,7 +13181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1352860593}
-  _comboTime: 1000
+  _comboTime: 4
   _comboPrefab: {fileID: 8161414213050382166, guid: 07135b05e5c4d4232ac7f00ede0baf97, type: 3}
   _comboSprites:
   - {fileID: -7409929977355405782, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}

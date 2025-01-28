@@ -76,6 +76,8 @@ public class EnemyManager : MonoBehaviour
 
                 onesSpr.DelayedHop(0.1f);
             }
+
+            FindObjectOfType<PlayerMovement>().AddSpeedBoost();
         }
     }
 
@@ -95,15 +97,21 @@ public class EnemyManager : MonoBehaviour
     {
         if(isComboInitiated && comboTimer > _comboTime)
         {
-            OnComboEnded?.Invoke(combo);
-
-            isComboInitiated = false;
-            combo = 0;
-            comboTimer = 0.0f;
+            StopCombo();
         }
         else if (isComboInitiated)
         {
             comboTimer += Time.deltaTime;
         }
+    }
+
+    public void StopCombo()
+    {
+        Debug.Log("Combo ended");
+
+        OnComboEnded?.Invoke(combo);
+        isComboInitiated = false;
+        combo = 0;
+        comboTimer = 0.0f;
     }
 }

@@ -34,6 +34,14 @@ public class ComboValue : MonoBehaviour
         transform.localScale = new Vector3(2.2f, 2.2f, 0.0f);
         transform.DOScale(1.0f, 0.2f);
         transform.DOJump(transform.position, 1.0f, 1, 0.2f);
+
+        Invoke(nameof(HandleDestroy), lifeTime);
+    }
+
+    private void HandleDestroy()
+    {
+        transform.DOMoveY(transform.position.y + 2.0f, 0.5f, false);
+        transform.DOScale(new Vector3(0, 1.4f, 0), 0.4f).SetEase(Ease.OutQuad).OnComplete(() => Destroy(gameObject));
     }
 
     void Update()

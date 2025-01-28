@@ -33,6 +33,8 @@ public class PlayerHealthScript : MonoBehaviour
             StopCoroutine(DamageFlash());
             StartCoroutine(DamageFlash());
 
+            FindObjectOfType<EnemyManager>().StopCombo();
+
             if (health <= 0)
             {
                 Die();

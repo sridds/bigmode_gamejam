@@ -48,7 +48,7 @@ MonoBehaviour:
   _renderer: {fileID: 3126490843338917094}
   shakeAmount: 0.05
   shakeInterval: 0.03
-  lifeTime: 2
+  lifeTime: 1.5
 --- !u!1 &6847247456183678992
 GameObject:
   m_ObjectHideFlags: 0

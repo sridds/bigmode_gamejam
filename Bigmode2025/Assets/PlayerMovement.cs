@@ -24,10 +24,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float drift2Speed;
     [SerializeField] float drift3Speed;
 
-
+    [SerializeField] float maxAdditionalBoost = 6.0f;
+    [SerializeField] float additionalSpeedBoost = 2.0f;
+    [SerializeField] float boostDecayTimeMultiplier = 1.1f;
 
     [SerializeField] float driftRotationSpeed; //How fast the car turns 90 degrees at the start of a drift
 
+    public float MaxSpeed { get { return maxSpeed + additionalBoost; } }
 
     float driftBoost;
     float driftBoostTimer;
@@ -69,8 +72,17 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 Velocity { get { return rb.linearVelocity; } }
     public bool IsDrifting { get { return isDrifting; } }
 
+    float additionalBoost;
+
     Tween collisionShake;
-    
+
+
+    public void AddSpeedBoost()
+    {
+        additionalBoost += additionalSpeedBoost;
+
+        if (additionalBoost > maxAdditionalBoost) additionalBoost = additionalSpeedBoost;
+    }
 
     void Update()
     {
@@ -78,12 +90,17 @@ public class PlayerMovement : MonoBehaviour
         SetInputVector(inputVector);
         currentSpeed = rb.linearVelocity.magnitude;
         MovementScreenShake();
+
+        if(additionalBoost > 0.0f)
+        {
+            additionalBoost -= Time.deltaTime * boostDecayTimeMultiplier;
+        }
     }
         
     void MovementScreenShake()
     {
         float speed = rb.linearVelocity.magnitude;
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > MaxSpeed)
         {
             EffectController.instance.ContinousScreenShake(velocityShakeAmplitude * speed, velocityShakeFrequency * speed);
         }
@@ -105,11 +122,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 engineForceVector = carDirection * acceleration;
 
 
-        if (rb.linearVelocity.magnitude <= maxSpeed)
+        if (rb.linearVelocity.magnitude <= MaxSpeed)
         {
             rb.linearVelocity += engineForceVector * Time.fixedDeltaTime;
         }
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > MaxSpeed)
         {
             rb.linearVelocity -= decceleration * Time.fixedDeltaTime * engineForceVector;
         }
@@ -231,10 +248,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else if (rb.linearVelocity.magnitude > maxSpeed) //if dashing
+        else if (rb.linearVelocity.magnitude > MaxSpeed) //if dashing
         {
             steeringFactor = steeringInput;
-            rotationAngle -= steeringFactor * turnSharpness * rb.linearVelocity.magnitude / (rb.linearVelocity.magnitude - maxSpeed + 1);
+            rotationAngle -= steeringFactor * turnSharpness * rb.linearVelocity.magnitude / (rb.linearVelocity.magnitude - MaxSpeed + 1);
             visualRotationAngle = rotationAngle;
 
             foreach (ParticleSystem p in boostParticleSystem)
