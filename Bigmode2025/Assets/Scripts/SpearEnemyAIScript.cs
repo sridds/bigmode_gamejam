@@ -79,11 +79,15 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     public void ApplyKnockback()
     {
+        if (lunging) return false;
+
         knockedBack = true;
         rb.linearDamping = 3.0f;
         _animator.SetBool("Damaged", true);
         _animator.SetBool("Scared", false);
-        //StopCoroutine(LungeAttack());
+
+        StopAllCoroutines();
+        StartCoroutine(CancelLunge());
 
         _renderer.sprite = _hurtFace;
         isTerrified = false;
@@ -184,6 +188,22 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         }
     }
+
+    private IEnumerator CancelLunge()
+    {
+        damageHitbox.SetActive(false);
+        trail.SetGhostTrailEnabled(false);
+        spear.transform.DOKill(true);
+        spear.transform.DOLocalRotateQuaternion(Quaternion.identity, 0.5f);
+        lunging = false;
+        canBeTerrified = true;
+
+        //waiting before enemy can lunge again
+        yield return new WaitForSeconds(lungeCooldown);
+
+        canLunge = true;
+    }
+
 
     public IEnumerator LungeAttack()
     {
