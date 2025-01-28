@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using static Unity.VisualScripting.Member;
 
 public class SpearEnemyAIScript : MonoBehaviour
 {
@@ -58,10 +59,14 @@ public class SpearEnemyAIScript : MonoBehaviour
     [SerializeField]
     private Animator _animator;
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip _lungeSound;
+
     float terrifiedTimer;
     bool canBeTerrified = true;
     public bool knockedBack = false;
-
+    private AudioSource source;
     bool chargingLunge = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,6 +75,8 @@ public class SpearEnemyAIScript : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         healthScript = GetComponent<EnemyHealthScript>();
+
+        source = GetComponent<AudioSource>();
     }
 
     public bool CanApplyKnockback()
@@ -216,7 +223,8 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         yield return new WaitForSeconds(lungeWaitTime);
 
-        Debug.Log(" Lunge");
+        source.pitch = Random.Range(0.95f, 1.1f);
+        source.PlayOneShot(_lungeSound);
 
         lunging = true;
         chargingLunge = false;

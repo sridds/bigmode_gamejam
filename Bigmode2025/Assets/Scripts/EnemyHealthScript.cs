@@ -8,7 +8,9 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] SpriteRenderer[] spriteRenderers;
     [SerializeField] float whiteFlashDuration;
     [SerializeField] Material whiteFlashMaterial, defaultMaterial;
-        
+    [SerializeField] AudioClip[] hurtSounds;
+    [SerializeField] AudioClip[] deathSounds;
+
     public float health = 1;
     float timer = 0;
 
@@ -35,7 +37,12 @@ public class EnemyHealthScript : MonoBehaviour
             StartCoroutine(DamageFlash());
             if (health <= 0)
             {
+                AudioManager.instance.PlaySound(deathSounds[Random.Range(0, deathSounds.Length - 1)], 1.0f, 0.95f, 1.1f);
                 Die();
+            }
+            else
+            {
+                AudioManager.instance.PlaySound(hurtSounds[Random.Range(0, hurtSounds.Length - 1)], 1.0f, 0.95f, 1.1f);
             }
         }
     }
