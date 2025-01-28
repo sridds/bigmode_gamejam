@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
-    [SerializeField] float _comboTime;
+    public float _comboTime;
+    public int maxCombo = 20;
 
     public List<GameObject> enemies;
     private int combo;
@@ -13,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     private bool isComboInitiated;
 
     public delegate void ComboUpdated(int combo);
-    public delegate void ComboEnded();
+    public delegate void ComboEnded(int combo);
     public ComboUpdated OnComboUpdated;
     public ComboEnded OnComboEnded;
 
@@ -49,11 +50,15 @@ public class EnemyManager : MonoBehaviour
     {
         if(isComboInitiated && comboTimer > _comboTime)
         {
+            OnComboEnded?.Invoke(combo);
+
             isComboInitiated = false;
             combo = 0;
             comboTimer = 0.0f;
-
-            OnComboEnded?.Invoke();
+        }
+        else if (isComboInitiated)
+        {
+            comboTimer += Time.deltaTime;
         }
     }
 }

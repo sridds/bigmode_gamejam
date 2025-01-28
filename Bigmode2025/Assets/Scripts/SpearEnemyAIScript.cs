@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
-using static Unity.VisualScripting.Member;
 
 public class SpearEnemyAIScript : MonoBehaviour
 {
@@ -160,6 +159,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     void TerrifiedState()
     {
+        rb.linearVelocity = Vector2.zero;
         terrifiedTimer += Time.deltaTime;
         _animator.SetBool("Walking", false);
         _animator.SetBool("Scared", true);
