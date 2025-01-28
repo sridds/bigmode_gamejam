@@ -18,12 +18,13 @@ public class MenuFunctions : MonoBehaviour
 
     public void MainMenu()
     {
+        pauseManager.Unpause();
         SceneManager.LoadScene(0);
     }
 
     public void Resume()
     {
-        pauseManager.isPaused = false;
+        pauseManager.Unpause();
     }
 
 }

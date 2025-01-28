@@ -819,8 +819,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_AssetsPPU: 10
-  m_RefResolutionX: 320
-  m_RefResolutionY: 240
+  m_RefResolutionX: 480
+  m_RefResolutionY: 360
   m_CropFrame: 3
   m_GridSnapping: 2
   m_FilterMode: 0
@@ -908,15 +908,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.23817292
-    y: 0.1853786
-    width: 0.52202284
-    height: 0.62663186
+    x: 0.10766721
+    y: 0.028720627
+    width: 0.78303427
+    height: 0.9399478
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1200,6 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eab1eb09646f74d838a378c1845e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseManager: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
