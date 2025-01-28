@@ -160,10 +160,11 @@ MonoBehaviour:
   _shockedFace: {fileID: -2915141713552548554, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   _preChargeFace: {fileID: 6849666010700072227, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   _chargeFace: {fileID: 3316750310060215957, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
-  _worriedFace: {fileID: -8935904989202975570, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  _hurtFace: {fileID: -9060967428648630460, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   _decapitatedFace: {fileID: -439985428914108149, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   _renderer: {fileID: 6566671108236356149}
   _animator: {fileID: 6764315175852710622}
+  knockedBack: 0
 --- !u!50 &441512639896160041
 Rigidbody2D:
   serializedVersion: 5

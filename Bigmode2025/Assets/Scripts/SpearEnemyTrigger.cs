@@ -17,7 +17,7 @@ public class SpearEnemyTrigger : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && spearEnemyAIScript.canLunge && !spearEnemyAIScript.isTerrified)
+        if (other.gameObject.CompareTag("Player") && spearEnemyAIScript.canLunge && !spearEnemyAIScript.isTerrified && !spearEnemyAIScript.knockedBack)
         {
             StartCoroutine(spearEnemyAIScript.LungeAttack());
         }

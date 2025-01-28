@@ -47,7 +47,7 @@ public class SpearEnemyAIScript : MonoBehaviour
     private Sprite _chargeFace;
 
     [SerializeField]
-    private Sprite _worriedFace;
+    private Sprite _hurtFace;
 
     [SerializeField]
     private Sprite _decapitatedFace;
@@ -60,6 +60,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     float terrifiedTimer;
     bool canBeTerrified = true;
+    public bool knockedBack = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -69,10 +70,30 @@ public class SpearEnemyAIScript : MonoBehaviour
         healthScript = GetComponent<EnemyHealthScript>();
     }
 
+    public bool CanApplyKnockback()
+    {
+        if (lunging) return false;
+
+        return true;
+    }
+
+    public void ApplyKnockback()
+    {
+        knockedBack = true;
+        rb.linearDamping = 3.0f;
+        _animator.SetBool("Damaged", true);
+        _animator.SetBool("Scared", false);
+        //StopCoroutine(LungeAttack());
+
+        _renderer.sprite = _hurtFace;
+        isTerrified = false;
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(player.transform.position, transform.position) < 4.0f && canBeTerrified)
+        if (Vector2.Distance(player.transform.position, transform.position) < 4.0f && canBeTerrified && !knockedBack)
         {
             isTerrified = true;
             terrifiedTimer = 0.0f;
@@ -84,7 +105,7 @@ public class SpearEnemyAIScript : MonoBehaviour
             return;
         }
 
-        if (!lunging)
+        if (!lunging && !knockedBack)
         {
             MoveTowardsPlayer();
 
@@ -109,6 +130,13 @@ public class SpearEnemyAIScript : MonoBehaviour
                     spear.transform.DOLocalMoveX(-1.2f, 0.5f).SetEase(Ease.OutQuad);
                 }
             }
+        }
+
+        if (knockedBack && rb.linearVelocity.magnitude <= 1.0f)
+        {
+            knockedBack = false;
+            rb.linearDamping = 0.0f;
+            _animator.SetBool("Damaged", false);
         }
     }
 
@@ -135,6 +163,8 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
+        if (knockedBack) return;
+             
         timer = timer - Time.deltaTime;
 
         if (Vector3.Distance(player.transform.position, transform.position) > targetStandDistance)

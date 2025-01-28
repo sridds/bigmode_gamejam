@@ -23,6 +23,20 @@ public class PlayerDamageScript : MonoBehaviour
             Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
 
             if(collision.gameObject.GetComponent<EnemyHealthScript>().CanTakeDamage()) Instantiate(blood, collision.gameObject.transform.position, lookRot);
+
+            if (collision.gameObject.TryGetComponent(out Rigidbody2D rigidbody))
+            {
+                if (collision.gameObject.TryGetComponent(out SpearEnemyAIScript ai))
+                {
+                    if (ai.CanApplyKnockback())
+                    {
+                        ai.ApplyKnockback();
+
+                        rigidbody.linearVelocity = Vector2.zero;
+                        rigidbody.AddForce(dir * 30.0f, ForceMode2D.Impulse);
+                    }
+                }
+            }
         }
     }
 

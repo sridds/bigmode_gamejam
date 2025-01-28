@@ -236,6 +236,7 @@ public class PlayerMovement : MonoBehaviour
             float shakeAmount = Mathf.Clamp(collisionShakeMultiplier * collision.GetContact(0).normalImpulse, 0, collisionShakeMax);
             collisionShake = sprite.transform.DOShakePosition(0.65f, shakeAmount, collisionShakeVibrado);
         }
+
     }
 
     //Helper Functions
