@@ -100,7 +100,7 @@ public class SpearEnemyAIScript : MonoBehaviour
         rb.linearDamping = 3.0f;
         _animator.SetBool("Damaged", true);
         _animator.SetBool("Scared", false);
-        chargingLunge = false; 
+        chargingLunge = false;
 
         _renderer.sprite = _hurtFace;
         isTerrified = false;

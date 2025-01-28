@@ -166,6 +166,7 @@ MonoBehaviour:
   _renderer: {fileID: 6566671108236356149}
   _animator: {fileID: 6764315175852710622}
   _lungeSound: {fileID: 8300000, guid: 975c69572af3d4a85b3ffc7c19c63542, type: 3}
+  _scream: {fileID: 7724151389638106252}
   knockedBack: 0
 --- !u!50 &441512639896160041
 Rigidbody2D:
@@ -326,10 +327,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8c5a225c44bf241ee8d082117b3cbd66, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8c5a225c44bf241ee8d082117b3cbd66, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.22
   m_Pitch: 1
   Loop: 0
   Mute: 0
