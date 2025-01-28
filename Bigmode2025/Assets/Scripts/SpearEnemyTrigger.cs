@@ -19,7 +19,7 @@ public class SpearEnemyTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && spearEnemyAIScript.canLunge && !spearEnemyAIScript.isTerrified && !spearEnemyAIScript.knockedBack)
         {
-            StartCoroutine(spearEnemyAIScript.LungeAttack());
+            spearEnemyAIScript.StartCoroutine(spearEnemyAIScript.LungeAttack());
         }
     }
 

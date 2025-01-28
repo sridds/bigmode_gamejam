@@ -62,6 +62,8 @@ public class SpearEnemyAIScript : MonoBehaviour
     bool canBeTerrified = true;
     public bool knockedBack = false;
 
+    bool chargingLunge = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -79,15 +81,15 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     public void ApplyKnockback()
     {
-        if (lunging) return;
+        Debug.Log("Ending Lunge");
+        StopAllCoroutines();
+        StartCoroutine(LungeEnding());
 
         knockedBack = true;
         rb.linearDamping = 3.0f;
         _animator.SetBool("Damaged", true);
         _animator.SetBool("Scared", false);
-
-        StopAllCoroutines();
-        StartCoroutine(CancelLunge());
+        chargingLunge = false; 
 
         _renderer.sprite = _hurtFace;
         isTerrified = false;
@@ -109,7 +111,7 @@ public class SpearEnemyAIScript : MonoBehaviour
             return;
         }
 
-        if (!lunging && !knockedBack)
+        if (!lunging && !knockedBack && !chargingLunge)
         {
             MoveTowardsPlayer();
 
@@ -189,30 +191,14 @@ public class SpearEnemyAIScript : MonoBehaviour
         }
     }
 
-    private IEnumerator CancelLunge()
-    {
-        damageHitbox.SetActive(false);
-        trail.SetGhostTrailEnabled(false);
-        spear.transform.DOKill(true);
-        spear.transform.DOLocalRotateQuaternion(Quaternion.identity, 0.5f);
-        lunging = false;
-        canBeTerrified = true;
-
-        //waiting before enemy can lunge again
-        yield return new WaitForSeconds(lungeCooldown);
-
-        canLunge = true;
-    }
-
-
     public IEnumerator LungeAttack()
     {
+        chargingLunge = true;
         rb.linearVelocity = Vector3.zero;
 
         canBeTerrified = false;
         CancelTerrifiedState();
         _renderer.sprite = _preChargeFace;
-        lunging = true;
         //gearing up for lunge sprite change
         spriteRenderer.color = Color.yellow;
         canLunge = false;
@@ -229,6 +215,11 @@ public class SpearEnemyAIScript : MonoBehaviour
         spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), lungeWaitTime, RotateMode.FastBeyond360);
 
         yield return new WaitForSeconds(lungeWaitTime);
+
+        Debug.Log(" Lunge");
+
+        lunging = true;
+        chargingLunge = false;
 
         _renderer.sprite = _chargeFace;
         damageHitbox.SetActive(true);
