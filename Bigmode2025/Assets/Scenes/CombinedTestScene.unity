@@ -10201,6 +10201,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -4517622714251937019, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -6156901336181164061, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -1595790814574557569, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6900564715213894824, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 4901438907505862779, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: -4113274819612839737, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 4935698273761217489, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[7]'
+      value: 
+      objectReference: {fileID: -5411010137305468832, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[8]'
+      value: 
+      objectReference: {fileID: -6839621629581726616, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[9]'
+      value: 
+      objectReference: {fileID: -3661994205665404003, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[10]'
+      value: 
+      objectReference: {fileID: 3374513199969318733, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[11]'
+      value: 
+      objectReference: {fileID: -1011870276447615431, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[12]'
+      value: 
+      objectReference: {fileID: 2014848950628268900, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[13]'
+      value: 
+      objectReference: {fileID: -2243156407080976424, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[14]'
+      value: 
+      objectReference: {fileID: 5680732952366125726, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
+    - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: 'carSprites.Array.data[15]'
+      value: 
+      objectReference: {fileID: -5402200251853430431, guid: 967f5235a7aaf1849a6f7575b77e2779, type: 3}
     - target: {fileID: 3170057707197420355, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

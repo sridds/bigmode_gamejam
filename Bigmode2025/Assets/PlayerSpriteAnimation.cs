@@ -18,7 +18,8 @@ public class PlayerSpriteAnimation : MonoBehaviour
     {
         carAngle = playerMovementRef.animationAngle;
 
-        float angleSizePerSprite = 360 / (carSprites.Length-1);
+        float angleSizePerSprite = 360f / (float)(carSprites.Length-1f);
+        Debug.Log(carAngle);
         targetSprite = Mathf.RoundToInt(carAngle / angleSizePerSprite);
 
         float angleMultiplier = (targetSprite - (carAngle / angleSizePerSprite)) * betweenFrameRotationAmount;
