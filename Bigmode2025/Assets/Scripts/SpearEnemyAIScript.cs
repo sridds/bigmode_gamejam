@@ -68,6 +68,7 @@ public class SpearEnemyAIScript : MonoBehaviour
     public bool knockedBack = false;
     private AudioSource source;
     bool chargingLunge = false;
+    EnemyManager enemyManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,6 +78,10 @@ public class SpearEnemyAIScript : MonoBehaviour
         healthScript = GetComponent<EnemyHealthScript>();
 
         source = GetComponent<AudioSource>();
+
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        enemyManager.enemies.Add(gameObject);
+        enemyManager.UpdateCount();
     }
 
     public bool CanApplyKnockback()
@@ -294,6 +299,8 @@ public class SpearEnemyAIScript : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
+        enemyManager.enemies.Remove(gameObject);
+        enemyManager.UpdateCount();
     }
 
 
