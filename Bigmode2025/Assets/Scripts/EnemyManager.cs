@@ -109,6 +109,8 @@ public class EnemyManager : MonoBehaviour
     {
         Debug.Log("Combo ended");
 
+        FindObjectOfType<PlayerMovement>().CancelSpeedBoost();
+
         OnComboEnded?.Invoke(combo);
         isComboInitiated = false;
         combo = 0;

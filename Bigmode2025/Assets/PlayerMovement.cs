@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float maxAdditionalBoost = 6.0f;
     [SerializeField] float additionalSpeedBoost = 2.0f;
-    [SerializeField] float boostDecayTimeMultiplier = 1.1f;
 
     [SerializeField] float driftRotationSpeed; //How fast the car turns 90 degrees at the start of a drift
 
@@ -84,17 +83,17 @@ public class PlayerMovement : MonoBehaviour
         if (additionalBoost > maxAdditionalBoost) additionalBoost = additionalSpeedBoost;
     }
 
+    public void CancelSpeedBoost()
+    {
+        additionalBoost = 0.0f;
+    }
+
     void Update()
     {
         Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         SetInputVector(inputVector);
         currentSpeed = rb.linearVelocity.magnitude;
         MovementScreenShake();
-
-        if(additionalBoost > 0.0f)
-        {
-            additionalBoost -= Time.deltaTime * boostDecayTimeMultiplier;
-        }
     }
         
     void MovementScreenShake()
