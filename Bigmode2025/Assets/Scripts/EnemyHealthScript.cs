@@ -42,6 +42,7 @@ public class EnemyHealthScript : MonoBehaviour
             }
             else
             {
+                EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.3f, 10, 200, true));
                 AudioManager.instance.PlaySound(hurtSounds[Random.Range(0, hurtSounds.Length - 1)], 1.0f, 0.95f, 1.1f);
             }
         }

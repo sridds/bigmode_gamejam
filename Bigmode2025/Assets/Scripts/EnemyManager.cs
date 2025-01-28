@@ -12,12 +12,13 @@ public class EnemyManager : MonoBehaviour
     private float comboTimer;
     private bool isComboInitiated;
 
-    public delegate void ComboUpdated();
+    public delegate void ComboUpdated(int combo);
     public delegate void ComboEnded();
     public ComboUpdated OnComboUpdated;
     public ComboEnded OnComboEnded;
 
     public int Combo { get { return combo; } }
+    public int EnemiesRemaining { get { return enemies.Count; } }
 
     public void RegisterEnemyDeath(GameObject enemy)
     {
@@ -41,7 +42,7 @@ public class EnemyManager : MonoBehaviour
         combo += 1;
         comboTimer = 0.0f;
 
-        OnComboUpdated?.Invoke();
+        OnComboUpdated?.Invoke(combo);
     }
 
     private void Update()
