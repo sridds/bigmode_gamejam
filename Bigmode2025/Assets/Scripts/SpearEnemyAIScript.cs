@@ -79,7 +79,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     public void ApplyKnockback()
     {
-        if (lunging) return false;
+        if (lunging) return;
 
         knockedBack = true;
         rb.linearDamping = 3.0f;

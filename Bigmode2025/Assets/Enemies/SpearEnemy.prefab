@@ -148,7 +148,7 @@ MonoBehaviour:
   targetStandDistance: 4
   moveSpeed: 2.2
   lungeDistance: 6
-  lungeWaitTime: 0.6
+  lungeWaitTime: 0.8
   lungeTravelTime: 0.2
   lungeCooldown: 3
   standStillAfterLungeTime: 0.5
@@ -809,7 +809,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.3137255}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
