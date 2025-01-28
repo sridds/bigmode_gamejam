@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Splines;
 using UnityEngine.U2D;
 using UnityEngine.UIElements;
 
@@ -16,8 +17,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float driftTurnDelta; //Amount that inputting directions while drifting effects drift tightness
     [SerializeField] float driftFriction; //0-1
 
-    [SerializeField] float TimeUntilMaxDrift;
-    [SerializeField] float driftBoostMaxSpeed;
+    [SerializeField] float drift1Time;
+    [SerializeField] float drift2Time;
+    [SerializeField] float drift3Time;
+    [SerializeField] float drift1Speed;
+    [SerializeField] float drift2Speed;
+    [SerializeField] float drift3Speed;
+
+
 
     [SerializeField] float driftRotationSpeed; //How fast the car turns 90 degrees at the start of a drift
 
@@ -38,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float collisionShakeMax;
     [SerializeField] float collisionShakeMultiplier;
     [SerializeField] int collisionShakeVibrado;
+    [SerializeField] float velocityShakeAmplitude;
+    [SerializeField] float velocityShakeFrequency;
+    [SerializeField] ParticleSystem drift1Particle;
+    [SerializeField] ParticleSystem drift2Particle;
+    [SerializeField] ParticleSystem drift3Particle;
+
 
 
     float steeringInput = 0;
@@ -64,8 +77,17 @@ public class PlayerMovement : MonoBehaviour
         Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         SetInputVector(inputVector);
         currentSpeed = rb.linearVelocity.magnitude;
+        MovementScreenShake();
     }
-
+        
+    void MovementScreenShake()
+    {
+        float speed = rb.linearVelocity.magnitude;
+        if (rb.linearVelocity.magnitude > maxSpeed)
+        {
+            EffectController.instance.ContinousScreenShake(velocityShakeAmplitude * speed, velocityShakeFrequency * speed);
+        }
+    }
     private void LateUpdate()
     {
         animationAngle = Vector2ToDegrees(DegreesToVector2(visualRotationAngle));
@@ -111,22 +133,46 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isDrifting)
             {
-                //While actively drifting
-                if (driftBoostTimer < TimeUntilMaxDrift)
+                driftBoostTimer += Time.deltaTime;
+                if (driftBoostTimer > drift3Time)
                 {
-                    driftBoost = Mathf.Lerp(0, driftBoostMaxSpeed, driftBoostTimer / TimeUntilMaxDrift);
-                    driftBoostTimer += Time.deltaTime;
+                    Debug.Log("3");
+
+                    driftBoost = drift3Speed;
+                    drift3Particle.Play();
+                    drift2Particle.Stop();
+
+                }
+                else if (driftBoostTimer > drift2Time)
+                {
+                    Debug.Log("2");
+
+                    driftBoost = drift2Speed;
+                    drift2Particle.Play();
+                    drift1Particle.Stop();
+
+                }
+                else if (driftBoostTimer > drift1Time)
+                {
+                    Debug.Log("1");
+                    driftBoost = drift1Speed;
+                    drift1Particle.Play();
                 }
             }
             else
             {
                 driftQueued = true;
+
+
             }
 
         }
         else if (isDrifting) //Happens one time once drifting ends
         {
             //Put ending drift juice here.
+            drift1Particle.Stop();
+            drift2Particle.Stop();
+            drift3Particle.Stop();
             ghostTrailBoost.SetGhostTrailEnabled(true);
             Invoke(nameof(StopEmittingGhost), 1.0f);
 
@@ -152,6 +198,7 @@ public class PlayerMovement : MonoBehaviour
 
             EmitTreads(false);
             sprite.transform.DOComplete();
+            sprite.transform.localPosition = Vector3.zero;
             sprite.transform.DOLocalJump(sprite.transform.localPosition, 0.8f, 1, driftRotationSpeed * 1.5f).OnComplete(() => EmitTreads(true));
 
             isDrifting = true;
@@ -176,13 +223,19 @@ public class PlayerMovement : MonoBehaviour
             steeringFactor = (steeringInput / driftTurnDelta) + driftDirection;
             rotationAngle -= steeringFactor * driftTurnSharpness * rb.linearVelocity.magnitude;
             visualRotationAngle -= steeringFactor * driftTurnSharpness * rb.linearVelocity.magnitude;
+            foreach (ParticleSystem p in boostParticleSystem)
+            {
+                if (p.isEmitting)
+                {
+                    p.Stop();
+                }
+            }
         }
         else if (rb.linearVelocity.magnitude > maxSpeed) //if dashing
         {
             steeringFactor = steeringInput;
             rotationAngle -= steeringFactor * turnSharpness * rb.linearVelocity.magnitude / (rb.linearVelocity.magnitude - maxSpeed + 1);
             visualRotationAngle = rotationAngle;
-
 
             foreach (ParticleSystem p in boostParticleSystem)
             {
@@ -191,6 +244,8 @@ public class PlayerMovement : MonoBehaviour
                     p.Play();
                 }
             }
+
+
 
         }
         else
@@ -230,8 +285,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             rotationAngle = Vector2ToDegrees(Vector2.Reflect(DegreesToVector2(rotationAngle), DegreesToVector2(Vector2ToDegrees(collision.GetContact(0).normal) - 90)));
-            
+
             //Shake the car on collision
+            sprite.transform.DOComplete();
+
+            sprite.transform.localPosition = Vector3.zero;
             collisionShake.Complete();
             float shakeAmount = Mathf.Clamp(collisionShakeMultiplier * collision.GetContact(0).normalImpulse, 0, collisionShakeMax);
             collisionShake = sprite.transform.DOShakePosition(0.65f, shakeAmount, collisionShakeVibrado);

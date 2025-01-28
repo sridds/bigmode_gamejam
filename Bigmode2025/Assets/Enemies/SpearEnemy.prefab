@@ -147,12 +147,12 @@ MonoBehaviour:
   spear: {fileID: 6747061161462635843}
   trail: {fileID: 3916152875794526599}
   targetStandDistance: 4
-  moveSpeed: 2.2
-  lungeDistance: 6
-  lungeWaitTime: 0.8
-  lungeTravelTime: 0.2
+  moveSpeed: 2
+  lungeDistance: 7
+  lungeWaitTime: 0.4
+  lungeTravelTime: 0.16
   lungeCooldown: 3
-  standStillAfterLungeTime: 0.5
+  standStillAfterLungeTime: 1
   walkingCooldown: 0.1
   lunging: 0
   canLunge: 1
