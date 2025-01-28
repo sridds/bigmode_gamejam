@@ -6,7 +6,18 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     public float _comboTime;
-    public int maxCombo = 20;
+
+    [SerializeField]
+    private ComboValue _comboPrefab;
+
+    [SerializeField]
+    private Sprite[] _comboSprites;
+
+    [SerializeField]
+    private Sprite _xSpr;
+
+    [SerializeField]
+    private float _spacing = 0.105f;
 
     public List<GameObject> enemies;
     private int combo;
@@ -23,15 +34,49 @@ public class EnemyManager : MonoBehaviour
 
     public void RegisterEnemyDeath(GameObject enemy)
     {
-        enemies.Remove(gameObject);
+        Vector2 spawnPos = enemy.transform.position;
+        enemies.Remove(enemy);
+
+        Destroy(enemy.gameObject);
 
         UpdateCombo();
         UpdateCount();
+
+        SpawnComboMeter(spawnPos);
     }
 
     public void UpdateCount()
     {
         text.text = enemies.Count.ToString();
+    }
+
+    private void SpawnComboMeter(Vector2 pos)
+    {
+        if (combo > 1)
+        {
+            ComboValue xSpr = Instantiate(_comboPrefab, pos, Quaternion.identity);
+            xSpr.UpdateSprite(_xSpr);
+            xSpr.DelayedHop(0.0f);
+
+            if (combo > 9)
+            {
+                ComboValue tensSpr = Instantiate(_comboPrefab, new Vector2(pos.x + _spacing, pos.y), Quaternion.identity);
+                ComboValue onesSpr = Instantiate(_comboPrefab, new Vector2(pos.x + (_spacing * 2), pos.y), Quaternion.identity);
+
+                tensSpr.UpdateSprite(_comboSprites[Mathf.FloorToInt((float)combo / 10)]);
+                onesSpr.UpdateSprite(_comboSprites[combo % 10]);
+
+                tensSpr.DelayedHop(0.1f);
+                onesSpr.DelayedHop(0.2f);
+            }
+            else
+            {
+                ComboValue onesSpr = Instantiate(_comboPrefab, new Vector2(pos.x + _spacing, pos.y), Quaternion.identity);
+                onesSpr.UpdateSprite(_comboSprites[combo % 10]);
+
+                onesSpr.DelayedHop(0.1f);
+            }
+        }
     }
 
     /// <summary>

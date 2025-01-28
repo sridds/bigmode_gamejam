@@ -22,21 +22,6 @@ public class ComboMeterUI : MonoBehaviour
 
     private void ComboUpdate(int combo)
     {
-        if(combo < 2)
-        {
-            _comboMeterText.text = "";
-            return;
-        }
-
-        if(combo > enemyManager.maxCombo)
-        {
-            _comboMeterText.text = $"MAX HORSEPOWER";
-        }
-        else
-        {
-            _comboMeterText.text = $"{combo}x COMBO";
-        }
-
         StopAllCoroutines();
         _comboMeterText.rectTransform.DOKill(true);
         _comboMeterText.rectTransform.DOShakeAnchorPos(0.3f, 10, 50, 90, false, true, ShakeRandomnessMode.Full);

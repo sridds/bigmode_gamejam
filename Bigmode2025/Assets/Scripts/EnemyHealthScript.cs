@@ -79,7 +79,7 @@ public class EnemyHealthScript : MonoBehaviour
             EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 15, 200, true));
         }
 
-        Destroy(gameObject);
+        FindObjectOfType<EnemyManager>().RegisterEnemyDeath(gameObject);
         destroyFlag = true;
     }
 

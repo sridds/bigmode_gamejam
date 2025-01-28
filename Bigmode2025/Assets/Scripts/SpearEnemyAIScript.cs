@@ -299,6 +299,5 @@ public class SpearEnemyAIScript : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
-        enemyManager.RegisterEnemyDeath(gameObject);
     }
 }
