@@ -12568,11 +12568,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 357653059}
-  _comboTime: 5
-  _comboPrefab: {fileID: 0}
-  _comboSprites: []
-  _xSpr: {fileID: 0}
-  _spacing: 0.105
+  _comboTime: 4
+  _comboPrefab: {fileID: 8161414213050382166, guid: 07135b05e5c4d4232ac7f00ede0baf97, type: 3}
+  _comboSprites:
+  - {fileID: -7409929977355405782, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -7735477696961283512, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 1216015975361498013, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -5397044835580526611, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 396234504110641715, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 9068645324731366283, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 1984251579129845491, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 3106037271731575212, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -5308551262400031520, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -2991446534086508252, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  _xSpr: {fileID: 2422122170606689712, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  _spacing: 0.9
   enemies: []
 --- !u!4 &1739889601
 Transform:
@@ -30862,10 +30872,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.125
-    y: 0
-    width: 0.75000006
-    height: 1
+    x: 0.55625004
+    y: 0.11574074
+    width: 0.25
+    height: 0.3333333
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
