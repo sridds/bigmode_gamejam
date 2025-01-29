@@ -1,10 +1,7 @@
 using DG.Tweening;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Splines;
-using UnityEngine.U2D;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -55,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem drift1Particle;
     [SerializeField] ParticleSystem drift2Particle;
     [SerializeField] ParticleSystem drift3Particle;
+    [SerializeField] LayerMask crowdLayer;
 
 
 
@@ -345,6 +343,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public delegate void HitWall(Vector2 pos);
+    public HitWall OnHitWall;
+
     //Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -359,6 +360,19 @@ public class PlayerMovement : MonoBehaviour
             collisionShake.Complete();
             float shakeAmount = Mathf.Clamp(collisionShakeMultiplier * collision.GetContact(0).normalImpulse, 0, collisionShakeMax);
             collisionShake = sprite.transform.DOShakePosition(0.65f, shakeAmount, collisionShakeVibrado);
+
+            //OnHitWall?.Invoke(transform.position);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 5.0f, Vector2.up, 0.0f, crowdLayer);
+            hits = hits.OrderBy((x) => Vector2.Distance(transform.position, x.transform.position)).ToArray();
+
+            int index = 0;
+            foreach(RaycastHit2D hit in hits)
+            {
+                hit.transform.TryGetComponent<CrowdMember>(out CrowdMember member);
+                member.DelayedShock(index * 0.025f);
+
+                index++;
+            }
         }
 
     }

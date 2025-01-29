@@ -457,6 +457,7 @@ MonoBehaviour:
   maxAdditionalBoost: 6
   additionalSpeedBoost: 2
   driftRotationSpeed: 0.15
+  autoAimMinAngle: 0
   rb: {fileID: 6026991223852364711}
   sprite: {fileID: 1698824936063049756}
   ghostTrailBoost: {fileID: 1216862205616998793}
@@ -474,6 +475,9 @@ MonoBehaviour:
   drift1Particle: {fileID: 7882855583817211276}
   drift2Particle: {fileID: 6039713687690425070}
   drift3Particle: {fileID: 500012989699074129}
+  crowdLayer:
+    serializedVersion: 2
+    m_Bits: 64
   carDirection: {x: 0, y: 0}
   animationAngle: 167.7696
   currentSpeed: 0
