@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1350004841273995737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8177543738683502461}
+  - component: {fileID: 6687505688708319172}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8177543738683502461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350004841273995737}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.726709, y: 7.9275503, z: -0.071416296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6687505688708319172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350004841273995737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98b9671c7fa497468f8d2e97e22e2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  _comboTime: 4
+  _comboPrefab: {fileID: 8161414213050382166, guid: 07135b05e5c4d4232ac7f00ede0baf97, type: 3}
+  _comboSprites:
+  - {fileID: -7409929977355405782, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -7735477696961283512, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 1216015975361498013, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -5397044835580526611, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 396234504110641715, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 9068645324731366283, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 1984251579129845491, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: 3106037271731575212, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -5308551262400031520, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  - {fileID: -2991446534086508252, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  _xSpr: {fileID: 2422122170606689712, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
+  _spacing: 0.9
+  enemies: []
+  levelTransitions: {fileID: 0}
