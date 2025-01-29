@@ -72,7 +72,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (destroyFlag) return;
 
-        if(Random.Range(0, 16) == 7)
+        if(Random.Range(5, 14) == 7)
         {
             ScreenJumper j = Instantiate(jumper, transform.position, Quaternion.identity);
         }
