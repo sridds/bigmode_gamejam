@@ -107,6 +107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3298073426574660758}
     m_Modifications:
+    - target: {fileID: 5347397145483967170, guid: a411bdbea4afb7d45b9e02242f1e9c63, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5750970513337374039, guid: a411bdbea4afb7d45b9e02242f1e9c63, type: 3}
       propertyPath: m_Name
       value: Shield
