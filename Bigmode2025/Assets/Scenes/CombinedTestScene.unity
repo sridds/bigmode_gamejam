@@ -1753,11 +1753,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab9d606c77484c039b33c325822c9c7, type: 3}
---- !u!4 &699614102 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4614005993446642705, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
-  m_PrefabInstance: {fileID: 1634724867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &831547128
 GameObject:
   m_ObjectHideFlags: 0
@@ -8916,21 +8911,9 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1352860593}
-    - target: {fileID: 3670258265975913862, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
-      propertyPath: enemyContainer
-      value: 
-      objectReference: {fileID: 699614102}
     - target: {fileID: 6249148892286566625, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: m_Name
       value: EnemyManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
-      propertyPath: maxEnemies
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
-      propertyPath: enemiesThisWave
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14847,9 +14830,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.125
     y: 0
-    width: 1
+    width: 0.75000006
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
