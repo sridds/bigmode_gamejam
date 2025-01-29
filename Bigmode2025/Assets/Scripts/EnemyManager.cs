@@ -83,7 +83,7 @@ public class EnemyManager : MonoBehaviour
                 onesSpr.DelayedHop(0.1f);
             }
 
-            FindObjectOfType<PlayerMovement>().AddSpeedBoost();
+            FindFirstObjectByType<PlayerMovement>().AddSpeedBoost();
         }
     }
 

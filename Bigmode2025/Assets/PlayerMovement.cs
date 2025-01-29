@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.U2D;
@@ -28,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float additionalSpeedBoost = 2.0f;
 
     [SerializeField] float driftRotationSpeed; //How fast the car turns 90 degrees at the start of a drift
+
+    [SerializeField] float autoAimMinAngle;
 
     public float MaxSpeed { get { return maxSpeed + additionalBoost; } }
 
@@ -75,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     Tween collisionShake;
 
+    Transform enemyContainer;
 
     public void AddSpeedBoost()
     {
@@ -88,12 +92,19 @@ public class PlayerMovement : MonoBehaviour
         additionalBoost = 0.0f;
     }
 
+    private void Awake()
+    {
+        enemyContainer = GameObject.Find("EnemyContainer").transform;
+    }
+
+
     void Update()
     {
         Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         SetInputVector(inputVector);
         currentSpeed = rb.linearVelocity.magnitude;
         MovementScreenShake();
+
     }
         
     void MovementScreenShake()
@@ -152,7 +163,6 @@ public class PlayerMovement : MonoBehaviour
                 driftBoostTimer += Time.deltaTime;
                 if (driftBoostTimer > drift3Time)
                 {
-                    Debug.Log("3");
 
                     driftBoost = drift3Speed;
                     drift3Particle.Play();
@@ -161,7 +171,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (driftBoostTimer > drift2Time)
                 {
-                    Debug.Log("2");
 
                     driftBoost = drift2Speed;
                     drift2Particle.Play();
@@ -170,7 +179,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (driftBoostTimer > drift1Time)
                 {
-                    Debug.Log("1");
                     driftBoost = drift1Speed;
                     drift1Particle.Play();
                 }
@@ -192,7 +200,49 @@ public class PlayerMovement : MonoBehaviour
             ghostTrailBoost.SetGhostTrailEnabled(true);
             Invoke(nameof(StopEmittingGhost), 1.0f);
 
+            Transform closestEnemy = null;
+            float smallestAngle = 0;
+            foreach (Transform enemy in enemyContainer)
+            {
+                //Vector2 angle = (transform.position - enemy.position).normalized;
+                //float floatAngle = Vector2ToDegrees(angle);
+                float dotProduce = Vector2.Dot(DegreesToVector2(visualRotationAngle - 90), (transform.position - enemy.transform.position).normalized);
+                if (dotProduce > 0 && dotProduce > autoAimMinAngle)
+                {
+                    float maxDistance = 0;
+                    if (driftBoost == drift3Speed)
+                    {
+                        maxDistance = 35;
+                    }
+                    else if (driftBoost == drift2Speed)
+                    {
+                        maxDistance = 22;
+
+                    }
+                    else if (driftBoost == drift1Speed)
+                    {
+                        maxDistance = 16;
+                    }
+
+                    if (dotProduce > smallestAngle && Mathf.Abs((enemy.transform.position - transform.position).magnitude) < maxDistance)
+                    {
+                        closestEnemy = enemy;
+                        smallestAngle = dotProduce;
+                    }
+                }
+
+                 
+            }
+
+            if (closestEnemy != null)
+            {
+                visualRotationAngle = Vector2ToDegrees((transform.position - closestEnemy.position).normalized) + 90;
+            }
+
             rotationAngle = visualRotationAngle;
+
+
+
             rb.AddForce(carDirection * driftBoost, ForceMode2D.Impulse);
             driftBoost = 0;
             driftBoostTimer = 0;

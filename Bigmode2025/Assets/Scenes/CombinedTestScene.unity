@@ -700,15 +700,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6167206479985840192, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: drift1Speed
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6167206479985840192, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: drift2Speed
-      value: 22
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 6167206479985840192, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: drift3Speed
-      value: 33
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6167206479985840192, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: acceleration
@@ -726,6 +726,14 @@ PrefabInstance:
       propertyPath: drift3Particle
       value: 
       objectReference: {fileID: 2019612994}
+    - target: {fileID: 6167206479985840192, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: autoAimMaxAngle
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167206479985840192, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: autoAimMinAngle
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 6167206479985840192, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: maxAdditionalBoost
       value: 12
@@ -7477,6 +7485,10 @@ PrefabInstance:
     - target: {fileID: 6249148892286566625, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: m_Name
       value: EnemyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
+      propertyPath: maxEnemies
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: enemiesThisWave
