@@ -29,6 +29,7 @@ public class EnemyManager : MonoBehaviour
     public ComboUpdated OnComboUpdated;
     public ComboEnded OnComboEnded;
 
+
     public int Combo { get { return combo; } }
     public int EnemiesRemaining { get { return enemies.Count; } }
 
@@ -43,6 +44,11 @@ public class EnemyManager : MonoBehaviour
         UpdateCount();
 
         SpawnComboMeter(spawnPos);
+
+        if (enemies.Count == 0)
+        {
+            GameObject.Find("LevelTransition").GetComponent<LevelTransitions>().StartTransition();
+        }
     }
 
     public void UpdateCount()
