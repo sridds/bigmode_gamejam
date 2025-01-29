@@ -27,11 +27,11 @@ public class TimescaleManager : MonoBehaviour
         }
         else if (isPaused)
         {
-            Time.timescale = 0;
+            Time.timeScale = 0;
         }
         else
         {
-            Time.timescale = 1;
+            Time.timeScale = 1;
         }
     }
 }

@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     public ComboUpdated OnComboUpdated;
     public ComboEnded OnComboEnded;
 
-
+    [SerializeField] Transform enemyContainer;
     public int Combo { get { return combo; } }
     public int EnemiesRemaining { get { return enemies.Count; } }
 
@@ -45,7 +45,7 @@ public class EnemyManager : MonoBehaviour
 
         SpawnComboMeter(spawnPos);
 
-        if (enemies.Count == 0)
+        if (enemyContainer.childCount-1 == 0)
         {
             GameObject.Find("LevelTransition").GetComponent<LevelTransitions>().StartTransition();
         }
@@ -53,7 +53,7 @@ public class EnemyManager : MonoBehaviour
 
     public void UpdateCount()
     {
-        text.text = enemies.Count.ToString();
+        text.text = (enemyContainer.childCount -1).ToString();
     }
 
     private void SpawnComboMeter(Vector2 pos)
