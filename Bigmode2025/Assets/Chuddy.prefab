@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 5428377602731631446}
   screamClip: {fileID: 8300000, guid: 8c5a225c44bf241ee8d082117b3cbd66, type: 3}
+  slamClip: {fileID: 8300000, guid: 60790aadb196e4f1486161928829c57d, type: 3}
 --- !u!82 &5428377602731631446
 AudioSource:
   m_ObjectHideFlags: 0
