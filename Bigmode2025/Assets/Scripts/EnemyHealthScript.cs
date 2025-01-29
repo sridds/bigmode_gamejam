@@ -5,6 +5,7 @@ public class EnemyHealthScript : MonoBehaviour
 {
     [SerializeField] private bool canDecapitate = true;
     [SerializeField] private GameObject decapitatedHead;
+    [SerializeField] private ScreenJumper jumper;
     [SerializeField] SpriteRenderer[] spriteRenderers;
     [SerializeField] float whiteFlashDuration;
     [SerializeField] Material whiteFlashMaterial, defaultMaterial;
@@ -71,13 +72,18 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (destroyFlag) return;
 
-        if (canDecapitate)
+        if(Random.Range(0, 16) == 7)
+        {
+            ScreenJumper j = Instantiate(jumper, transform.position, Quaternion.identity);
+        }
+
+        else if (canDecapitate)
         {
             GameObject g = Instantiate(decapitatedHead, transform.position, Quaternion.identity);
-
-            EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
-            EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 15, 200, true));
         }
+
+        EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
+        EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 15, 200, true));
 
         FindObjectOfType<EnemyManager>().RegisterEnemyDeath(gameObject);
         destroyFlag = true;

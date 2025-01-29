@@ -166,7 +166,6 @@ MonoBehaviour:
   _renderer: {fileID: 6566671108236356149}
   _animator: {fileID: 6764315175852710622}
   _lungeSound: {fileID: 8300000, guid: 975c69572af3d4a85b3ffc7c19c63542, type: 3}
-  _scream: {fileID: 7724151389638106252}
   knockedBack: 0
 --- !u!50 &441512639896160041
 Rigidbody2D:
@@ -255,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDecapitate: 1
   decapitatedHead: {fileID: 5454758951481553267, guid: d0c06c3ce9a7d44f083e226269580e92, type: 3}
+  jumper: {fileID: 1763812462001436402, guid: b334390d954f54b6ca91537dfc07d5b0, type: 3}
   spriteRenderers:
   - {fileID: 6566671108236356149}
   - {fileID: 3325129832029353035}
