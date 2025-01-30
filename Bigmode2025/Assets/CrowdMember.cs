@@ -14,21 +14,22 @@ public class CrowdMember : MonoBehaviour
     }
 
     private ECrowdMemberState crowdState;
+    private int randomizedIndex;
 
     [SerializeField]
-    private Sprite shockedSprite;
+    private Sprite[] shockedSprite;
 
     [SerializeField]
-    private Sprite happySprite;
+    private Sprite[] happySprite;
 
     [SerializeField]
-    private Sprite boredSprite;
+    private Sprite[] boredSprite;
 
     [SerializeField]
-    private Sprite yellSprite;
+    private Sprite[] yellSprite;
 
     [SerializeField]
-    private Sprite blinkSprite;
+    private Sprite[] blinkSprite;
 
     [SerializeField]
     private SpriteRenderer renderer;
@@ -52,6 +53,8 @@ public class CrowdMember : MonoBehaviour
 
     private void Start()
     {
+        randomizedIndex = Random.Range(0, shockedSprite.Length);
+
         sinTimer += Random.Range(0f, 100f);
 
         blinkTimer = 0.0f;
@@ -60,6 +63,8 @@ public class CrowdMember : MonoBehaviour
 
         movement = FindObjectOfType<PlayerMovement>();
         FindObjectOfType<PlayerHealthScript>().OnDamageTaken += Yell;
+
+        renderer.sprite = crowdState == ECrowdMemberState.Bored ? boredSprite[randomizedIndex] : happySprite[randomizedIndex];
     }
 
     private void Update()
@@ -75,7 +80,7 @@ public class CrowdMember : MonoBehaviour
         {
             blinkTimer = 0.0f;
             blinkRandomTime = Random.Range(4, 12);
-            renderer.sprite = blinkSprite;
+            renderer.sprite = blinkSprite[randomizedIndex];
             blinking = true;
         }
 
@@ -87,7 +92,7 @@ public class CrowdMember : MonoBehaviour
 
         if (!blinking)
         {
-            renderer.sprite = crowdState == ECrowdMemberState.Bored ? boredSprite : happySprite;
+            renderer.sprite = crowdState == ECrowdMemberState.Bored ? boredSprite[randomizedIndex] : happySprite[randomizedIndex];
         }
 
         // flip towards car
@@ -108,14 +113,14 @@ public class CrowdMember : MonoBehaviour
     {
         crowdState = ECrowdMemberState.Happy;
         blinking = false;
-        renderer.sprite = happySprite;
+        renderer.sprite = happySprite[randomizedIndex];
     }
 
     public void EnterBoredState()
     {
         crowdState = ECrowdMemberState.Bored;
         blinking = false;
-        renderer.sprite = boredSprite;
+        renderer.sprite = boredSprite[randomizedIndex];
     }
 
     public void Yell()
@@ -131,7 +136,7 @@ public class CrowdMember : MonoBehaviour
 
     private IEnumerator IYell()
     {
-        renderer.sprite = yellSprite;
+        renderer.sprite = yellSprite[randomizedIndex];
         crowdState = ECrowdMemberState.Yell;
 
         float randomTime = Random.Range(0.7f, 1.5f);
@@ -155,7 +160,7 @@ public class CrowdMember : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         crowdState = ECrowdMemberState.Shocked;
-        renderer.sprite = shockedSprite;
+        renderer.sprite = shockedSprite[randomizedIndex];
 
         transform.DOKill(true);
         transform.DOJump(transform.position, 2.0f, 1, 0.3f).SetEase(Ease.OutQuad);

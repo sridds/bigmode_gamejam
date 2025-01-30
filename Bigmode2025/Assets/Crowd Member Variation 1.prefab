@@ -133,11 +133,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3aa826b7bf02447cad183257c27e7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shockedSprite: {fileID: 1700487137985867328, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
-  happySprite: {fileID: 4712623542009101956, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
-  boredSprite: {fileID: 3413158353669934689, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
-  yellSprite: {fileID: 1029871544020018203, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
-  blinkSprite: {fileID: 2436879707915388166, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  shockedSprite:
+  - {fileID: 1700487137985867328, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -2399176923907846563, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: 3806260318895489566, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -3763132529953156790, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  happySprite:
+  - {fileID: 4712623542009101956, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: 7183440526158838131, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -3208903117956979020, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: 7233435563069303542, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  boredSprite:
+  - {fileID: 3413158353669934689, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -2450862909781035756, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -2316560218746868930, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: 2597317992072292545, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  yellSprite:
+  - {fileID: 1029871544020018203, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -8075781905794785923, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: 3376926390062762700, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -3010697564773924753, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  blinkSprite:
+  - {fileID: 2436879707915388166, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: 8388441604418272507, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: 2041265834170772312, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
+  - {fileID: -1379051261389821170, guid: 9f2444315ea9d40f8bfb0ac36945a28e, type: 3}
   renderer: {fileID: 8170412431553400308}
   sinAmplitude: 0.2
   sinSpeed: 1
