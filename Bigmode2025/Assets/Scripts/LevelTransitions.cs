@@ -14,6 +14,9 @@ public class LevelTransitions : MonoBehaviour
     [SerializeField]
     private AudioClip slamSound;
 
+    [SerializeField]
+    private SpriteRenderer zoomer;
+
     [SerializeField] GameObject cutsceneObjectsHolder;
     [SerializeField] GameObject playerIcon;
     [SerializeField] float iconMoveTime;
@@ -43,7 +46,8 @@ public class LevelTransitions : MonoBehaviour
         float elapsed = 0.0f;
         float duration = 0.6f;
 
-        while(elapsed < duration)
+        zoomer.material.DOFloat(0.2f, "_Zoom", 0.6f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
+        while (elapsed < duration)
         {
             elapsed += Time.unscaledDeltaTime;
             Time.timeScale = Mathf.Lerp(1.0f, 0.2f, elapsed / duration);
@@ -52,6 +56,7 @@ public class LevelTransitions : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(1.0f);
+        zoomer.material.DOFloat(0.0f, "_Zoom", 0.3f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
 
         float slamDuration = 0.2f;
 
@@ -73,8 +78,6 @@ public class LevelTransitions : MonoBehaviour
         completeText.transform.DOShakePosition(0.5f, 10f, 45, 90, false, true, ShakeRandomnessMode.Full).SetUpdate(UpdateType.Normal, true);
         EffectController.instance.InstantScreenShake(0.5f, 15.0f, 30.0f, true);
         AudioManager.instance.PlaySound(slamSound, 1.0f, 1.0f, 1.0f);
-
-        //FindObjectOfType<CinematicBarController>().Focus(380, 0.5f, Ease.OutQuad, 0);
 
         yield return null;
     }

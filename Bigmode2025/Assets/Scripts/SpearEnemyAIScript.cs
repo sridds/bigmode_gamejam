@@ -216,7 +216,7 @@ public class SpearEnemyAIScript : MonoBehaviour
         canLunge = false;
 
         Vector3 playerVelocity = player.GetComponent<Rigidbody2D>().linearVelocity * (lungeWaitTime + lungeTravelTime);
-        Vector3 predictedPosition = (player.transform.position + playerVelocity);
+        Vector3 predictedPosition = (player.transform.position);
         Vector3 targetPosition = ((predictedPosition - transform.position).normalized * lungeDistance) + transform.position;
 
         shakeHolder.transform.DOShakePosition(0.4f, new Vector3(0.5f, 0.0f), 25, 90, false, true, ShakeRandomnessMode.Full);

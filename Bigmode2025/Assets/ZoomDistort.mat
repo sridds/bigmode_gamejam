@@ -44,6 +44,7 @@ Material:
     - _ShockwaveStrength: -0.02
     - _Size: -3.31
     - _WaveDistanceFromCenter: -0.1
+    - _Zoom: 0.48
     - _ZoomAmount: 0.1
     m_Colors:
     - _RingSpawnPosition: {r: 0.5, g: 0.5, b: 0, a: 0}
