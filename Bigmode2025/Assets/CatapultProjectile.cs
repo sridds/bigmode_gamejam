@@ -10,6 +10,8 @@ public class CatapultProjectile : MonoBehaviour
     [SerializeField] float height;
     [SerializeField] SpriteRenderer targetSprite;
     [SerializeField] SpriteRenderer boulderSprite;
+
+    [SerializeField] ParticleSystem boulderParticlePrefab;
     bool hasLanded;
     Vector2 targetStartPos;
     [SerializeField] CircleCollider2D hitbox;
@@ -43,6 +45,7 @@ public class CatapultProjectile : MonoBehaviour
         hitbox.enabled = true;
         Destroy(projectile.gameObject);
         Destroy(target.gameObject);
+        Instantiate(boulderParticlePrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.2f);
         hitbox.enabled = false;
         Destroy(gameObject);
