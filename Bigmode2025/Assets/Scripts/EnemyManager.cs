@@ -17,7 +17,21 @@ public class EnemyManager : MonoBehaviour
     private Sprite _xSpr;
 
     [SerializeField]
+    private AudioClip _comboSound;
+
+    [SerializeField]
+    private float pitchIncrement = 0.06f;
+
+    [SerializeField]
+    private float minPitch = 0.9f;
+
+    [SerializeField]
+    private float maxPitch = 2.5f;
+
+    [SerializeField]
     private float _spacing = 0.105f;
+    [SerializeField]
+    private AudioSource _source;
 
     public List<GameObject> enemies;
     private int combo;
@@ -32,6 +46,12 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Transform enemyContainer;
     public int Combo { get { return combo; } }
     public int EnemiesRemaining { get { return enemies.Count; } }
+    private float pitch;
+
+    private void Start()
+    {
+        pitch = minPitch;
+    }
 
     public void RegisterEnemyDeath(GameObject enemy)
     {
@@ -60,6 +80,12 @@ public class EnemyManager : MonoBehaviour
     {
         if (combo > 1)
         {
+            pitch += pitchIncrement;
+            if (pitch > maxPitch) pitch = maxPitch;
+
+            _source.pitch = pitch;
+            _source.PlayOneShot(_comboSound);
+
             ComboValue xSpr = Instantiate(_comboPrefab, pos, Quaternion.identity);
             xSpr.UpdateSprite(_xSpr);
             xSpr.DelayedHop(0.0f);
@@ -121,5 +147,6 @@ public class EnemyManager : MonoBehaviour
         isComboInitiated = false;
         combo = 0;
         comboTimer = 0.0f;
+        pitch = minPitch;
     }
 }

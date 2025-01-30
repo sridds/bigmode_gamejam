@@ -1,10 +1,7 @@
 using DG.Tweening;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Splines;
-using UnityEngine.U2D;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -55,8 +52,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem drift1Particle;
     [SerializeField] ParticleSystem drift2Particle;
     [SerializeField] ParticleSystem drift3Particle;
+    [SerializeField] LayerMask crowdLayer;
 
-
+    [Header("Sound")]
+    [SerializeField] AudioSource carMotor;
+    [SerializeField] AudioClip motorLoop;
+    [SerializeField] AudioClip driftLoop;
+    [SerializeField] AudioClip gearOne;
+    [SerializeField] AudioClip gearTwo;
+    [SerializeField] AudioClip driftRelease;
+    [SerializeField] float pitchMin = 0.9f;
+    [SerializeField] float pitchMax = 1.3f;
 
     float steeringInput = 0;
     float steeringFactor = 0;
@@ -105,6 +111,24 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = rb.linearVelocity.magnitude;
         MovementScreenShake();
 
+        float scaled = currentSpeed / maxSpeed;
+        float pitch = (scaled - pitchMin) / (pitchMax - pitchMin);
+
+        if(isDrifting && carMotor.clip != driftLoop)
+        {
+            carMotor.clip = driftLoop;
+            carMotor.Play();
+        }
+        if(!isDrifting && carMotor.clip != motorLoop)
+        {
+            carMotor.clip = motorLoop;
+            carMotor.Play();
+        }
+
+        if (pitch > pitchMax) pitch = pitchMax;
+        else if (pitch < pitchMin) pitch = pitchMin;
+
+        carMotor.pitch = pitch;
     }
         
     void MovementScreenShake()
@@ -154,6 +178,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    bool reachedTier2;
+    bool reachedTier3;
+
     void Drifting()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -163,6 +190,11 @@ public class PlayerMovement : MonoBehaviour
                 driftBoostTimer += Time.deltaTime;
                 if (driftBoostTimer > drift3Time)
                 {
+                    if (!reachedTier3)
+                    {
+                        AudioManager.instance.PlaySound(gearTwo, 0.7f, 0.95f, 1.1f);
+                        reachedTier3 = true;
+                    }
 
                     driftBoost = drift3Speed;
                     drift3Particle.Play();
@@ -171,6 +203,11 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (driftBoostTimer > drift2Time)
                 {
+                    if (!reachedTier2)
+                    {
+                        AudioManager.instance.PlaySound(gearOne, 0.7f, 0.95f, 1.1f);
+                        reachedTier2 = true;
+                    }
 
                     driftBoost = drift2Speed;
                     drift2Particle.Play();
@@ -187,12 +224,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 driftQueued = true;
 
-
             }
 
         }
         else if (isDrifting) //Happens one time once drifting ends
         {
+            if (reachedTier2 || reachedTier3)
+            {
+                AudioManager.instance.PlaySound(driftRelease, 0.7f, 0.95f, 1.1f);
+            }
+            reachedTier2 = false;
+            reachedTier3 = false;
+
             //Put ending drift juice here.
             drift1Particle.Stop();
             drift2Particle.Stop();
@@ -345,6 +388,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public delegate void HitWall(Vector2 pos);
+    public HitWall OnHitWall;
+
     //Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -359,6 +405,20 @@ public class PlayerMovement : MonoBehaviour
             collisionShake.Complete();
             float shakeAmount = Mathf.Clamp(collisionShakeMultiplier * collision.GetContact(0).normalImpulse, 0, collisionShakeMax);
             collisionShake = sprite.transform.DOShakePosition(0.65f, shakeAmount, collisionShakeVibrado);
+
+            //OnHitWall?.Invoke(transform.position);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 5.0f, Vector2.up, 0.0f, crowdLayer);
+            hits = hits.OrderBy((x) => Vector2.Distance(transform.position, x.transform.position)).ToArray();
+
+            int index = 0;
+            foreach(RaycastHit2D hit in hits)
+            {
+                Debug.Log("Hi");
+                hit.transform.TryGetComponent<CrowdMember>(out CrowdMember member);
+                member.DelayedShock(index * 0.025f);
+
+                index++;
+            }
         }
 
     }

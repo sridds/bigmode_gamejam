@@ -15,6 +15,9 @@ public class PlayerHealthScript : MonoBehaviour
     [SerializeField] Material whiteFlashMaterial, defaultMaterial;
     [SerializeField] SpriteRenderer[] spriteRenderers;
 
+    public delegate void DamageTaken();
+    public DamageTaken OnDamageTaken;
+
 
     private void Update()
     {
@@ -43,6 +46,7 @@ public class PlayerHealthScript : MonoBehaviour
             {
                 timer = invincibilityTime;
             }
+            OnDamageTaken?.Invoke();
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 49a03b1f707ac4680825f65dc070889d
+guid: 9f2444315ea9d40f8bfb0ac36945a28e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638735143544747420
+  platformSettingsDirtyTick: 638737508760430640
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,9 +122,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: coll_game_sprites
+  - name: crowd
     originalName: 
-    pivot: {x: 0.2875, y: -0.425}
+    pivot: {x: 0.6938776, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 320
-      height: 160
-    spriteID: aea0dcdb3b4bf4af7b62f3b9064a69d7
+      width: 98
+      height: 159
+    spriteID: fa419e930f18646b2a7f661b6f399476
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,7 +144,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: coll_game_sprites_0
+  - name: crowd_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -152,11 +152,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 94
-      y: 138
+      x: 22
+      y: 144
       width: 20
       height: 20
-    spriteID: b718d3b278dc440a78b40204787533a0
+    spriteID: 5c310087805c84e0d8df3541d62c4741
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -165,7 +165,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_1
+  - name: crowd_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -173,11 +173,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 116
-      y: 138
+      x: 2
+      y: 144
       width: 20
       height: 20
-    spriteID: 30a8241a7461949cca7f1e056ad44c2f
+    spriteID: a25492445515440629d540f93b5400d8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -186,7 +186,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_2
+  - name: crowd_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -194,11 +194,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 94
-      y: 116
+      x: 2
+      y: 124
       width: 20
       height: 20
-    spriteID: 45605b82e01b0411d8a68739b332b302
+    spriteID: 00e1e0ffa7af14adc8b7eaf62ef25b1c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -207,7 +207,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_3
+  - name: crowd_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -215,11 +215,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 116
-      y: 116
+      x: 22
+      y: 124
       width: 20
       height: 20
-    spriteID: 9e2a242da446d4292b58ce2070e71c4e
+    spriteID: c28308040494b408c860ab0c81f0050d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -228,7 +228,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_4
+  - name: crowd_4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -236,11 +236,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 94
-      y: 94
+      x: 42
+      y: 124
       width: 20
       height: 20
-    spriteID: 049d8f8bc2afc467f85614386f4d6426
+    spriteID: 5279c5f771aa0411bbbe7a4d8be137bd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -249,7 +249,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_5
+  - name: crowd_5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -257,11 +257,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 116
-      y: 94
+      x: 42
+      y: 144
       width: 20
       height: 20
-    spriteID: 3dacbfd4ecc534145afd4808ba521112
+    spriteID: 5eb88936d54ce420db123beed08ce5d0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -270,238 +270,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 94
-      y: 72
-      width: 20
-      height: 20
-    spriteID: db45110ed3ea048b79ff14e1c6ed281e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_7
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 116
-      y: 72
-      width: 20
-      height: 20
-    spriteID: 21ab3521c7fe44fd2bb46cc0d1e239f8
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_8
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 94
-      y: 50
-      width: 20
-      height: 20
-    spriteID: ccc87995488804aeda14587e1b45b28d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_9
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 116
-      y: 50
-      width: 20
-      height: 20
-    spriteID: 045a812f0b8324ca78acdb5007c75562
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_10
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1
-      y: 4
-      width: 24
-      height: 24
-    spriteID: 88098492b051a4bb09e4cd8629a5ab0a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_11
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 4
-      width: 24
-      height: 24
-    spriteID: 69cdc8aa9d74d41eebd6d33710bf9121
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_12
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 49
-      y: 4
-      width: 24
-      height: 24
-    spriteID: e32bba0c1c63b426ca8e534bb674ca78
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_13
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 73
-      y: 4
-      width: 24
-      height: 24
-    spriteID: 02c906c214df04b81a357319a6945270
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_14
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 97
-      y: 4
-      width: 24
-      height: 24
-    spriteID: 1b08ccf27fbbb4aef91b94af2786cffc
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_15
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 121
-      y: 4
-      width: 24
-      height: 24
-    spriteID: 8c9c771dfd01f4eba8fa299b4d250fcc
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_16
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 145
-      y: 4
-      width: 24
-      height: 24
-    spriteID: 7fa93c2dda38543e6b484601cfb90e9f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_17
+  - name: crowd_6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -510,31 +279,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 62
-      y: 46
-      width: 32
-      height: 32
-    spriteID: f362ca0d1bb5f40d4a2b1bab0c103836
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_18
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 138
-      y: 50
+      y: 144
       width: 20
       height: 20
-    spriteID: 5c066c6212d41415fbf6f206ee674e4f
+    spriteID: 93f957a8cbf7c4789bc2a920831fc568
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -543,7 +291,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_19
+  - name: crowd_7
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -551,11 +299,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 46
-      y: 46
-      width: 16
-      height: 32
-    spriteID: cc49e8ea305804bd7bf4862bc0c32823
+      x: 82
+      y: 144
+      width: 20
+      height: 20
+    spriteID: 1996063a2ce5f4b2ebb83eafb74c8f54
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -564,7 +312,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_20
+  - name: crowd_8
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -572,11 +320,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 1
-      y: 36
-      width: 24
-      height: 24
-    spriteID: 09088ba8002c74769a0e2c1a89b77bc0
+      x: 82
+      y: 104
+      width: 20
+      height: 20
+    spriteID: aecd4c9d84ae44d66a20372b53e4067b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -585,7 +333,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_21
+  - name: crowd_9
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -593,11 +341,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 14
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 42143d618d9db4cb98b4e051514afcfb
+      x: 2
+      y: 104
+      width: 20
+      height: 20
+    spriteID: 0f8bf2b262917484bac80225bb86e625
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -606,7 +354,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_22
+  - name: crowd_10
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -614,11 +362,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 30
-      y: 190
-      width: 16
-      height: 32
-    spriteID: df24374ce893d412ca3b0903ffc8a7d0
+      x: 22
+      y: 104
+      width: 20
+      height: 20
+    spriteID: e083b8204c3f44a618c01112df2317a1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -627,7 +375,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_23
+  - name: crowd_11
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -635,11 +383,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 46
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 6e319e332a8844618a7fae8bcb610a9d
+      x: 42
+      y: 104
+      width: 20
+      height: 20
+    spriteID: 4b1d3c0a0c0304e2b9fe32b5c194dee8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -648,7 +396,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_24
+  - name: crowd_12
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -657,178 +405,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 62
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 18f23dc5157204cb2abf0ce3f4f67cfe
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_25
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 78
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 37244d88f593a4a8ea142f88b1fd8934
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_26
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 94
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 5bc3be38b350249b7a77b2b1bd0b7162
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_27
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 110
-      y: 190
-      width: 16
-      height: 32
-    spriteID: efedc682e4911452c9028d7e663cb164
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_28
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 126
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 646317b5b992f4bf7a423dc01bc29229
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_29
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 142
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 29b5748f7777846d995056f1cd0da10b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_30
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 158
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 4fee376ad0a294c2586e4afce6ccbc64
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_31
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 174
-      y: 190
-      width: 16
-      height: 32
-    spriteID: 095b829b9e16e4edcb1319b336029314
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_32
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 138
-      y: 72
+      y: 104
       width: 20
       height: 20
-    spriteID: 12efe7293703340ce8fc517e724cfd81
+    spriteID: 1d8dafeef6f514e319d4458bc3b3f72e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -837,7 +417,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_33
+  - name: crowd_13
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -845,11 +425,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 186
-      y: 98
+      x: 2
+      y: 84
       width: 20
       height: 20
-    spriteID: 80a8b4d4255d14da9be2b654119dc268
+    spriteID: dad2d9a5e9408451da1b5d6f5cf290fa
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -858,7 +438,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_34
+  - name: crowd_14
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -866,11 +446,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 186
-      y: 118
+      x: 22
+      y: 84
       width: 20
       height: 20
-    spriteID: 9986ac9e01ee34211841e7ed62ecca15
+    spriteID: 541375ab5e8914c14a4ee637ad0a2ff5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -879,7 +459,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_35
+  - name: crowd_15
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -887,11 +467,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 206
-      y: 118
+      x: 42
+      y: 84
       width: 20
       height: 20
-    spriteID: 01cbcbeee4f5c4708b4c6e096e7a4e07
+    spriteID: d0eb8ac67dff74df78eb34733d724720
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -900,7 +480,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_36
+  - name: crowd_16
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -908,11 +488,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 206
-      y: 138
+      x: 2
+      y: 64
       width: 20
       height: 20
-    spriteID: 3146a52f0921941a6a540a82f13f47bc
+    spriteID: 26696493a9b514cf7a67a058a3cc069b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -921,7 +501,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_37
+  - name: crowd_17
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -929,11 +509,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 226
-      y: 138
+      x: 22
+      y: 64
       width: 20
       height: 20
-    spriteID: 09668253d6b51495590145854d0616c8
+    spriteID: 71e9fdb80427e48d7beb5d93e9911d29
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -942,7 +522,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_38
+  - name: crowd_18
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -950,11 +530,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 246
-      y: 138
+      x: 42
+      y: 64
       width: 20
       height: 20
-    spriteID: d6c4a46f01704499791b61d4618cf0cb
+    spriteID: a954230763fc44c80ac252dba62c73ab
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -963,7 +543,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_39
+  - name: crowd_19
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -971,11 +551,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 206
-      y: 98
+      x: 62
+      y: 64
       width: 20
       height: 20
-    spriteID: 1a79cc4f8a8d347bc9e3dd7ce2ef1dc6
+    spriteID: a9a3f4e6867c5471a90aeaac3529cb46
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -984,7 +564,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_40
+  - name: crowd_20
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -992,11 +572,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 226
-      y: 118
+      x: 2
+      y: 44
       width: 20
       height: 20
-    spriteID: 3a8b16582af924506a2eb38a208230d6
+    spriteID: b9b12891670074aa7bc4f48101edbb8e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1005,7 +585,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_41
+  - name: crowd_21
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1013,11 +593,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 246
-      y: 118
+      x: 22
+      y: 44
       width: 20
       height: 20
-    spriteID: d483f6bf151084749baf2946c05ff5a9
+    spriteID: d1b0fc21076ed41cfbf37420d3735824
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1026,7 +606,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_42
+  - name: crowd_22
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1034,11 +614,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 186
-      y: 78
+      x: 42
+      y: 44
       width: 20
       height: 20
-    spriteID: b5628383881534d08803151438fcff60
+    spriteID: 5034df02bd4d345f38dc7e29812c3f18
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1047,7 +627,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_43
+  - name: crowd_23
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1055,11 +635,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 266
-      y: 98
+      x: 2
+      y: 24
       width: 20
       height: 20
-    spriteID: 5eac900bc35374503bfb23eac27c0e72
+    spriteID: cba9d508ae6354cccaf632801f858eaa
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1068,7 +648,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_44
+  - name: crowd_24
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1076,11 +656,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 266
-      y: 78
+      x: 22
+      y: 24
       width: 20
       height: 20
-    spriteID: 68e86830f26064f96b128aa78463abde
+    spriteID: 2bf5f16b624664575b8581a4de692f59
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1089,7 +669,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_45
+  - name: crowd_25
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1097,11 +677,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 286
-      y: 78
+      x: 42
+      y: 24
       width: 20
       height: 20
-    spriteID: 6246f0064cf114a84b9d3495b70e9cd8
+    spriteID: c6b83e7697a934451a8dda7780f7381d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1110,7 +690,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_46
+  - name: crowd_26
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1118,11 +698,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 286
-      y: 98
+      x: 62
+      y: 24
       width: 20
       height: 20
-    spriteID: 18f668b91adbf466a80104dec92bbc82
+    spriteID: 45a9d995aa9ad494fa59e8ecc92c201e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1131,7 +711,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_47
+  - name: crowd_27
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1139,11 +719,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 206
-      y: 78
+      x: 2
+      y: 4
       width: 20
       height: 20
-    spriteID: fe5e0733e8ccc41cca9c1f449fedba5d
+    spriteID: c79502d2a3faf4a1aa95bd0eca37bfb5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1152,7 +732,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_48
+  - name: crowd_28
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1160,11 +740,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 206
-      y: 58
+      x: 22
+      y: 4
       width: 20
       height: 20
-    spriteID: 85ab9d5222f9c4689bcd54b94bab95c8
+    spriteID: 61cd3380149f54ba090fca14faeaa1f5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1173,7 +753,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_49
+  - name: crowd_29
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1181,11 +761,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 186
-      y: 58
+      x: 42
+      y: 4
       width: 20
       height: 20
-    spriteID: 4f4742fb9633c4f33820c07f93c78fd9
+    spriteID: 384002d8569a54d969997c7546eefec0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1194,7 +774,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_50
+  - name: crowd_30
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1202,11 +782,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 186
-      y: 38
+      x: 62
+      y: 124
       width: 20
       height: 20
-    spriteID: 81a968abfbdaf496a8f2aec48e681b01
+    spriteID: 376a129b685aa4dd6a2b68dbe4e9b681
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1215,7 +795,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_51
+  - name: crowd_31
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1223,11 +803,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 306
-      y: 138
+      x: 62
+      y: 84
       width: 20
       height: 20
-    spriteID: b4eb0199e95bf4c91b78dd51ecb12cb9
+    spriteID: 0205902c4410c4871b9943a0a592f3a8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1236,7 +816,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_52
+  - name: crowd_32
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1244,11 +824,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 306
-      y: 118
+      x: 62
+      y: 44
       width: 20
       height: 20
-    spriteID: d84af71826ab24c3a8dd10a1f5f67308
+    spriteID: cca4dc08a520f4eaeb8b7389b8cdc374
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1257,7 +837,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_53
+  - name: crowd_33
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1265,11 +845,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 326
-      y: 118
+      x: 62
+      y: 4
       width: 20
       height: 20
-    spriteID: d3fda4287289143a882af37a06abd57b
+    spriteID: ef9ce0a6bcfa74c09bd7854a55b264d3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1278,7 +858,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_54
+  - name: crowd_34
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1286,11 +866,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 306
-      y: 98
+      x: 82
+      y: 64
       width: 20
       height: 20
-    spriteID: d76eaa78ca4d54d72af4c688d8455d50
+    spriteID: 08ba81f1695c3424eb51ac8459c13cac
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1299,7 +879,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_55
+  - name: crowd_35
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1307,11 +887,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 326
-      y: 98
+      x: 82
+      y: 24
       width: 20
       height: 20
-    spriteID: fcc15744098ab465c9ab762dcb63ebcd
+    spriteID: 9eb2abcc5b12b4914905a23b4ce4697f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1320,7 +900,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_56
+  - name: crowd_36
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1328,11 +908,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 306
-      y: 78
+      x: 102
+      y: 124
       width: 20
       height: 20
-    spriteID: a9189dc0fde4f472ba176ee3a09fc5e5
+    spriteID: a3ff9b6a454ad459fa6879bc4b049f0d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1341,7 +921,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_57
+  - name: crowd_37
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1349,11 +929,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 326
-      y: 78
+      x: 102
+      y: 144
       width: 20
       height: 20
-    spriteID: be97398f4c3274e57a65e443647c9c08
+    spriteID: 80b21c96d7d3a45a491053f144a26166
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1362,7 +942,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_58
+  - name: crowd_38
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1370,11 +950,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 306
-      y: 58
+      x: 82
+      y: 124
       width: 20
       height: 20
-    spriteID: bcecd769afded499296ed166610f871b
+    spriteID: fcb5732799b60481dab85d0bd4d5d83f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1383,7 +963,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_59
+  - name: crowd_39
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1391,11 +971,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 326
-      y: 58
+      x: 82
+      y: 84
       width: 20
       height: 20
-    spriteID: cd2ba24a062df411caa99525af9baa4e
+    spriteID: de9b48179a6fa4d3f9acf3884448ffc2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1404,7 +984,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: coll_game_sprites_60
+  - name: crowd_40
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1412,11 +992,32 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 326
-      y: 38
+      x: 82
+      y: 44
       width: 20
       height: 20
-    spriteID: 49d07b47c14204a89ad17e0bad034295
+    spriteID: 8af462eecb4444f19a678c21482a732d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: crowd_41
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 4
+      width: 20
+      height: 20
+    spriteID: 61126f3b0123c4704b70e47ab98f7300
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1427,21 +1028,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -1043544614
-    name: coll_game_sprites
+    guid: -620646967
+    name: crowd
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: coll_game_sprites
+    - name: crowd
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 118
-        y: 66
-        width: 410
-        height: 221
-      spriteId: aea0dcdb3b4bf4af7b62f3b9064a69d7
+        x: 2
+        y: 0
+        width: 118
+        height: 159
+      spriteId: fa419e930f18646b2a7f661b6f399476
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -1484,4 +1085,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 600, y: 300}
+  canvasSize: {x: 140, y: 160}
