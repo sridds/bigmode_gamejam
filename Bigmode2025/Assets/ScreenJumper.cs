@@ -31,9 +31,9 @@ public class ScreenJumper : MonoBehaviour
         transform.DORotate(new Vector3(0, 0, endZValue + 360), 0.6f, RotateMode.WorldAxisAdd);
 
         bool leftCentric = Random.Range(0, 2) == 1;
-        float xVal = leftCentric ? Random.Range(-16, -12) : Random.Range(12, 16);
+        float xVal = leftCentric ? Random.Range(-14, -9) : Random.Range(9, 14);
 
-        transform.DOJump((transform.position - transform.position) + new Vector3(xVal, Random.Range(-2, -7)), 2.0f, 1, 0.6f).SetEase(Ease.InQuad);
+        transform.DOLocalJump(new Vector3(xVal, Random.Range(-4, 2), 10), 2.0f, 1, 0.6f).SetEase(Ease.InQuad);
         yield return transform.DOScale(3.0f, 0.6f).WaitForCompletion();
 
         // smack screen
