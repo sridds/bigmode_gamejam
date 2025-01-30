@@ -25,7 +25,7 @@ public class CatapultProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasLanded)
+        if (!hasLanded)
         {
             projectile.transform.localPosition -= new Vector3(0, speed * Time.deltaTime, 0);
             float distanceFromTarget = projectile.transform.localPosition.y - target.transform.localPosition.y;

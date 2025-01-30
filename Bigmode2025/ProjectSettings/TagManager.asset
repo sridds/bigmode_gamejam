@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - Blood
   layers:
   - Default
   - TransparentFX
@@ -49,11 +50,14 @@ TagManager:
   - name: Units
     uniqueID: 1246840953
     locked: 0
-  - name: UI
-    uniqueID: 2358010627
-    locked: 0
   - name: CameraSortingLayer
     uniqueID: 2992155161
+    locked: 0
+  - name: Test
+    uniqueID: 636997671
+    locked: 0
+  - name: UI
+    uniqueID: 2358010627
     locked: 0
   m_RenderingLayers:
   - Default
