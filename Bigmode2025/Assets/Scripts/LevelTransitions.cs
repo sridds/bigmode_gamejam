@@ -1,7 +1,8 @@
 using System.Collections;
-using Unity.VisualScripting;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class LevelTransitions : MonoBehaviour
 {
@@ -23,7 +24,30 @@ public class LevelTransitions : MonoBehaviour
 
     public void StartTransition()
     {
-        StartCoroutine(StartWipe(false));
+        //StartCoroutine(StartWipe(false));
+        StartCoroutine(LevelEnd());
+    }
+
+    IEnumerator LevelEnd()
+    {
+        FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 5);
+
+        float elapsed = 0.0f;
+        float duration = 0.6f;
+
+        while(elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            Time.timeScale = Mathf.Lerp(1.0f, 0.2f, elapsed / duration);
+
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(1.0f);
+
+        FindObjectOfType<CinematicBarController>().Focus(380, 0.5f, Ease.OutQuad, 0);
+
+        yield return null;
     }
 
     IEnumerator StartWipe(bool transition)
