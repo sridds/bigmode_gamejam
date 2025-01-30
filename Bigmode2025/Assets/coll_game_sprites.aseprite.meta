@@ -1446,6 +1446,90 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_62
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5
+      y: 79
+      width: 20
+      height: 20
+    spriteID: 5feb020c7de3f44fabf54a967c7cb593
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_63
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5
+      y: 101
+      width: 20
+      height: 20
+    spriteID: 07eaebefd76914feb9ea3131673fcdd1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_64
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5
+      y: 124
+      width: 20
+      height: 20
+    spriteID: 1eb755341ee28493585232434ce75418
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_65
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 94
+      y: 158
+      width: 64
+      height: 32
+    spriteID: a9cb7931a9e5f408c850eba50e3ae32c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
     guid: -1043544614

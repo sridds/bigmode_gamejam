@@ -41,6 +41,9 @@ public class CatapultProjectile : MonoBehaviour
 
     IEnumerator Explode()
     {
+        //EffectController.instance.InstantScreenShake(0.8f, 30, 40, true);
+        EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 20, 200, true));
+
         hasLanded = true;
         hitbox.enabled = true;
         Destroy(projectile.gameObject);

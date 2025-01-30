@@ -16940,11 +16940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: maxEnemies
-      value: 1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: enemiesThisWave
-      value: 1
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24454,10 +24454,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.28156224
-    y: 0.14257427
-    width: 0.43596733
-    height: 0.7128713
+    x: 0.125
+    y: 0
+    width: 0.75000006
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
