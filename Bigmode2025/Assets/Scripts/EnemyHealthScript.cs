@@ -89,7 +89,7 @@ public class EnemyHealthScript : MonoBehaviour
             GameObject g = Instantiate(decapitatedHead, transform.position, Quaternion.identity);
         }
 
-        EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.04f));
+        EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
         EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 15, 200, true));
 
         FindObjectOfType<EnemyManager>().RegisterEnemyDeath(gameObject);

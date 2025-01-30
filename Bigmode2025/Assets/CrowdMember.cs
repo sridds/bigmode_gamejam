@@ -48,6 +48,8 @@ public class CrowdMember : MonoBehaviour
     private float sinTimer;
     private float blinkTimer;
     private float blinkRandomTime;
+    private float randomEmotionTime;
+    private float randomEmotionTimer;
 
     private bool blinking;
 
@@ -63,6 +65,7 @@ public class CrowdMember : MonoBehaviour
 
         movement = FindObjectOfType<PlayerMovement>();
         FindObjectOfType<PlayerHealthScript>().OnDamageTaken += Yell;
+        randomEmotionTime = Random.Range(1.0f, 5.0f);
 
         renderer.sprite = crowdState == ECrowdMemberState.Bored ? boredSprite[randomizedIndex] : happySprite[randomizedIndex];
     }
@@ -71,9 +74,34 @@ public class CrowdMember : MonoBehaviour
     {
         renderer.transform.localPosition = new Vector3(renderer.transform.localPosition.x, Mathf.Sin((Time.time + sinTimer) * sinSpeed) * sinAmplitude);
 
-        if (crowdState != ECrowdMemberState.Bored || crowdState != ECrowdMemberState.Happy) return;
+        if (crowdState != ECrowdMemberState.Bored && crowdState != ECrowdMemberState.Happy) return;
 
         blinkTimer += Time.deltaTime;
+        randomEmotionTimer += Time.deltaTime;
+
+        if(randomEmotionTimer > randomEmotionTime)
+        {
+            int rand = Random.Range(0, 3);
+
+            if(rand == 1)
+            {
+                InstantYell();
+                //
+            }
+            else if(rand == 2)
+            {
+                EnterBoredState();
+            }
+            else if(rand == 0)
+            {
+                EnterHappyState();
+            }
+
+            randomEmotionTimer = 0.0f;
+            randomEmotionTime = Random.Range(3.0f, 10.0f);
+
+            return;
+        }
 
         // occassionaly blink every couple seconds
         if (blinkTimer > blinkRandomTime)
@@ -121,6 +149,11 @@ public class CrowdMember : MonoBehaviour
         crowdState = ECrowdMemberState.Bored;
         blinking = false;
         renderer.sprite = boredSprite[randomizedIndex];
+    }
+
+    public void InstantYell()
+    {
+        StartCoroutine(IYell());
     }
 
     public void Yell()
