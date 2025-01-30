@@ -2,10 +2,18 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 
 public class LevelTransitions : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject levelText;
+
+    [SerializeField]
+    private GameObject completeText;
+
+    [SerializeField]
+    private AudioClip slamSound;
+
     [SerializeField] GameObject cutsceneObjectsHolder;
     [SerializeField] GameObject playerIcon;
     [SerializeField] float iconMoveTime;
@@ -45,7 +53,28 @@ public class LevelTransitions : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1.0f);
 
-        FindObjectOfType<CinematicBarController>().Focus(380, 0.5f, Ease.OutQuad, 0);
+        float slamDuration = 0.2f;
+
+        Vector3 previousScale = levelText.transform.localScale;
+        levelText.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
+        levelText.SetActive(true);
+        levelText.transform.DOScale(previousScale, slamDuration).SetEase(Ease.Linear).SetUpdate(UpdateType.Normal, true);
+        yield return new WaitForSecondsRealtime(slamDuration);
+        levelText.transform.DOShakePosition(0.5f, 10f, 45, 90, false, true, ShakeRandomnessMode.Full).SetUpdate(UpdateType.Normal, true);
+        AudioManager.instance.PlaySound(slamSound, 1.0f, 1.0f, 1.0f);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        previousScale = completeText.transform.localScale;
+        completeText.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
+        completeText.SetActive(true);
+        completeText.transform.DOScale(previousScale, slamDuration).SetEase(Ease.Linear).SetUpdate(UpdateType.Normal, true);
+        yield return new WaitForSecondsRealtime(slamDuration);
+        completeText.transform.DOShakePosition(0.5f, 10f, 45, 90, false, true, ShakeRandomnessMode.Full).SetUpdate(UpdateType.Normal, true);
+        EffectController.instance.InstantScreenShake(0.5f, 15.0f, 30.0f, true);
+        AudioManager.instance.PlaySound(slamSound, 1.0f, 1.0f, 1.0f);
+
+        //FindObjectOfType<CinematicBarController>().Focus(380, 0.5f, Ease.OutQuad, 0);
 
         yield return null;
     }

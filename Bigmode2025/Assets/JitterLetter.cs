@@ -17,17 +17,16 @@ public class Jitter : MonoBehaviour
 
     private void Start()
     {
-        startingPosition = transform.position;
-        //Destroy(gameObject, lifeTime);
+        startingPosition = transform.localPosition;
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.unscaledDeltaTime;
 
         if (timer > shakeInterval)
         {
-            transform.localPosition = new Vector2(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount));
+            transform.localPosition = startingPosition + new Vector2(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount));
             timer = 0.0f;
         }
     }

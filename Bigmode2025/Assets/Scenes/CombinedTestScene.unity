@@ -650,7 +650,7 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 1
     PhysicalProperties:
       GateFit: 2
       SensorSize: {x: 21.946, y: 16.002}
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!4 &272519837 stripped
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1 &396973125
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1001 &448056645
@@ -1564,6 +1564,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2228676573785771002, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 12476696}
+    - target: {fileID: 2228676573785771002, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
+      propertyPath: slamSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e2f50207d35b2434f8328ae709f084c8, type: 3}
+    - target: {fileID: 2228676573785771002, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
+      propertyPath: completeText
+      value: 
+      objectReference: {fileID: 2041468222}
     - target: {fileID: 5331623540135842229, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: m_Name
       value: LevelTransition
@@ -1778,7 +1790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!4 &525876544 stripped
@@ -1836,7 +1848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!114 &547809796
@@ -2259,7 +2271,7 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 1
     PhysicalProperties:
       GateFit: 2
       SensorSize: {x: 21.946, y: 16.002}
@@ -2418,7 +2430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1 &794865311
@@ -2509,7 +2521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1 &831547128
@@ -2784,7 +2796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1001 &905880126
@@ -3671,7 +3683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1 &1114577008
@@ -3762,7 +3774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1001 &1128760922
@@ -10227,11 +10239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: maxEnemies
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: enemiesThisWave
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16143,7 +16155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1 &1966444626
@@ -16234,7 +16246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1 &1975627120
@@ -34088,7 +34100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae19de63ec1c945dfb61a15106277659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: 0.1
+  shakeAmount: 0.9
   shakeInterval: 0.05
   lifeTime: 2
 --- !u!1001 &2122490208
