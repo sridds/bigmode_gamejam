@@ -4,9 +4,6 @@ public class TimescaleManager : MonoBehaviour
 {
     public static TimescaleManager instance { get; private set; }
 
-    public bool isDead = false;
-    public bool isPaused = false;
-
    private void Awake()
     {
         if (instance != null && instance != this)
@@ -19,19 +16,13 @@ public class TimescaleManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Freeze()
     {
-        if (isDead)
-        {
-            Time.timeScale = 0;
-        }
-        else if (isPaused)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
+        Time.timeScale = 0;
+    }
+
+    public void Unfreeze()
+    {
+        Time.timeScale = 1;
     }
 }

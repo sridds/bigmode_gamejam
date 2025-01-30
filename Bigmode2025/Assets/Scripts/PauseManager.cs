@@ -15,16 +15,15 @@ public class PauseManager : MonoBehaviour
             if (isPaused)
             {
                 pauseMenuObject.SetActive(true);
-                Time.timeScale = 0;
+                GameStateManager.instance.UpdateState(GameStateManager.PlayerState.paused);
             }
             else
             {
                 pauseMenuObject.SetActive(false);
-                Time.timeScale = 1;
+                GameStateManager.instance.UpdateState(GameStateManager.PlayerState.playing);
             }
         }
     }
-
     public void Unpause()
     {
         if (isPaused)
@@ -34,5 +33,4 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-
 }

@@ -395,6 +395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b40d0858a764d4085a7744b730e995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelText: {fileID: 0}
+  completeText: {fileID: 0}
+  slamSound: {fileID: 0}
+  zoomer: {fileID: 0}
   cutsceneObjectsHolder: {fileID: 1215299506530924796}
   playerIcon: {fileID: 4829824969191512919}
   iconMoveTime: 1
