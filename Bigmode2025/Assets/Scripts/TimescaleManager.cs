@@ -6,13 +6,13 @@ public class TimescaleManager : MonoBehaviour
 
    private void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance == null)
         {
-            Destroy(this);
+            instance = this;
         }
         else
         {
-            instance = this;
+            Destroy(gameObject);
         }
     }
 

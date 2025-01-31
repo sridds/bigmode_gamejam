@@ -63,11 +63,6 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    public void RevertState()
-    {
-        currentState = lastState;
-    }
-
     private void Update()
     {
         // update timer

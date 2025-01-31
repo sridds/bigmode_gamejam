@@ -17,10 +17,10 @@ public class PauseManager : MonoBehaviour
                 pauseMenuObject.SetActive(true);
                 GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Paused);
             }
-            else
+            else if (GameStateManager.instance.currentState != GameStateManager.PlayerState.Dead)
             {
                 pauseMenuObject.SetActive(false);
-                GameStateManager.instance.RevertState();
+                GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Playing);
             }
         }
     }

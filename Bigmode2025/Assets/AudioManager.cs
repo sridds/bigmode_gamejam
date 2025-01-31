@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
 
     private void GameStateUpdate(GameStateManager.PlayerState lastState, GameStateManager.PlayerState newState)
     {
+        /*
         if(newState == GameStateManager.PlayerState.Playing)
         {
             _stageThemeLoop.mute = false;
@@ -38,6 +39,7 @@ public class AudioManager : MonoBehaviour
             _stageThemeLoop.mute = true;
             _stageThemeIsolated.mute = false;
         }
+        */
     }
 
     private void Update()
