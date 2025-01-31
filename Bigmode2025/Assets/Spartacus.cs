@@ -41,7 +41,7 @@ public class Spartacus : MonoBehaviour
 
         music.gameObject.SetActive(true);
 
-        FindObjectOfType<CameraTargetController>().SetFocus(transform, 1.0f, 0.0f);
+        FindObjectOfType<CameraTargetController>().SetFocus(transform, null, 1.0f, 0.0f);
         FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 0);
 
         transform.DOMoveY(transform.position.y - 18, 4.0f, false).SetEase(Ease.Linear);
@@ -104,7 +104,7 @@ public class Spartacus : MonoBehaviour
         spartacusName.gameObject.SetActive(false);
         bloodToEnable.SetActive(true);
         headSprite.SetActive(false);
-        //FindObjectOfType<CameraTargetController>().SetFocus(transform, 1.0f, 0.0f);
+        FindObjectOfType<CameraTargetController>().SetFocus(transform, FindObjectOfType<PlayerMovement>(true).transform, 0.6f, 0.4f);
         EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
         EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(1.0f, 25, 200, true));
         Instantiate(headPrefab, headSprite.transform.position, Quaternion.identity);

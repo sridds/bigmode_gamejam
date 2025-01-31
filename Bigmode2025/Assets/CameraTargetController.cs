@@ -24,12 +24,13 @@ public class CameraTargetController : MonoBehaviour
         defaultWeight1 = mixer.Weight1;
     }
 
-    public void SetFocus(Transform obj, float weight0, float weight1)
+    public void SetFocus(Transform targetA, Transform targetB, float weight0, float weight1)
     {
         mixer.Weight0 = weight0;
         mixer.Weight1 = weight1;
 
-        camera1.Target = new CameraTarget() { TrackingTarget = obj };
+        camera1.Target = new CameraTarget() { TrackingTarget = targetA };
+        camera2.Target = new CameraTarget() { TrackingTarget = targetB };
     }
 
     public void SetToDefault()
@@ -38,5 +39,6 @@ public class CameraTargetController : MonoBehaviour
         mixer.Weight1 = defaultWeight1;
 
         camera1.Target = new CameraTarget() { TrackingTarget = FindObjectOfType<PlayerMovement>().transform };
+        camera2.Target = new CameraTarget() { TrackingTarget = null };
     }
 }
