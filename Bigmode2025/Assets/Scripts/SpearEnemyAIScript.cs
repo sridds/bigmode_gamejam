@@ -78,9 +78,13 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         source = GetComponent<AudioSource>();
 
-        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
-        enemyManager.enemies.Add(gameObject);
-        enemyManager.UpdateCount();
+        if (GameObject.Find("EnemyManager") != null)
+        {
+            enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+            enemyManager.enemies.Add(gameObject);
+            enemyManager.UpdateCount();
+        }
+
     }
 
     public bool CanApplyKnockback()
