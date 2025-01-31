@@ -54,7 +54,7 @@ public class CatapultProjectile : MonoBehaviour
         Destroy(projectile.gameObject);
         Destroy(target.gameObject);
         Instantiate(boulderParticlePrefab, transform.position, Quaternion.identity);
-        yield return null;
+        yield return new WaitForSeconds(0.05f);
         hitbox.enabled = false;
         Destroy(gameObject);
     }

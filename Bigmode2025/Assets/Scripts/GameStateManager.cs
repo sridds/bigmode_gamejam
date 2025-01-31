@@ -25,6 +25,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (instance != null && instance != this)
         {
             Destroy(this);
@@ -39,14 +40,22 @@ public class GameStateManager : MonoBehaviour
     {
         scoreUIContainer.DOComplete();
         scoreUIContainer.DOShakePosition(0.3f, 15, 140);
-        if (EnemyManager.instance.Combo > 1)
+        if (EnemyManager.instance != null)
         {
-            Score += ScoreToAdd + EnemyManager.instance.Combo * 10;
+            if (EnemyManager.instance.Combo > 1)
+            {
+                Score += ScoreToAdd + EnemyManager.instance.Combo * 10;
+            }
+            else
+            {
+                Score += ScoreToAdd;
+            }
         }
         else
         {
             Score += ScoreToAdd;
         }
+
         scoreUI.text = Score.ToString();
     }
 

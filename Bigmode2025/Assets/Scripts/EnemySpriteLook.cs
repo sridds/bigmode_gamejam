@@ -4,6 +4,7 @@ public class EnemySpriteLook : MonoBehaviour
 {
     GameObject player;
     [SerializeField] SpearEnemyAIScript spearEnemyScript;
+    [SerializeField] ArcherEnemyAI archerEnemyAI;
 
     [SerializeField] float rotationSpeed = 1.0f;
 
@@ -20,7 +21,7 @@ public class EnemySpriteLook : MonoBehaviour
 
     public void LookAtPlayer()
     {
-        if (!spearEnemyScript.lunging)
+        if (spearEnemyScript != null && !spearEnemyScript.lunging || archerEnemyAI != null && !archerEnemyAI.lunging)
         {
             float angle = Mathf.Atan2(player.transform.position.y - transform.position.y, player.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));

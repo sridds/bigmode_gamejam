@@ -2,26 +2,32 @@ using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 
-public class SpearEnemyAIScript : MonoBehaviour
+public class ArcherEnemyAI : MonoBehaviour
 {
     GameObject player;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] GameObject spriteObject;
-    [SerializeField] GameObject damageHitbox;
+    //[SerializeField] GameObject damageHitbox;
     [SerializeField] GameObject shakeHolder;
-    [SerializeField] GameObject spear;
+    //[SerializeField] GameObject arrow;
     [SerializeField] GhostTrail trail;
 
     Rigidbody2D rb;
 
     [Header("Attacking and Movement")]
     [SerializeField] float targetStandDistance = 5;
+    [SerializeField] float targetAvoidDistance = 10;
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float lungeDistance = 8;
-    [SerializeField] float lungeWaitTime = 0.5f;
-    [SerializeField] float lungeTravelTime = 0.3f;
-    [SerializeField] float lungeCooldown = 1f;
-    [SerializeField] float standStillAfterLungeTime = 0.2f;
+    [SerializeField] float fireDistance = 8;
+    [SerializeField] float fireWaitTime = 0.5f;
+    [SerializeField] float arrowTravelTime = 0.3f;
+    [SerializeField] float fireCooldown = 1f;
+    //[SerializeField] float standStillAfterFireTime = 0.2f;
+    [SerializeField] Transform arrowInstantiatePosition;
+    [SerializeField] GameObject arrowPrefab;
+    GameObject currentArrow;
+
+    public Coroutine shooting;
 
     //If the player is right at the edge of the target distance, this prevents weird stuttering movement
     [SerializeField] float walkingCooldown = 0.1f;
@@ -78,13 +84,9 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         source = GetComponent<AudioSource>();
 
-        if (GameObject.Find("EnemyManager") != null)
-        {
-            enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
-            enemyManager.enemies.Add(gameObject);
-            enemyManager.UpdateCount();
-        }
-
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        enemyManager.enemies.Add(gameObject);
+        enemyManager.UpdateCount();
     }
 
     public bool CanApplyKnockback()
@@ -139,7 +141,7 @@ public class SpearEnemyAIScript : MonoBehaviour
                 {
                     _renderer.flipX = true;
 
-                    spear.transform.DOLocalMoveX(1.2f, 0.5f).SetEase(Ease.OutQuad);
+                    //arrow.transform.DOLocalMoveX(1.2f, 0.5f).SetEase(Ease.OutQuad);
                 }
             }
             else
@@ -148,7 +150,7 @@ public class SpearEnemyAIScript : MonoBehaviour
                 {
                     _renderer.flipX = false;
 
-                    spear.transform.DOLocalMoveX(-1.2f, 0.5f).SetEase(Ease.OutQuad);
+                    //arrow.transform.DOLocalMoveX(-1.2f, 0.5f).SetEase(Ease.OutQuad);
                 }
             }
         }
@@ -191,6 +193,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) > targetStandDistance)
         {
+            canLunge = false;
             if (timer <= 0)
             {
                 float moveHorizontal = player.transform.position.x - transform.position.x;
@@ -199,107 +202,119 @@ public class SpearEnemyAIScript : MonoBehaviour
                 rb.linearVelocity = new Vector3(moveHorizontal, moveVertical, 0).normalized * moveSpeed;
             }
         }
+        else if (Vector3.Distance(player.transform.position, transform.position) < targetAvoidDistance)
+        {
+            canLunge = false;
+            if (timer <= 0)
+            {
+                float moveHorizontal = player.transform.position.x - transform.position.x;
+                float moveVertical = player.transform.position.y - transform.position.y;
+
+                rb.linearVelocity = new Vector3(-moveHorizontal, -moveVertical, 0).normalized * moveSpeed;
+            }
+        }
         else
         {
+            canLunge = true;
             rb.linearVelocity = Vector3.zero;
             timer = walkingCooldown;
 
         }
     }
 
-    public IEnumerator LungeAttack()
+    public IEnumerator ShootAttack()
     {
-        chargingLunge = true;
-        rb.linearVelocity = Vector3.zero;
-
-        canBeTerrified = false;
-        CancelTerrifiedState();
-        _renderer.sprite = _preChargeFace;
-        //gearing up for lunge sprite change
-        spriteRenderer.color = Color.yellow;
-        canLunge = false;
-
-        
-        Vector3 playerVelocity = player.GetComponent<Rigidbody2D>().linearVelocity * (lungeWaitTime + lungeTravelTime);
-        Vector3 predictedPosition = (player.transform.position);
-        Vector3 targetPosition = ((predictedPosition - transform.position).normalized * lungeDistance) + transform.position;
-
-        shakeHolder.transform.DOShakePosition(0.4f, new Vector3(0.5f, 0.0f), 25, 90, false, true, ShakeRandomnessMode.Full);
-
-        
-        // calculate spear rotation
-        var dir = (targetPosition - transform.position).normalized;
-        Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
-        spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), lungeWaitTime, RotateMode.FastBeyond360);
-        
-
-        yield return new WaitForSeconds(lungeWaitTime / 2);
-        targetPosition = ((player.transform.position - transform.position).normalized * lungeDistance) + transform.position;
-        yield return new WaitForSeconds(lungeWaitTime / 2);
-
-        dir = (targetPosition - transform.position).normalized;
-        lookRot = Quaternion.LookRotation(Vector3.forward, dir);
-        spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z), lungeWaitTime, RotateMode.FastBeyond360);
-
-
-        source.pitch = Random.Range(0.95f, 1.1f);
-
-        source.PlayOneShot(_lungeSound);
-
-        lunging = true;
-        chargingLunge = false;
-
-        _renderer.sprite = _chargeFace;
-        damageHitbox.SetActive(true);
-
-        //while lunging sprite change
-        spriteRenderer.color = Color.red;
-
-        healthScript.InvincibilityFrames(lungeTravelTime);
-
-        //Lunge lerp
-        float elapsed = 0.0f;
-
-        Vector3 startPos = transform.position;
-
-        trail.SetGhostTrailEnabled(true);
-
-        while (elapsed < lungeTravelTime)
+        if (shooting == null)
         {
-            transform.position = Vector3.Lerp(startPos, targetPosition, elapsed / lungeTravelTime);
+            chargingLunge = true;
+            canLunge = false;
 
-            elapsed += Time.deltaTime;
-            yield return null;
+            rb.linearVelocity = Vector3.zero;
+
+            canBeTerrified = false;
+            CancelTerrifiedState();
+            _renderer.sprite = _preChargeFace;
+
+            currentArrow = Instantiate(arrowPrefab, arrowInstantiatePosition.position, arrowInstantiatePosition.rotation);
+            currentArrow.GetComponent<ArcherDamageHitbox>().healthScript = GetComponent<EnemyHealthScript>();
+            currentArrow.GetComponent<ArcherDamageHitbox>().archerEnemyAIScript = GetComponent<ArcherEnemyAI>();
+
+            //Point arrow towards player on spawn with 360 degree spin
+            Vector3 predictedPosition = (player.transform.position);
+            Vector3 targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;
+
+            var dir = (targetPosition - transform.position).normalized;
+            Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
+            currentArrow.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), fireWaitTime * 0.7f, RotateMode.FastBeyond360);
+
+            //Wait until 75% of the charge time has passed
+            yield return new WaitForSeconds(fireWaitTime * 0.9f);
+
+            //Actually point the aim direction that will be fired
+            predictedPosition = (player.transform.position);
+            targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;
+
+            dir = (targetPosition - transform.position).normalized;
+            lookRot = Quaternion.LookRotation(Vector3.forward, dir);
+            currentArrow.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z), fireWaitTime * 0.1f, RotateMode.Fast);
+
+            //finish charging the attack
+            yield return new WaitForSeconds(fireWaitTime * 0.1f);
+
+            //Actually attack
+
+            chargingLunge = false;
+            lunging = true;
+            canBeTerrified = true;
+
+            _renderer.sprite = _chargeFace;
+            //damageHitbox.SetActive(true);
+
+            //healthScript.InvincibilityFrames(arrowTravelTime);
+
+            //Lunge lerp
+            float elapsed = 0.0f;
+
+            Vector3 startPos = currentArrow.transform.position;
+            if (currentArrow != null)
+            {
+                while (elapsed < arrowTravelTime)
+                {
+                    currentArrow.transform.position = Vector3.Lerp(startPos, targetPosition, elapsed / arrowTravelTime);
+
+                    elapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
+
         }
 
-        //waiting before enemy can lunge again
         StartCoroutine(LungeEnding());
-
         yield return null;
     }
 
     IEnumerator LungeEnding()
     {
+        if (shooting != null)
+        {
+            //damageHitbox.SetActive(false);
+            Destroy(currentArrow);
 
-        //Stagger after lunge
-        spriteRenderer.color = Color.green;
+            shooting = null;
 
-        damageHitbox.SetActive(false);
+            lunging = false;
 
-        trail.SetGhostTrailEnabled(false);
-        yield return new WaitForSeconds(standStillAfterLungeTime);
+            //yield return new WaitForSeconds(standStillAfterFireTime);
 
-        spear.transform.DOLocalRotateQuaternion(Quaternion.identity, 0.5f);
-        lunging = false;
-        canBeTerrified = true;
+            canBeTerrified = true;
 
-        //waiting before enemy can lunge again
-        yield return new WaitForSeconds(lungeCooldown);
+            //waiting before enemy can lunge again
+            yield return new WaitForSeconds(fireCooldown);
 
-        canLunge = true;
+            canLunge = true;
+        }
 
         //back to normal
-        spriteRenderer.color = Color.white;
         yield return null;
     }
 

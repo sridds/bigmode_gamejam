@@ -15,7 +15,7 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] int scoreToAdd;
     public float health = 1;
     float timer = 0;
-
+    [SerializeField] bool isShopkeeper;
     bool destroyFlag = false;
 
     private void Update()
@@ -79,10 +79,14 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (destroyFlag) return;
 
-        if(Random.Range(5, 14) == 7 || FindObjectOfType<EnemyManager>().EnemiesRemaining == 1)
+        if (!isShopkeeper)
         {
-            ScreenJumper j = Instantiate(jumper, transform.position, Quaternion.identity);
+            if (Random.Range(5, 14) == 7 || FindObjectOfType<EnemyManager>().EnemiesRemaining == 1)
+            {
+                ScreenJumper j = Instantiate(jumper, transform.position, Quaternion.identity);
+            }
         }
+
 
         else if (canDecapitate)
         {
@@ -92,7 +96,16 @@ public class EnemyHealthScript : MonoBehaviour
         EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
         EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 15, 200, true));
         GameStateManager.instance.AddScore(scoreToAdd);
-        FindObjectOfType<EnemyManager>().RegisterEnemyDeath(gameObject);
+
+        if (!isShopkeeper)
+        {
+            FindFirstObjectByType<EnemyManager>().RegisterEnemyDeath(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         destroyFlag = true;
     }
 
