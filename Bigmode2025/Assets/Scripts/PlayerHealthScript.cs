@@ -26,6 +26,9 @@ public class PlayerHealthScript : MonoBehaviour
     [SerializeField] int comboBeforeHeal;
     [SerializeField] int comboHealAmount;
     [SerializeField] ParticleSystem healParticle;
+
+    [SerializeField] ParticleSystem explosionPrefab;
+
     bool hasHealed = false;
     private void OnEnable()
     {
@@ -106,6 +109,7 @@ public class PlayerHealthScript : MonoBehaviour
 
     void Die()
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity, gameObject.transform);
         GameStateManager.instance.UpdateState(GameStateManager.PlayerState.dead);
     }
 }

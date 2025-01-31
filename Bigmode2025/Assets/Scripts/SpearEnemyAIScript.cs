@@ -215,6 +215,7 @@ public class SpearEnemyAIScript : MonoBehaviour
         spriteRenderer.color = Color.yellow;
         canLunge = false;
 
+        
         Vector3 playerVelocity = player.GetComponent<Rigidbody2D>().linearVelocity * (lungeWaitTime + lungeTravelTime);
         Vector3 predictedPosition = (player.transform.position);
         Vector3 targetPosition = ((predictedPosition - transform.position).normalized * lungeDistance) + transform.position;
@@ -226,9 +227,16 @@ public class SpearEnemyAIScript : MonoBehaviour
         Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
         spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), lungeWaitTime, RotateMode.FastBeyond360);
 
-        yield return new WaitForSeconds(lungeWaitTime);
+        yield return new WaitForSeconds(lungeWaitTime / 2);
+        targetPosition = ((player.transform.position - transform.position).normalized * lungeDistance) + transform.position;
+        yield return new WaitForSeconds(lungeWaitTime / 2);
 
+        // calculate spear rotation
+        dir = (targetPosition - transform.position).normalized;
+        lookRot = Quaternion.LookRotation(Vector3.forward, dir);
+        spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), lungeWaitTime, RotateMode.FastBeyond360);
         source.pitch = Random.Range(0.95f, 1.1f);
+
         source.PlayOneShot(_lungeSound);
 
         lunging = true;

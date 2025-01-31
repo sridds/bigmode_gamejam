@@ -2948,6 +2948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2186051920022347723, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 8925482381524897392, guid: 04b325519b4c9084ba675ece5e7ae9fc, type: 3}
     - target: {fileID: 3120898448982016379, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: 'carSprites.Array.data[0]'
       value: 
@@ -3222,7 +3226,7 @@ PrefabInstance:
       objectReference: {fileID: 1975627126}
     - target: {fileID: 874053485856047816, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2228676573785771002, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: zoomer
@@ -14687,7 +14691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1323322723
 MonoBehaviour:
   m_ObjectHideFlags: 0

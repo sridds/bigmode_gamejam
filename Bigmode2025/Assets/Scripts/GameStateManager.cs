@@ -41,7 +41,7 @@ public class GameStateManager : MonoBehaviour
         if (currentState == PlayerState.dead)
         {
             StartCoroutine(FindObjectOfType<LevelTransitions>().DeathAnimation(0.2f, 5));
-            //It would go black and white here and say "YOU SUCK"
+            TimescaleManager.instance.Slow();
         }
         else if (currentState == PlayerState.paused)
         {
