@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
@@ -23,6 +24,24 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
+    }
+
+    public void FadeInStageTheme(float fadeTime)
+    {
+        _stageThemeLoop.DOKill(true);
+        _stageThemeLoop.DOFade(1.0f, fadeTime);
+
+        _stageThemeIsolated.DOKill(true);
+        _stageThemeIsolated.DOFade(1.0f, fadeTime);
+    }
+
+    public void FadeOutStageTheme(float fadeTime)
+    {
+        _stageThemeLoop.DOKill(true);
+        _stageThemeLoop.DOFade(0.0f, fadeTime);
+
+        _stageThemeIsolated.DOKill(true);
+        _stageThemeIsolated.DOFade(0.0f, fadeTime);
     }
 
     private void GameStateUpdate(GameStateManager.PlayerState lastState, GameStateManager.PlayerState newState)
