@@ -20,6 +20,7 @@ public class Spartacus : MonoBehaviour
 
     private float timer;
     private bool canBlink;
+    private bool canHit;
 
     private void Start()
     {
@@ -32,16 +33,41 @@ public class Spartacus : MonoBehaviour
         AudioManager.instance.FadeOutStageTheme(1.0f);
 
         yield return new WaitForSeconds(5.0f);
+        GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Cutscene);
+
+        FindObjectOfType<PlayerMovement>(true).gameObject.SetActive(false);
+        FindObjectOfType<PlayerMovement>(true).transform.position = Vector3.zero;
+
+
         music.gameObject.SetActive(true);
 
+        FindObjectOfType<CameraTargetController>().SetFocus(transform, 1.0f, 0.0f);
         FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 0);
 
-        transform.DOMoveY(transform.position.y - 18, 3.0f, false).SetEase(Ease.Linear);
+        transform.DOMoveY(transform.position.y - 18, 4.0f, false).SetEase(Ease.Linear);
 
+        yield return new WaitForSeconds(1.2f);
         StartCoroutine(ICrowdMove(rightCrowdToMove, 1.5f));
         StartCoroutine(ICrowdMove(leftCrowdToMove, -1.5f));
+        yield return new WaitForSeconds(2.0f);
+        StartCoroutine(ICrowdMove(rightCrowdToMove, -1.5f));
+        StartCoroutine(ICrowdMove(leftCrowdToMove, 1.5f));
+
 
         canBlink = true;
+        yield return new WaitForSeconds(4.0f);
+
+        FindObjectOfType<PlayerMovement>(true).gameObject.SetActive(true);
+        FindObjectOfType<PlayerMovement>(true).transform.position = Vector3.zero;
+
+        FindObjectOfType<CameraTargetController>().SetToDefault();
+        FindObjectOfType<CinematicBarController>().Focus(460, 0.5f, Ease.OutQuad, 0);
+        GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Playing);
+
+       
+
+
+        canHit = true;
     }
 
     public IEnumerator ICrowdMove(GameObject[] crowd, float offset)
@@ -78,6 +104,7 @@ public class Spartacus : MonoBehaviour
         spartacusName.gameObject.SetActive(false);
         bloodToEnable.SetActive(true);
         headSprite.SetActive(false);
+        //FindObjectOfType<CameraTargetController>().SetFocus(transform, 1.0f, 0.0f);
         EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
         EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(1.0f, 25, 200, true));
         Instantiate(headPrefab, headSprite.transform.position, Quaternion.identity);
@@ -101,6 +128,7 @@ public class Spartacus : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!canHit) return;
         if (killFlag) return;
 
         if (collision.TryGetComponent<PlayerMovement>(out PlayerMovement movement))
