@@ -17209,6 +17209,18 @@ PrefabInstance:
       propertyPath: enemiesThisWave
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
+      propertyPath: EnemyTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
+      propertyPath: 'EnemyTypes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2380275144155482829, guid: 579d846be0f4f5f49b9ded3d73dc6000, type: 3}
+    - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
+      propertyPath: 'EnemyTypes.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2380275144155482829, guid: b60e4c77a9de44e41bf5038d8a525478, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24717,15 +24729,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.125
-    y: 0
-    width: 0.75000006
-    height: 1
+    x: 0.10766721
+    y: 0.028720627
+    width: 0.78303427
+    height: 0.9399478
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.946092
+  orthographic size: 18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

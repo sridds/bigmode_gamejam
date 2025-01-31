@@ -21,7 +21,7 @@ public class ArcherEnemyAI : MonoBehaviour
     [SerializeField] float fireDistance = 8;
     [SerializeField] float fireWaitTime = 0.5f;
     [SerializeField] float arrowTravelTime = 0.3f;
-    //[SerializeField] float fireCooldown = 1f;
+    [SerializeField] float fireCooldown = 1f;
     //[SerializeField] float standStillAfterFireTime = 0.2f;
     [SerializeField] Transform arrowInstantiatePosition;
     [SerializeField] GameObject arrowPrefab;
@@ -276,12 +276,15 @@ public class ArcherEnemyAI : MonoBehaviour
             float elapsed = 0.0f;
 
             Vector3 startPos = currentArrow.transform.position;
-            while (elapsed < arrowTravelTime)
+            if (currentArrow != null)
             {
-                currentArrow.transform.position = Vector3.Lerp(startPos, targetPosition, elapsed / arrowTravelTime);
+                while (elapsed < arrowTravelTime)
+                {
+                    currentArrow.transform.position = Vector3.Lerp(startPos, targetPosition, elapsed / arrowTravelTime);
 
-                elapsed += Time.deltaTime;
-                yield return null;
+                    elapsed += Time.deltaTime;
+                    yield return null;
+                }
             }
 
         }
@@ -292,21 +295,24 @@ public class ArcherEnemyAI : MonoBehaviour
 
     IEnumerator LungeEnding()
     {
-        shooting = null;
+        if (shooting != null)
+        {
+            //damageHitbox.SetActive(false);
+            Destroy(currentArrow);
 
-        //damageHitbox.SetActive(false);
-        Destroy(currentArrow);
+            shooting = null;
 
-        lunging = false;
+            lunging = false;
 
-        //yield return new WaitForSeconds(standStillAfterFireTime);
+            //yield return new WaitForSeconds(standStillAfterFireTime);
 
-        canBeTerrified = true;
+            canBeTerrified = true;
 
-        //waiting before enemy can lunge again
-        //yield return new WaitForSeconds(fireCooldown);
+            //waiting before enemy can lunge again
+            yield return new WaitForSeconds(fireCooldown);
 
-        canLunge = true;
+            canLunge = true;
+        }
 
         //back to normal
         yield return null;
