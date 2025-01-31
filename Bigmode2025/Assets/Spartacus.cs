@@ -15,17 +15,48 @@ public class Spartacus : MonoBehaviour
     public AudioClip bloodSpurtSound;
     public AudioClip bloodSmallSpurtSound;
     public AudioSource music;
+    public GameObject[] leftCrowdToMove;
+    public GameObject[] rightCrowdToMove;
 
     private float timer;
+    private bool canBlink;
 
     private void Start()
     {
+        canBlink = false;
+        StartCoroutine(ISpartacusAppear());
+    }
+
+    public IEnumerator ISpartacusAppear()
+    {
         AudioManager.instance.FadeOutStageTheme(1.0f);
+
+        yield return new WaitForSeconds(5.0f);
         music.gameObject.SetActive(true);
+
+        FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 0);
+
+        transform.DOMoveY(transform.position.y - 18, 3.0f, false).SetEase(Ease.Linear);
+
+        StartCoroutine(ICrowdMove(rightCrowdToMove, 1.5f));
+        StartCoroutine(ICrowdMove(leftCrowdToMove, -1.5f));
+
+        canBlink = true;
+    }
+
+    public IEnumerator ICrowdMove(GameObject[] crowd, float offset)
+    {
+        foreach (GameObject g in crowd)
+        {
+            g.transform.DOMoveX(g.transform.position.x + offset, 0.7f);
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.15f));
+        }
     }
 
     void Update()
     {
+        if (!canBlink) return;
+
         timer += Time.deltaTime;
 
         if(timer > spartacusBlinkInterval)
