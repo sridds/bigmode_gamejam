@@ -104,7 +104,7 @@ public class LevelTransitions : MonoBehaviour
     {
         float elapsed = 0.0f;
 
-        Vector3 startPos = new Vector3(480, 0, 0);
+        Vector3 startPos = new Vector3(550, 0, 0);
 
         while (elapsed < wipeHalfTime)
         {
@@ -162,7 +162,7 @@ public class LevelTransitions : MonoBehaviour
 
         while (elapsed < wipeHalfTime)
         {
-            blackWipe.transform.localPosition = Vector3.Lerp(startPos, new Vector3(-480, 0, 0), elapsed / wipeHalfTime);
+            blackWipe.transform.localPosition = Vector3.Lerp(startPos, new Vector3(-550, 0, 0), elapsed / wipeHalfTime);
 
             elapsed += Time.deltaTime;
             yield return null;
