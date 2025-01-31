@@ -222,19 +222,22 @@ public class SpearEnemyAIScript : MonoBehaviour
 
         shakeHolder.transform.DOShakePosition(0.4f, new Vector3(0.5f, 0.0f), 25, 90, false, true, ShakeRandomnessMode.Full);
 
+        
         // calculate spear rotation
         var dir = (targetPosition - transform.position).normalized;
         Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
         spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), lungeWaitTime, RotateMode.FastBeyond360);
+        
 
         yield return new WaitForSeconds(lungeWaitTime / 2);
         targetPosition = ((player.transform.position - transform.position).normalized * lungeDistance) + transform.position;
         yield return new WaitForSeconds(lungeWaitTime / 2);
 
-        // calculate spear rotation
         dir = (targetPosition - transform.position).normalized;
         lookRot = Quaternion.LookRotation(Vector3.forward, dir);
-        spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), lungeWaitTime, RotateMode.FastBeyond360);
+        spear.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z), lungeWaitTime, RotateMode.FastBeyond360);
+
+
         source.pitch = Random.Range(0.95f, 1.1f);
 
         source.PlayOneShot(_lungeSound);
