@@ -12,7 +12,7 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] AudioClip[] hurtSounds;
     [SerializeField] AudioClip[] deathSounds;
     [SerializeField] AudioClip wilhelmScream;
-
+    [SerializeField] int scoreToAdd;
     public float health = 1;
     float timer = 0;
 
@@ -91,7 +91,7 @@ public class EnemyHealthScript : MonoBehaviour
 
         EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
         EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.5f, 15, 200, true));
-
+        GameStateManager.instance.AddScore(scoreToAdd);
         FindObjectOfType<EnemyManager>().RegisterEnemyDeath(gameObject);
         destroyFlag = true;
     }

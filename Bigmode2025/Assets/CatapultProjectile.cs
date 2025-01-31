@@ -20,6 +20,11 @@ public class CatapultProjectile : MonoBehaviour
         hitbox.enabled = false;
         projectile.localPosition = new Vector2(0, height);
         targetStartPos = target.transform.localScale;
+
+    }
+
+    private void Start()
+    {
         boulderSprite.enabled = true;
         targetSprite.enabled = true;
     }
@@ -49,7 +54,7 @@ public class CatapultProjectile : MonoBehaviour
         Destroy(projectile.gameObject);
         Destroy(target.gameObject);
         Instantiate(boulderParticlePrefab, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0.2f);
+        yield return null;
         hitbox.enabled = false;
         Destroy(gameObject);
     }

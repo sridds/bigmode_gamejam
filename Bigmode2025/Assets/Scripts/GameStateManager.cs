@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -15,6 +17,12 @@ public class GameStateManager : MonoBehaviour
     public delegate void GameStateUpdate(PlayerState lastState, PlayerState newState);
     public GameStateUpdate OnGameStateUpdated;
 
+
+    public int Score;
+    [SerializeField] TextMeshProUGUI scoreUI;
+    [SerializeField] RectTransform scoreUIContainer;
+
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -25,6 +33,21 @@ public class GameStateManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    public void AddScore(int ScoreToAdd)
+    {
+        scoreUIContainer.DOComplete();
+        scoreUIContainer.DOShakePosition(0.3f, 15, 140);
+        if (EnemyManager.instance.Combo > 1)
+        {
+            Score += ScoreToAdd + EnemyManager.instance.Combo * 10;
+        }
+        else
+        {
+            Score += ScoreToAdd;
+        }
+        scoreUI.text = Score.ToString();
     }
 
     public enum PlayerState
@@ -50,7 +73,7 @@ public class GameStateManager : MonoBehaviour
 
         if (currentState == PlayerState.Dead)
         {
-            StartCoroutine(FindObjectOfType<LevelTransitions>().DeathAnimation(0.2f, 5));
+            StartCoroutine(FindFirstObjectByType<LevelTransitions>().DeathAnimation(0.2f, 5));
             TimescaleManager.instance.Slow();
         }
         else if (currentState == PlayerState.Paused)

@@ -271,6 +271,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bca1153bd24c44c6ba561650ea6b20e6, type: 3}
   - {fileID: 8300000, guid: d556f4f5c9b0e4eb1880a8651a5c4b5d, type: 3}
   wilhelmScream: {fileID: 8300000, guid: b7e27278137f84e6a935004028883335, type: 3}
+  scoreToAdd: 100
   health: 30
 --- !u!61 &7623350287096019679
 BoxCollider2D:

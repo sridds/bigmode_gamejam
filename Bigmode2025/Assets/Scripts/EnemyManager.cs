@@ -51,9 +51,19 @@ public class EnemyManager : MonoBehaviour
     public int EnemiesRemaining { get { return enemies.Count; } }
     private float pitch;
 
+    public static EnemyManager instance;
+
     private void Start()
     {
         pitch = minPitch;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     public void RegisterEnemyDeath(GameObject enemy)
