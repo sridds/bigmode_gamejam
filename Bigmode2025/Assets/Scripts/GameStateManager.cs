@@ -1,4 +1,6 @@
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -38,7 +40,8 @@ public class GameStateManager : MonoBehaviour
 
         if (currentState == PlayerState.dead)
         {
-            TimescaleManager.instance.Freeze();
+            StartCoroutine(FindObjectOfType<LevelTransitions>().DeathAnimation(0.2f, 5));
+            //It would go black and white here and say "YOU SUCK"
         }
         else if (currentState == PlayerState.paused)
         {

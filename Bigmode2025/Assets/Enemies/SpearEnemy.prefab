@@ -146,7 +146,7 @@ MonoBehaviour:
   shakeHolder: {fileID: 2898158443059350353}
   spear: {fileID: 6747061161462635843}
   trail: {fileID: 3916152875794526599}
-  targetStandDistance: 4
+  targetStandDistance: 3
   moveSpeed: 2
   lungeDistance: 7
   lungeWaitTime: 0.4

@@ -106,6 +106,6 @@ public class PlayerHealthScript : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Dead");
+        GameStateManager.instance.UpdateState(GameStateManager.PlayerState.dead);
     }
 }

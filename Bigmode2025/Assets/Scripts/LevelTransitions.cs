@@ -24,19 +24,30 @@ public class LevelTransitions : MonoBehaviour
     [SerializeField] GameObject prevLevelGameObject;
 
     [SerializeField] GameObject blackWipe;
-    [SerializeField] float wipeHalfTime = 1;
 
     [SerializeField] int nextLevelBuildIndex;
 
     private void Start()
     {
-        StartCoroutine(EndWipe(true));
+        StartCoroutine(EndWipe(true, false, 1));
     }
 
     public void StartTransition()
     {
         //StartCoroutine(StartWipe(false));
         StartCoroutine(LevelEnd());
+    }
+
+    public IEnumerator DeathAnimation(float wipeHalfTime, float waitTime)
+    {
+        TimescaleManager.instance.Slow();
+        FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 5);
+
+        yield return new WaitForSecondsRealtime(waitTime);
+
+        StartCoroutine(StartWipe(false, true, 0.2f));
+
+        yield return null;
     }
 
     IEnumerator LevelEnd()
@@ -82,7 +93,7 @@ public class LevelTransitions : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator StartWipe(bool transition)
+    IEnumerator StartWipe(bool transition, bool dead, float wipeHalfTime)
     {
         float elapsed = 0.0f;
 
@@ -101,17 +112,23 @@ public class LevelTransitions : MonoBehaviour
             cutsceneObjectsHolder.SetActive(false);
             SceneManager.LoadScene(nextLevelBuildIndex);
         }
+        else if (!dead)
+        {
+            cutsceneObjectsHolder.SetActive(true);
+            GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        }
+        else if (dead)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
-        cutsceneObjectsHolder.SetActive(true);
-        GameObject.FindGameObjectWithTag("Player").SetActive(false);
-
-        StartCoroutine(EndWipe(false));
+        StartCoroutine(EndWipe(false, dead, wipeHalfTime));
 
 
         yield return null;
     }
 
-    IEnumerator LevelTransitionCutscene()
+    IEnumerator LevelTransitionCutscene(float wipeHalfTime)
     {
 
         float elapsed = 0.0f;
@@ -126,11 +143,11 @@ public class LevelTransitions : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(StartWipe(true));
+        StartCoroutine(StartWipe(true, false, wipeHalfTime));
         yield return null;
     }
 
-    IEnumerator EndWipe(bool startOfLevel)
+    IEnumerator EndWipe(bool startOfLevel, bool dead, float wipeHalfTime)
     {
         float elapsed = 0.0f;
 
@@ -143,11 +160,10 @@ public class LevelTransitions : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        if (!startOfLevel)
+        if (!startOfLevel && !dead)
         {
-            StartCoroutine(LevelTransitionCutscene());
+            StartCoroutine(LevelTransitionCutscene(wipeHalfTime));
         }
-
         yield return null;
     }
 }

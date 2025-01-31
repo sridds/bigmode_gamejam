@@ -16,9 +16,19 @@ public class TimescaleManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void Freeze()
     {
         Time.timeScale = 0;
+    }
+
+    public void Slow()
+    {
+        Time.timeScale = 0.2f;
     }
 
     public void Unfreeze()
