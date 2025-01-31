@@ -10,13 +10,18 @@ public class Spartacus : MonoBehaviour
     public GameObject headPrefab;
     public GameObject headSprite;
     public GameObject bloodToEnable;
+    public GameObject superSmallBlood;
     public AudioClip[] deathSounds;
+    public AudioClip bloodSpurtSound;
+    public AudioClip bloodSmallSpurtSound;
+    public AudioSource music;
 
     private float timer;
 
     private void Start()
     {
         AudioManager.instance.FadeOutStageTheme(1.0f);
+        music.gameObject.SetActive(true);
     }
 
     void Update()
@@ -38,6 +43,7 @@ public class Spartacus : MonoBehaviour
 
     public IEnumerator IKillSpartacus()
     {
+        music.gameObject.SetActive(false);
         spartacusName.gameObject.SetActive(false);
         bloodToEnable.SetActive(true);
         headSprite.SetActive(false);
@@ -50,8 +56,13 @@ public class Spartacus : MonoBehaviour
             c.SetPermaShocked();
         }
         AudioManager.instance.PlaySound(deathSounds[Random.Range(0, deathSounds.Length - 1)], 1.0f, 0.95f, 1.1f);
+        AudioManager.instance.PlaySound(bloodSpurtSound, 0.5f, 1.0f, 1.0f);
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(8.0f);
+
+        AudioManager.instance.PlaySound(bloodSmallSpurtSound, 1.0f, 1.0f, 1.0f);
+        superSmallBlood.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
         GameObject.Find("LevelTransition").GetComponent<LevelTransitions>().StartTransition(false);
     }
 

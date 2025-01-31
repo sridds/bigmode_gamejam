@@ -60,14 +60,18 @@ public class LevelTransitions : MonoBehaviour
         if (doZoom)
         {
             zoomer.material.DOFloat(0.2f, "_Zoom", 0.6f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
-            while (elapsed < duration)
-            {
-                elapsed += Time.unscaledDeltaTime;
-                Time.timeScale = Mathf.Lerp(1.0f, 0.2f, elapsed / duration);
+        }
 
-                yield return null;
-            }
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            Time.timeScale = Mathf.Lerp(1.0f, 0.2f, elapsed / duration);
 
+            yield return null;
+        }
+
+        if (doZoom)
+        {
             yield return new WaitForSecondsRealtime(1.0f);
             zoomer.material.DOFloat(0.0f, "_Zoom", 0.3f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
         }
