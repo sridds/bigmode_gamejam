@@ -15,7 +15,7 @@ public class PauseManager : MonoBehaviour
             if (isPaused)
             {
                 pauseMenuObject.SetActive(true);
-                GameStateManager.instance.UpdateState(GameStateManager.PlayerState.paused);
+                GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Paused);
             }
             else
             {

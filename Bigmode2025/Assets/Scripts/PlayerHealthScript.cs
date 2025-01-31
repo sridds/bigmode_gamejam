@@ -110,6 +110,6 @@ public class PlayerHealthScript : MonoBehaviour
     void Die()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity, gameObject.transform);
-        GameStateManager.instance.UpdateState(GameStateManager.PlayerState.dead);
+        GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Dead);
     }
 }
