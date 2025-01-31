@@ -151,10 +151,10 @@ TextureImporter:
       name: blood_splatters_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 48
-        height: 48
+        x: 5
+        y: 52
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: blood_splatters_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 48
-        height: 48
+        x: 5
+        y: 100
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,9 +196,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 48
-        height: 48
+        y: 5
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +217,10 @@ TextureImporter:
       name: blood_splatters_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
+        x: 53
+        y: 5
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: blood_splatters_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
+        x: 52
+        y: 53
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,10 +261,10 @@ TextureImporter:
       name: blood_splatters_5
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
-        width: 48
-        height: 48
+        x: 53
+        y: 100
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,10 +283,10 @@ TextureImporter:
       name: blood_splatters_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 48
-        height: 48
+        x: 100
+        y: 98
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,10 +305,10 @@ TextureImporter:
       name: blood_splatters_7
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
-        width: 48
-        height: 48
+        x: 100
+        y: 52
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +327,10 @@ TextureImporter:
       name: blood_splatters_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
+        x: 102
+        y: 7
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +349,10 @@ TextureImporter:
       name: blood_splatters_9
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
+        x: 150
+        y: 4
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,10 +371,10 @@ TextureImporter:
       name: blood_splatters_10
       rect:
         serializedVersion: 2
-        x: 144
-        y: 48
-        width: 48
-        height: 48
+        x: 148
+        y: 51
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,10 +393,10 @@ TextureImporter:
       name: blood_splatters_11
       rect:
         serializedVersion: 2
-        x: 144
-        y: 96
-        width: 48
-        height: 48
+        x: 148
+        y: 100
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,10 +415,10 @@ TextureImporter:
       name: blood_splatters_12
       rect:
         serializedVersion: 2
-        x: 192
-        y: 96
-        width: 48
-        height: 48
+        x: 197
+        y: 100
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,10 +437,10 @@ TextureImporter:
       name: blood_splatters_13
       rect:
         serializedVersion: 2
-        x: 192
-        y: 48
-        width: 48
-        height: 48
+        x: 196
+        y: 53
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,10 +459,10 @@ TextureImporter:
       name: blood_splatters_14
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
+        x: 196
+        y: 4
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

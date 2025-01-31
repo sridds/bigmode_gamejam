@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _stageThemeLoop;
     [SerializeField] private AudioSource _stageThemeIsolated;
 
-    private void Start()
+    private void Awake()
     {
         if(instance == null)
         {
@@ -22,6 +22,10 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
 
         GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
     }
