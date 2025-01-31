@@ -396,4 +396,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spartacusName: {fileID: 91838065729112688}
-  spartacusBlinkInterval: 0
+  spartacusBlinkInterval: 0.5

@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameStateManager.instance.currentState == GameStateManager.PlayerState.playing)
+        if (GameStateManager.instance.currentState == GameStateManager.PlayerState.Playing)
         {
             Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             SetInputVector(inputVector);

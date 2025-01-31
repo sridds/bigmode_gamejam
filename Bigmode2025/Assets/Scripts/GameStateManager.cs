@@ -12,6 +12,9 @@ public class GameStateManager : MonoBehaviour
     public float CurrentTime { get { return currentTime; } }
     public int MaxCombo { get { return maxCombo; } }
 
+    public delegate void GameStateUpdate(PlayerState lastState, PlayerState newState);
+    public GameStateUpdate OnGameStateUpdated;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -26,10 +29,12 @@ public class GameStateManager : MonoBehaviour
 
     public enum PlayerState
     {
-        playing,
-        dead,
-        paused,
-        winscreen
+        Playing,
+        Dead,
+        Paused,
+        Winscreen,
+        Cutscene,
+        Pregame
     }
 
     [SerializeField] public PlayerState currentState;
@@ -41,16 +46,18 @@ public class GameStateManager : MonoBehaviour
         lastState = currentState;
         currentState = newState;
 
-        if (currentState == PlayerState.dead)
+        OnGameStateUpdated?.Invoke(lastState, newState);
+
+        if (currentState == PlayerState.Dead)
         {
             StartCoroutine(FindObjectOfType<LevelTransitions>().DeathAnimation(0.2f, 5));
             TimescaleManager.instance.Slow();
         }
-        else if (currentState == PlayerState.paused)
+        else if (currentState == PlayerState.Paused)
         {
             TimescaleManager.instance.Freeze();
         }
-        else if (currentState == PlayerState.playing)
+        else if (currentState == PlayerState.Playing)
         {
             TimescaleManager.instance.Unfreeze();
         }
@@ -64,7 +71,7 @@ public class GameStateManager : MonoBehaviour
     private void Update()
     {
         // update timer
-        if(currentState == PlayerState.playing)
+        if(currentState == PlayerState.Playing)
         {
             currentTime += Time.deltaTime;
         }
