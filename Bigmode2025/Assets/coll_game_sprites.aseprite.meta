@@ -1593,6 +1593,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
+  - name: coll_game_sprites_69
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 318
+      y: 174
+      width: 32
+      height: 32
+    spriteID: 18ba494ee1f804347ac517628da9b0fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
     guid: -1043544614

@@ -32,10 +32,10 @@ public class LevelTransitions : MonoBehaviour
         StartCoroutine(EndWipe(true, false, 1));
     }
 
-    public void StartTransition()
+    public void StartTransition(bool doZoom = true)
     {
         //StartCoroutine(StartWipe(false));
-        StartCoroutine(LevelEnd());
+        StartCoroutine(LevelEnd(doZoom));
     }
 
     public IEnumerator DeathAnimation(float wipeHalfTime, float waitTime)
@@ -50,24 +50,27 @@ public class LevelTransitions : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator LevelEnd()
+    IEnumerator LevelEnd(bool doZoom)
     {
         FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 5);
 
         float elapsed = 0.0f;
         float duration = 0.6f;
 
-        zoomer.material.DOFloat(0.2f, "_Zoom", 0.6f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
-        while (elapsed < duration)
+        if (doZoom)
         {
-            elapsed += Time.unscaledDeltaTime;
-            Time.timeScale = Mathf.Lerp(1.0f, 0.2f, elapsed / duration);
+            zoomer.material.DOFloat(0.2f, "_Zoom", 0.6f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
+            while (elapsed < duration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                Time.timeScale = Mathf.Lerp(1.0f, 0.2f, elapsed / duration);
 
-            yield return null;
+                yield return null;
+            }
+
+            yield return new WaitForSecondsRealtime(1.0f);
+            zoomer.material.DOFloat(0.0f, "_Zoom", 0.3f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
         }
-
-        yield return new WaitForSecondsRealtime(1.0f);
-        zoomer.material.DOFloat(0.0f, "_Zoom", 0.3f).SetEase(Ease.OutQuad).SetUpdate(UpdateType.Normal, true);
 
         float slamDuration = 0.2f;
 

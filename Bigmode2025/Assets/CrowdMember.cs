@@ -151,6 +151,12 @@ public class CrowdMember : MonoBehaviour
         renderer.sprite = boredSprite[randomizedIndex];
     }
 
+    public void SetPermaShocked()
+    {
+        crowdState = ECrowdMemberState.Shocked;
+        renderer.sprite = shockedSprite[randomizedIndex];
+    }
+
     public void InstantYell()
     {
         StartCoroutine(IYell());

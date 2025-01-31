@@ -33,6 +33,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private AudioSource _source;
 
+    [SerializeField]
+    private bool _endLevelOnKillingEverythingOrShouldILetSomethingElseHandleItLikeMaybeTheSpartacusScriptInstead = true;
+
     public List<GameObject> enemies;
     private int combo;
     private float comboTimer;
@@ -65,7 +68,7 @@ public class EnemyManager : MonoBehaviour
 
         SpawnComboMeter(spawnPos);
 
-        if (enemyContainer.childCount-1 == 0)
+        if (enemyContainer.childCount-1 == 0 && _endLevelOnKillingEverythingOrShouldILetSomethingElseHandleItLikeMaybeTheSpartacusScriptInstead)
         {
             GameObject.Find("LevelTransition").GetComponent<LevelTransitions>().StartTransition();
         }
