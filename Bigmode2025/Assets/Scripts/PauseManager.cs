@@ -20,7 +20,7 @@ public class PauseManager : MonoBehaviour
             else
             {
                 pauseMenuObject.SetActive(false);
-                GameStateManager.instance.UpdateState(GameStateManager.PlayerState.playing);
+                GameStateManager.instance.RevertState();
             }
         }
     }

@@ -14691,7 +14691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1323322723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43459,6 +43459,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1975627126}
+    - target: {fileID: 1231748747256160643, guid: 0f460a7f13ec60b46b4bdec07056ec9b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3378514130937786446, guid: 0f460a7f13ec60b46b4bdec07056ec9b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1

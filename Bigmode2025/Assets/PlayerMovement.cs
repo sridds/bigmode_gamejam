@@ -106,29 +106,32 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        SetInputVector(inputVector);
-        currentSpeed = rb.linearVelocity.magnitude;
-        MovementScreenShake();
-
-        float scaled = currentSpeed / maxSpeed;
-        float pitch = (scaled - pitchMin) / (pitchMax - pitchMin);
-
-        if(isDrifting && carMotor.clip != driftLoop)
+        if (GameStateManager.instance.currentState == GameStateManager.PlayerState.playing)
         {
-            carMotor.clip = driftLoop;
-            carMotor.Play();
-        }
-        if(!isDrifting && carMotor.clip != motorLoop)
-        {
-            carMotor.clip = motorLoop;
-            carMotor.Play();
-        }
+            Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            SetInputVector(inputVector);
+            currentSpeed = rb.linearVelocity.magnitude;
+            MovementScreenShake();
 
-        if (pitch > pitchMax) pitch = pitchMax;
-        else if (pitch < pitchMin) pitch = pitchMin;
+            float scaled = currentSpeed / maxSpeed;
+            float pitch = (scaled - pitchMin) / (pitchMax - pitchMin);
 
-        carMotor.pitch = pitch;
+            if (isDrifting && carMotor.clip != driftLoop)
+            {
+                carMotor.clip = driftLoop;
+                carMotor.Play();
+            }
+            if (!isDrifting && carMotor.clip != motorLoop)
+            {
+                carMotor.clip = motorLoop;
+                carMotor.Play();
+            }
+
+            if (pitch > pitchMax) pitch = pitchMax;
+            else if (pitch < pitchMin) pitch = pitchMin;
+
+            carMotor.pitch = pitch;
+        }
     }
         
     void MovementScreenShake()

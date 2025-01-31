@@ -34,8 +34,11 @@ public class GameStateManager : MonoBehaviour
 
     [SerializeField] public PlayerState currentState;
 
+    private PlayerState lastState;
+
     public void UpdateState(PlayerState newState)
     {
+        lastState = currentState;
         currentState = newState;
 
         if (currentState == PlayerState.dead)
@@ -51,6 +54,11 @@ public class GameStateManager : MonoBehaviour
         {
             TimescaleManager.instance.Unfreeze();
         }
+    }
+
+    public void RevertState()
+    {
+        currentState = lastState;
     }
 
     private void Update()
