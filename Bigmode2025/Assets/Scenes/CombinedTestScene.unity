@@ -2949,6 +2949,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2186051920022347723, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: healParticle
+      value: 
+      objectReference: {fileID: 8925482381524897392, guid: e96d7970233bfbe4f8fa85c544cdb335, type: 3}
+    - target: {fileID: 2186051920022347723, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: comboBeforeHeal
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2186051920022347723, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
+      propertyPath: comboHealAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2186051920022347723, guid: 569145022556f8a4fb9e3200ca4430d7, type: 3}
       propertyPath: explosionPrefab
       value: 
       objectReference: {fileID: 8925482381524897392, guid: 04b325519b4c9084ba675ece5e7ae9fc, type: 3}
@@ -7325,6 +7337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxSource: {fileID: 1061707378}
+  _stageThemeLoop: {fileID: 0}
+  _stageThemeIsolated: {fileID: 0}
 --- !u!4 &1061707380
 Transform:
   m_ObjectHideFlags: 0
@@ -16948,7 +16962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: enemiesThisWave
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24458,15 +24472,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.10766721
-    y: 0.028720627
-    width: 0.78303427
-    height: 0.9399478
+    x: 0.125
+    y: 0
+    width: 0.75000006
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 18
+  orthographic size: 6.946092
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
