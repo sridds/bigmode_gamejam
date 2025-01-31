@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     float steeringFactor = 0;
     float driftDirection = 0; //gets set to steeringInput when drift starts
 
-    float rotationAngle = 0;
+    public float rotationAngle = 0;
     float visualRotationAngle = 0;
 
     public Vector2 carDirection;
@@ -100,7 +100,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        enemyContainer = GameObject.Find("EnemyContainer").transform;
+        if (GameObject.Find("EnemyContainer") != null)
+        {
+            enemyContainer = GameObject.Find("EnemyContainer").transform;
+        }
     }
 
 
@@ -248,37 +251,42 @@ public class PlayerMovement : MonoBehaviour
 
             Transform closestEnemy = null;
             float smallestAngle = 0;
-            foreach (Transform enemy in enemyContainer)
+
+            if (enemyContainer != null)
             {
-                //Vector2 angle = (transform.position - enemy.position).normalized;
-                //float floatAngle = Vector2ToDegrees(angle);
-                float dotProduce = Vector2.Dot(DegreesToVector2(visualRotationAngle - 90), (transform.position - enemy.transform.position).normalized);
-                if (dotProduce > 0 && dotProduce > autoAimMinAngle)
+                foreach (Transform enemy in enemyContainer)
                 {
-                    float maxDistance = 0;
-                    if (driftBoost == drift3Speed)
+                    //Vector2 angle = (transform.position - enemy.position).normalized;
+                    //float floatAngle = Vector2ToDegrees(angle);
+                    float dotProduce = Vector2.Dot(DegreesToVector2(visualRotationAngle - 90), (transform.position - enemy.transform.position).normalized);
+                    if (dotProduce > 0 && dotProduce > autoAimMinAngle)
                     {
-                        maxDistance = 35;
-                    }
-                    else if (driftBoost == drift2Speed)
-                    {
-                        maxDistance = 22;
+                        float maxDistance = 0;
+                        if (driftBoost == drift3Speed)
+                        {
+                            maxDistance = 35;
+                        }
+                        else if (driftBoost == drift2Speed)
+                        {
+                            maxDistance = 22;
 
-                    }
-                    else if (driftBoost == drift1Speed)
-                    {
-                        maxDistance = 16;
+                        }
+                        else if (driftBoost == drift1Speed)
+                        {
+                            maxDistance = 16;
+                        }
+
+                        if (dotProduce > smallestAngle && Mathf.Abs((enemy.transform.position - transform.position).magnitude) < maxDistance)
+                        {
+                            closestEnemy = enemy;
+                            smallestAngle = dotProduce;
+                        }
                     }
 
-                    if (dotProduce > smallestAngle && Mathf.Abs((enemy.transform.position - transform.position).magnitude) < maxDistance)
-                    {
-                        closestEnemy = enemy;
-                        smallestAngle = dotProduce;
-                    }
+
                 }
-
-                 
             }
+
 
             if (closestEnemy != null)
             {
