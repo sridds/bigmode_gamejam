@@ -17203,7 +17203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: maxEnemies
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: enemiesThisWave

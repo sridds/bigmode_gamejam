@@ -19,7 +19,7 @@ public class ArcherEnemyTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && archerEnemyAIScript.canLunge && !archerEnemyAIScript.isTerrified && !archerEnemyAIScript.knockedBack)
         {
-            archerEnemyAIScript.StartCoroutine(archerEnemyAIScript.LungeAttack());
+            archerEnemyAIScript.shooting = StartCoroutine(archerEnemyAIScript.ShootAttack());
         }
     }
 }

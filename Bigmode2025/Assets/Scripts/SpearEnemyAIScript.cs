@@ -280,6 +280,7 @@ public class SpearEnemyAIScript : MonoBehaviour
 
     IEnumerator LungeEnding()
     {
+
         //Stagger after lunge
         spriteRenderer.color = Color.green;
 

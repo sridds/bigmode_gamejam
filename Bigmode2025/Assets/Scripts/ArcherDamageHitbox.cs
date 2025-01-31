@@ -3,8 +3,8 @@ using UnityEngine;
 public class ArcherDamageHitbox : MonoBehaviour
 {
     [SerializeField] float damageToDeal = 20;
-    [SerializeField] EnemyHealthScript healthScript;
-    [SerializeField] ArcherEnemyAI archerEnemyAIScript;
+    [SerializeField] public EnemyHealthScript healthScript;
+    [SerializeField] public ArcherEnemyAI archerEnemyAIScript;
 
     private void Update()
     {
