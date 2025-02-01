@@ -351,7 +351,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDrifting)
         {
-            steeringFactor = (steeringInput / driftTurnDelta * PlayerUpgrades.instance.driftTurnDelta) + driftDirection;
+            steeringFactor = (steeringInput / driftTurnDelta * (PlayerUpgrades.instance.driftTurnDelta + 1)) + driftDirection;
             rotationAngle -= steeringFactor * driftTurnSharpness * rb.linearVelocity.magnitude;
             visualRotationAngle -= steeringFactor * driftTurnSharpness * rb.linearVelocity.magnitude;
             foreach (ParticleSystem p in boostParticleSystem)

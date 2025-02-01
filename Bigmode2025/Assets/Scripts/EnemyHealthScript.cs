@@ -16,6 +16,7 @@ public class EnemyHealthScript : MonoBehaviour
     public float health = 1;
     float timer = 0;
     [SerializeField] bool isShopkeeper;
+    [SerializeField] bool isShieldEnemy;
     bool destroyFlag = false;
 
     private void Update()
@@ -103,7 +104,14 @@ public class EnemyHealthScript : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            if (!isShieldEnemy)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject.transform.parent);
+            }
         }
         
         destroyFlag = true;
