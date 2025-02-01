@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.UI;
+using DG.Tweening.Core.Easing;
 
 public class PanelController : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PanelController : MonoBehaviour
     private GameObject panel2;
     [SerializeField]
     private GameObject panel3;
+
+    [SerializeField]
+    private GameObject flash;
 
     [SerializeField]
     private GameObject beam;
@@ -62,10 +66,26 @@ public class PanelController : MonoBehaviour
     private TitleCard titleCard;
 
     [SerializeField]
+    private SpriteRenderer pressAnyKey;
+
+    [SerializeField]
+    private float flashInterval;
+
+    [SerializeField]
     private float timeBeforePanel2 = 2.0f;
 
     [SerializeField]
     private float timeBeforeBeam = 0.5f;
+
+    [SerializeField]
+    private AudioClip pressStartSound;
+
+    [SerializeField]
+    private AudioClip startGameSound;
+
+    float ySin;
+    float startingY;
+    float flashTime;
 
     private void Start()
     {
@@ -74,9 +94,13 @@ public class PanelController : MonoBehaviour
         panel3.SetActive(false);
         
         StartCoroutine(ShowPanel());
+
+        startingY = _newCar.transform.position.y;
     }
 
     bool canMovePanel;
+    bool canPressAnyKey;
+    bool pressedKey;
 
     private void Update()
     {
@@ -84,12 +108,54 @@ public class PanelController : MonoBehaviour
 
         if (!canMovePanel) return;
         _panel2Contents.transform.position += new Vector3(_panel2MoveSpeed * Time.deltaTime, 0, 0);
+        ySin = Mathf.Sin(0.8f * Time.time) * 0.8f;
+        _newCar.transform.position = new Vector3(_newCar.transform.position.x, startingY + ySin);
+
+        if (canPressAnyKey && !pressedKey)
+        {
+            flashTime += Time.deltaTime;
+
+            pressAnyKey.gameObject.SetActive(true);
+
+            if(flashTime > flashInterval)
+            {
+                pressAnyKey.enabled = !pressAnyKey.enabled;
+                flashTime = 0.0f;
+            }
+        }
+
+        if(canPressAnyKey && Input.anyKey && !pressedKey)
+        {
+            StartCoroutine(PressedKey());
+            pressedKey = true;
+        }
+
+        if (pressedKey)
+        {
+            flashTime += Time.deltaTime;
+
+            if (flashTime > flashInterval / 2)
+            {
+                pressAnyKey.enabled = !pressAnyKey.enabled;
+                flashTime = 0.0f;
+            }
+        }
+    }
+
+    private IEnumerator PressedKey()
+    {
+        AudioManager.instance.StopIntro();
+        GetComponent<AudioSource>().PlayOneShot(startGameSound, 1.0f);
+        titleCard.NoMoreSinPlease();
+        flash.SetActive(true);
+        flash.GetComponent<SpriteRenderer>().DOFade(0.0f, 1.0f);
+        yield return null;
     }
 
     private IEnumerator ShowPanel()
     {
         yield return new WaitForSeconds(2.0f);
-        AudioManager.instance.PlayStageTheme();
+        AudioManager.instance.PlayIntro();
         yield return new WaitForSeconds(2.0f);
 
         panel1.transform.localScale = new Vector3(1.5f, 1.5f, 3);
@@ -152,7 +218,10 @@ public class PanelController : MonoBehaviour
 
         titleCard.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(4.0f);
+        canPressAnyKey = true;
+        AudioManager.instance.PlaySound(pressStartSound, 1.0f, 1.0f, 1.0f);
+
         FindObjectOfType<MenuSpawners>().StartSpawning();
 
         yield return null;

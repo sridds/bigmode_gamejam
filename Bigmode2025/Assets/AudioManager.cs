@@ -11,8 +11,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _track1;
     [SerializeField] private AudioSource _track2;
 
-    bool isIntroPlaying;
-
     private void Awake()
     {
         if(instance == null)
@@ -33,28 +31,16 @@ public class AudioManager : MonoBehaviour
         GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
     }
 
-    private void Update()
+    public void PlayIntro()
     {
-        if(isIntroPlaying && !_introTrack.isPlaying)
-        {
-            PlayLoop();
-            isIntroPlaying = false;
-        }
-    }
-
-    public void PlayStageTheme()
-    {
+        _track1.Stop();
+        _track2.Stop();
         _introTrack.Play();
-        isIntroPlaying = true;
     }
 
-    public void PlayLoop()
+    public void StopIntro()
     {
         _introTrack.Stop();
-        _track1.Play();
-        _track2.Play();
-
-        isIntroPlaying = false;
     }
 
     public void FadeInStageTheme(float fadeTime)
