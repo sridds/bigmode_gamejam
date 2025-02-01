@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class AudioStarter : MonoBehaviour
 {
+    public bool isShopTheme;
+
     private void Start()
     {
-        AudioManager.instance.StartStageTheme();
-        AudioManager.instance.SwitchToMain();
+
+        if (isShopTheme) AudioManager.instance.PlayShopTheme();
+        else
+        {
+            AudioManager.instance.StartStageTheme();
+            AudioManager.instance.SwitchToMain();
+        }
     }
 }

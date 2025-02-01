@@ -45,6 +45,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayShopTheme()
     {
+        _shopTheme.volume = 1.0f;
         _track1.Stop();
         _track2.Stop();
         _shopTheme.Play();
@@ -54,6 +55,7 @@ public class AudioManager : MonoBehaviour
     {
         if (_track1.isPlaying) return;
 
+        _shopTheme.Stop();
         _track1.Play();
         _track2.Play();
         _track1.volume = 1.0f;

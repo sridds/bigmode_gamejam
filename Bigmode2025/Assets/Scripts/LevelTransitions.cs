@@ -102,7 +102,6 @@ public class LevelTransitions : MonoBehaviour
         AudioManager.instance.PlaySound(slamSound, 1.0f, 1.0f, 1.0f);
 
         yield return new WaitForSecondsRealtime(2.0f);
-
         StartCoroutine(StartWipe(true, false));
 
         yield return null;
