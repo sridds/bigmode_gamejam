@@ -99,6 +99,10 @@ public class LevelTransitions : MonoBehaviour
         EffectController.instance.InstantScreenShake(0.5f, 15.0f, 30.0f, true);
         AudioManager.instance.PlaySound(slamSound, 1.0f, 1.0f, 1.0f);
 
+        yield return new WaitForSecondsRealtime(2.0f);
+
+        StartCoroutine(StartWipe(true, false));
+
         yield return null;
     }
 
@@ -107,6 +111,7 @@ public class LevelTransitions : MonoBehaviour
         float elapsed = 0.0f;
 
         Vector3 startPos = new Vector3(550, 0, 0);
+        blackWipe.SetActive(true);
 
         while (elapsed < wipeHalfTime)
         {

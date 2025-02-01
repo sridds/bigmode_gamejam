@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _introTrack;
     [SerializeField] private AudioSource _track1;
     [SerializeField] private AudioSource _track2;
+    [SerializeField] private AudioSource _shopTheme;
 
     private void Awake()
     {
@@ -41,6 +42,13 @@ public class AudioManager : MonoBehaviour
     public void StopIntro()
     {
         _introTrack.Stop();
+    }
+
+    public void PlayShopTheme()
+    {
+        _track1.Stop();
+        _track2.Stop();
+        _shopTheme.Play();
     }
 
     public void FadeInStageTheme(float fadeTime)
