@@ -69,7 +69,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             health -= damage;
 
-            collisionShake.Complete();
+            sprite.transform.DOComplete();
             collisionShake = sprite.transform.DOShakePosition(0.65f, damageShakeAmount, damageShakeVibrado);
 
             StopCoroutine(DamageFlash());

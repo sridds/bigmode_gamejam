@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreCost: 3000
   driftTurnDelta: 0.25
-  driftFriction: 0.6
+  driftFriction: 0.7
   maxSpeed: 0
   boostMultiplier: 0
   powerUpText: {fileID: 1578129748263404359, guid: 3ef10364f24f1d042893b14ad10c8ad7, type: 3}
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   driftTurnDelta: 0
   driftFriction: 0
   maxSpeed: 0
-  boostMultiplier: 0.2
+  boostMultiplier: 0.25
   powerUpText: {fileID: 1578129748263404359, guid: 3ef10364f24f1d042893b14ad10c8ad7, type: 3}
   powerUpSprite: {fileID: -9149342080983288311, guid: fa665fcb729d49a448ce7d1860595f73, type: 3}
 --- !u!58 &348176617
@@ -3082,7 +3082,7 @@ MonoBehaviour:
   ScoreCost: 4000
   driftTurnDelta: 0
   driftFriction: 0
-  maxSpeed: 2.5
+  maxSpeed: 3
   boostMultiplier: 0
   powerUpText: {fileID: 1578129748263404359, guid: 3ef10364f24f1d042893b14ad10c8ad7, type: 3}
   powerUpSprite: {fileID: 4492822704288207482, guid: fa665fcb729d49a448ce7d1860595f73, type: 3}
@@ -4300,8 +4300,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxSource: {fileID: 1061707378}
-  _stageThemeLoop: {fileID: 0}
-  _stageThemeIsolated: {fileID: 0}
+  _introTrack: {fileID: 0}
+  _track1: {fileID: 0}
+  _track2: {fileID: 0}
 --- !u!4 &1061707380
 Transform:
   m_ObjectHideFlags: 0
@@ -16885,15 +16886,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.125
-    y: 0
-    width: 0.75000006
-    height: 1
+    x: 0.384375
+    y: 0.027777778
+    width: 0.5
+    height: 0.6666666
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 18
+  orthographic size: 6.946092
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
