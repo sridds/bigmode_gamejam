@@ -21,6 +21,9 @@ public class PanelController : MonoBehaviour
     private GameObject beam;
 
     [SerializeField]
+    private GameObject panelToScroll;
+
+    [SerializeField]
     private GameObject carGameObject;
 
     [SerializeField]
@@ -162,6 +165,7 @@ public class PanelController : MonoBehaviour
         panel1.SetActive(true);
         AudioManager.instance.PlaySound(panelAppearClip, 1.0f, 0.95f, 1.1f);
         yield return panel1.transform.DOScale(1.0f, 0.2f).SetEase(Ease.Linear).WaitForCompletion();
+        panelToScroll.transform.DOMoveY(panelToScroll.transform.position.y - 4.0f, timeBeforePanel2 + 0.4f, false).SetEase(Ease.Linear);
         yield return panel1.transform.DOShakePosition(0.4f, 6.0f, 40).WaitForCompletion();
 
         yield return new WaitForSeconds(timeBeforePanel2);
