@@ -3,6 +3,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
+using Unity.VisualScripting;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class GameStateManager : MonoBehaviour
 
 
     public int Score;
-    [SerializeField] TextMeshProUGUI scoreUI;
-    [SerializeField] RectTransform scoreUIContainer;
+    TextMeshProUGUI scoreUI;
+    RectTransform scoreUIContainer;
 
 
     private void Awake()
@@ -34,9 +35,6 @@ public class GameStateManager : MonoBehaviour
         {
             Destroy(this);
         }
-        
-
-
     }
 
     public void AddScore(int ScoreToAdd)
@@ -59,7 +57,6 @@ public class GameStateManager : MonoBehaviour
             Score += ScoreToAdd;
         }
 
-        scoreUI.text = Score.ToString();
     }
 
     public enum PlayerState
