@@ -10,6 +10,8 @@ public class Upgrade : MonoBehaviour
     public float maxSpeed;
     public float boostMultiplier;
     bool canBuy = true;
+    public GameObject powerUpText;
+    public Sprite powerUpSprite;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && canBuy)
@@ -39,6 +41,8 @@ public class Upgrade : MonoBehaviour
     }
     IEnumerator Bought()
     {
+        GameObject newEffect = Instantiate(powerUpText, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        newEffect.GetComponentInChildren<SpriteRenderer>().sprite = powerUpSprite;
         yield return null;
         Destroy(gameObject);
 
