@@ -7,8 +7,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] private AudioSource _sfxSource;
-    [SerializeField] private AudioSource _stageThemeLoop;
-    [SerializeField] private AudioSource _stageThemeIsolated;
+    [SerializeField] private AudioSource _introTrack;
+    [SerializeField] private AudioSource _track1;
+    [SerializeField] private AudioSource _track2;
+
+    bool isIntroPlaying;
 
     private void Awake()
     {
@@ -30,22 +33,46 @@ public class AudioManager : MonoBehaviour
         GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
     }
 
+    private void Update()
+    {
+        if(isIntroPlaying && !_introTrack.isPlaying)
+        {
+            PlayLoop();
+            isIntroPlaying = false;
+        }
+    }
+
+    public void PlayStageTheme()
+    {
+        _introTrack.Play();
+        isIntroPlaying = true;
+    }
+
+    public void PlayLoop()
+    {
+        _introTrack.Stop();
+        _track1.Play();
+        _track2.Play();
+
+        isIntroPlaying = false;
+    }
+
     public void FadeInStageTheme(float fadeTime)
     {
-        _stageThemeLoop.DOKill(true);
-        _stageThemeLoop.DOFade(1.0f, fadeTime);
+        _track1.DOKill(true);
+        _track1.DOFade(1.0f, fadeTime);
 
-        _stageThemeIsolated.DOKill(true);
-        _stageThemeIsolated.DOFade(1.0f, fadeTime);
+        _track2.DOKill(true);
+        _track2.DOFade(1.0f, fadeTime);
     }
 
     public void FadeOutStageTheme(float fadeTime)
     {
-        _stageThemeLoop.DOKill(true);
-        _stageThemeLoop.DOFade(0.0f, fadeTime);
+        _track1.DOKill(true);
+        _track1.DOFade(0.0f, fadeTime);
 
-        _stageThemeIsolated.DOKill(true);
-        _stageThemeIsolated.DOFade(0.0f, fadeTime);
+        _track2.DOKill(true);
+        _track2.DOFade(0.0f, fadeTime);
     }
 
     private void GameStateUpdate(GameStateManager.PlayerState lastState, GameStateManager.PlayerState newState)
@@ -63,10 +90,6 @@ public class AudioManager : MonoBehaviour
             _stageThemeIsolated.mute = false;
         }
         */
-    }
-
-    private void Update()
-    {
     }
 
     public void PlaySound(AudioClip clip, float volume, float minPitch, float maxPitch)

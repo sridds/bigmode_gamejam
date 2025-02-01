@@ -16,16 +16,31 @@ public class TitleCard : MonoBehaviour
     private AudioClip _slamSound;
 
     [SerializeField]
+    private AudioClip _splatterSound;
+
+    [SerializeField]
     private AudioSource _audioSource;
 
     [SerializeField]
     private Sprite _bloodyVroomLogo;
+
+    [SerializeField]
+    private float _sinAmplitude = 2.0f;
+
+    [SerializeField]
+    private float _sinFrequency = 0.5f;
+
+    bool fullTitleRevealed;
+    float ySin;
+    float originalYValue;
 
     void Start()
     {
         _veni.gameObject.SetActive(false);
         _vidi.gameObject.SetActive(false);
         _vroom.gameObject.SetActive(false);
+
+        originalYValue = transform.position.y;
 
         StartCoroutine(PlaySequence());
     }
@@ -66,5 +81,25 @@ public class TitleCard : MonoBehaviour
         _vroom.transform.DOShakePosition(0.3f, 3f, 40, 90, false, true, ShakeRandomnessMode.Full);
         _vidi.transform.DOShakePosition(0.2f, 0.5f, 40, 90, false, true, ShakeRandomnessMode.Full);
         _veni.transform.DOShakePosition(0.2f, 0.5f, 40, 90, false, true, ShakeRandomnessMode.Full);
+
+        fullTitleRevealed = true;
+    }
+
+    private void Update()
+    {
+        if (!fullTitleRevealed) return;
+
+        ySin = Mathf.Sin(Time.time * _sinFrequency) * _sinAmplitude;
+        transform.position = new Vector3(transform.position.x, originalYValue + ySin);
+    }
+
+    public void MakeBloody()
+    {
+        _vroom.transform.DOShakePosition(0.3f, 3f, 40, 90, false, true, ShakeRandomnessMode.Full);
+        _vidi.transform.DOShakePosition(0.2f, 0.5f, 40, 90, false, true, ShakeRandomnessMode.Full);
+        _veni.transform.DOShakePosition(0.2f, 0.5f, 40, 90, false, true, ShakeRandomnessMode.Full);
+
+        _vroom.sprite = _bloodyVroomLogo;
+        AudioManager.instance.PlaySound(_splatterSound, 1.0f, 1.0f, 1.0f);
     }
 }
