@@ -3266,7 +3266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331623540135842229, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5845182993076314473, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: pauseManager
@@ -24806,15 +24806,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.384375
-    y: 0.027777778
-    width: 0.5
-    height: 0.6666666
+    x: 0.09028961
+    y: 0.008174387
+    width: 0.8177172
+    height: 0.9809264
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.946092
+  orthographic size: 18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

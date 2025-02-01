@@ -8381,6 +8381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 829725468}
+  - component: {fileID: 829725469}
   m_Layer: 0
   m_Name: Panel 2 Content
   m_TagString: Untagged
@@ -8406,6 +8407,22 @@ Transform:
   - {fileID: 284390871}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829725469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829725467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa926b088915144b2afc05a04a7ad3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyToSpawn: {fileID: 1286517264291160141, guid: c2cf36ace73fa4683b6f67eaab0254a1, type: 3}
+  minSpawnInterval: 0.1
+  maxSpawnInterval: 0.5
+  lifetime: 10
 --- !u!1 &839341600
 GameObject:
   m_ObjectHideFlags: 0
@@ -25482,7 +25499,7 @@ Transform:
   m_GameObject: {fileID: 1542324415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 472.1, y: -11.1, z: 0}
+  m_LocalPosition: {x: 462.5, y: -11.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27295,7 +27312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4709601484331243287, guid: 2fb8d2551a1324c2e9d667c97ce73f35, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 471.9
+      value: 467.3
       objectReference: {fileID: 0}
     - target: {fileID: 4709601484331243287, guid: 2fb8d2551a1324c2e9d667c97ce73f35, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27811,7 +27828,7 @@ MonoBehaviour:
   beamClip: {fileID: 8300000, guid: 5fdc93144d5b647e1ac2e510fafea0ab, type: 3}
   carMotorSource: {fileID: 2302748555776918323}
   panelAppearClip: {fileID: 8300000, guid: 51aaee560ff4a4d2dad6f1174b9c2ccf, type: 3}
-  _panel2MoveSpeed: 50
+  _panel2MoveSpeed: 45
   _panel2Contents: {fileID: 829725467}
   _panel2Renderer: {fileID: 1446953326}
   _panel3Rect: {fileID: 1571001644}
