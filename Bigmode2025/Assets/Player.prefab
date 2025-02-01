@@ -616,6 +616,7 @@ MonoBehaviour:
   driftRelease: {fileID: 8300000, guid: b73e77808ae054a59874f69a16c76bb8, type: 3}
   pitchMin: 0.3
   pitchMax: 1.2
+  rotationAngle: 0
   carDirection: {x: 0, y: 0}
   animationAngle: 167.7696
   currentSpeed: 0
@@ -631,7 +632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dacf668da129f64e810b8b09993df81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  healthIncrements: 4
+  maxHealthIncrements: 4
   invincibilityTime: 0.2
   sprite: {fileID: 1698824936063049756}
   damageShakeAmount: 0.5
@@ -641,6 +643,12 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   spriteRenderers:
   - {fileID: 460394958696149377}
+  hurtSound: {fileID: 8300000, guid: b70f6d03b082f40bb899345e0acdda13, type: 3}
+  deathSound: {fileID: 8300000, guid: eb2ebe96a3b354a65ac0df8a2657bdd2, type: 3}
+  comboBeforeHeal: 0
+  comboHealAmount: 0
+  healParticle: {fileID: 0}
+  explosionPrefab: {fileID: 0}
 --- !u!58 &4590925118996357041
 CircleCollider2D:
   m_ObjectHideFlags: 0

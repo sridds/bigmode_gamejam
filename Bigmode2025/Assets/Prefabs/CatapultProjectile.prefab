@@ -221,6 +221,14 @@ MonoBehaviour:
   height: 45
   targetSprite: {fileID: 5164560369884562537}
   boulderSprite: {fileID: 7816600989176263265}
+  impactSounds:
+  - {fileID: 8300000, guid: e21821276261a441d83818eb0962a5ec, type: 3}
+  - {fileID: 8300000, guid: bf3793d747ec146cfa66b2ce5d826897, type: 3}
+  - {fileID: 8300000, guid: eb9d0a95a92da4c088303f1d897041e9, type: 3}
+  whistleSounds:
+  - {fileID: 8300000, guid: 9c8f281209d034572b77ee8f3bfbe072, type: 3}
+  - {fileID: 8300000, guid: 1a8719848a8984401850b6794946d9be, type: 3}
+  - {fileID: 8300000, guid: 5712b255aede148f2a78912966557dae, type: 3}
   boulderParticlePrefab: {fileID: 3367492773939033578, guid: e4809032be83f4fae920e773126007db, type: 3}
   hitbox: {fileID: 5512452666288088993}
 --- !u!1 &9076135614795019042

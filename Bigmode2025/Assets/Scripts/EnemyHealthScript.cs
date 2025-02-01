@@ -88,7 +88,7 @@ public class EnemyHealthScript : MonoBehaviour
         }
 
 
-        else if (canDecapitate)
+        if (canDecapitate)
         {
             GameObject g = Instantiate(decapitatedHead, transform.position, Quaternion.identity);
         }

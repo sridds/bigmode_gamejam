@@ -14,6 +14,9 @@ public class ScreenJumper : MonoBehaviour
     [SerializeField]
     private AudioClip slamClip;
 
+    [SerializeField]
+    private AudioClip glassSlam;
+
     void Start()
     {
         transform.parent = Camera.main.transform;
@@ -42,6 +45,7 @@ public class ScreenJumper : MonoBehaviour
 
         source.pitch = Random.Range(0.95f, 1.1f);
         source.PlayOneShot(slamClip);
+        source.PlayOneShot(glassSlam);
 
         transform.DOShakePosition(0.4f, 2, 40, 90, false, true, ShakeRandomnessMode.Full);
         EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.4f, 20, 200, true));

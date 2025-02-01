@@ -5,8 +5,8 @@ using static EnemyManager;
 
 public class PlayerHealthScript : MonoBehaviour
 {
-    public float health = 100;
-    public float maxHealth = 100;
+    public int healthIncrements = 4;
+    public int maxHealthIncrements = 4;
 
     [SerializeField] float invincibilityTime = 0.2f;
     float timer = 0;
@@ -18,8 +18,17 @@ public class PlayerHealthScript : MonoBehaviour
     [SerializeField] Material whiteFlashMaterial, defaultMaterial;
     [SerializeField] SpriteRenderer[] spriteRenderers;
 
-    public delegate void DamageTaken();
+    [SerializeField]
+    private AudioClip hurtSound;
+
+    [SerializeField]
+    private AudioClip deathSound;
+
+    public delegate void DamageTaken(int oldHealth, int newHealth);
     public DamageTaken OnDamageTaken;
+
+    public delegate void Healed(int oldHealth, int newHealth);
+    public Healed OnHealed;
 
     EnemyManager enemyManager;
 
@@ -48,12 +57,15 @@ public class PlayerHealthScript : MonoBehaviour
             if (hasHealed == false)
             {
                 Instantiate(healParticle, transform.position, Quaternion.identity, transform);
-                health += comboHealAmount;
-                if (health > maxHealth)
+                //healthIncrements += comboHealAmount;
+                int oldHealth = healthIncrements;
+                healthIncrements++;
+                if (healthIncrements > maxHealthIncrements)
                 {
-                    health = maxHealth;
+                    healthIncrements = maxHealthIncrements;
                 }
                 hasHealed = true;
+                OnHealed?.Invoke(oldHealth, healthIncrements);
             }
         }
         else
@@ -64,10 +76,15 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        int previousHealth = healthIncrements;
         Debug.Log("Taking Damage");
+        if (GameStateManager.instance.currentState != GameStateManager.PlayerState.Playing) return;
+        if (healthIncrements <= 0) return;
+
         if (timer <= 0)
         {
-            health -= damage;
+            healthIncrements--;
+            //health -= damage;
 
             sprite.transform.DOComplete();
             collisionShake = sprite.transform.DOShakePosition(0.65f, damageShakeAmount, damageShakeVibrado);
@@ -77,15 +94,22 @@ public class PlayerHealthScript : MonoBehaviour
 
             FindObjectOfType<EnemyManager>().StopCombo();
 
-            if (health <= 0)
+            if (healthIncrements <= 0)
             {
                 Die();
+                EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.6f, 80, 200, true));
             }
             else
             {
                 timer = invincibilityTime;
+                AudioManager.instance.PlaySound(hurtSound, 1.0f, 0.95f, 1.1f);
+                EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(0.4f, 50, 200, true));
             }
-            OnDamageTaken?.Invoke();
+
+            AudioManager.instance.DamageEffect();
+
+            
+            OnDamageTaken?.Invoke(previousHealth, healthIncrements);
         }
     }
 
@@ -112,5 +136,7 @@ public class PlayerHealthScript : MonoBehaviour
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity, gameObject.transform);
         GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Dead);
+
+        AudioManager.instance.PlaySound(deathSound, 0.9f, 0.95f, 1.1f);
     }
 }

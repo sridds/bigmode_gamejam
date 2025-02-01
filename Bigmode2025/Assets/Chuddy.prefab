@@ -50,6 +50,7 @@ MonoBehaviour:
   source: {fileID: 5428377602731631446}
   screamClip: {fileID: 8300000, guid: 8c5a225c44bf241ee8d082117b3cbd66, type: 3}
   slamClip: {fileID: 8300000, guid: 60790aadb196e4f1486161928829c57d, type: 3}
+  glassSlam: {fileID: 8300000, guid: 0e7c795c080fb4f85951992aca84052f, type: 3}
 --- !u!82 &5428377602731631446
 AudioSource:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ AudioSource:
   m_GameObject: {fileID: 2440476624091588030}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6886791897313741736, guid: 27c3562cab9b64d4fbacfba76bd79d2f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -221,7 +222,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1936956669
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -2915141713552548554, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -308,7 +309,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1936956669
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7177033268607317405, guid: 49a03b1f707ac4680825f65dc070889d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
