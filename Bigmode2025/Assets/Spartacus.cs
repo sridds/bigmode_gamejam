@@ -108,7 +108,7 @@ public class Spartacus : MonoBehaviour
         EffectController.instance.StartCoroutine(EffectController.instance.FreezeFrame(0.07f));
         EffectController.instance.StartCoroutine(EffectController.instance.InstantScreenShake(1.0f, 25, 200, true));
         Instantiate(headPrefab, headSprite.transform.position, Quaternion.identity);
-
+        GameStateManager.instance.AddScore(5000);
         foreach (CrowdMember c in FindObjectsByType<CrowdMember>(FindObjectsSortMode.None))
         {
             c.SetPermaShocked();
