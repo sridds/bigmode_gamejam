@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-
         GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
     }
 
@@ -49,6 +48,29 @@ public class AudioManager : MonoBehaviour
         _track1.Stop();
         _track2.Stop();
         _shopTheme.Play();
+    }
+
+    public void StartStageTheme()
+    {
+        if (_track1.isPlaying) return;
+
+        _track1.Play();
+        _track2.Play();
+        _track1.volume = 1.0f;
+        _track2.volume = 1.0f;
+        _track2.mute = true;
+    }
+
+    public void SwitchToBacking()
+    {
+        _track1.mute = true;
+        _track2.mute = false;
+    }
+
+    public void SwitchToMain()
+    {
+        _track1.mute = false;
+        _track2.mute = true;
     }
 
     public void FadeInStageTheme(float fadeTime)

@@ -42,6 +42,7 @@ public class LevelTransitions : MonoBehaviour
 
     public IEnumerator DeathAnimation(float waitTime)
     {
+        AudioManager.instance.SwitchToBacking();
         TimescaleManager.instance.Slow();
         FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 5);
 
@@ -54,6 +55,7 @@ public class LevelTransitions : MonoBehaviour
 
     IEnumerator LevelEnd(bool doZoom)
     {
+        AudioManager.instance.SwitchToBacking();
         FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 5);
 
         float elapsed = 0.0f;

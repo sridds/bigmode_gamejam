@@ -41,7 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 1452757736257234416}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2463184765836481469, guid: 27c3562cab9b64d4fbacfba76bd79d2f, type: 2}
   m_audioClip: {fileID: 8300000, guid: fbe8011a9f5e14887b3c1a12bf88723e, type: 3}
   m_Resource: {fileID: 8300000, guid: fbe8011a9f5e14887b3c1a12bf88723e, type: 3}
   m_PlayOnAwake: 0
@@ -170,7 +170,7 @@ AudioSource:
   m_GameObject: {fileID: 1560554560537319955}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2463184765836481469, guid: 27c3562cab9b64d4fbacfba76bd79d2f, type: 2}
   m_audioClip: {fileID: 8300000, guid: ab8a12362e75b47c0867a0ca1ac4fedc, type: 3}
   m_Resource: {fileID: 8300000, guid: ab8a12362e75b47c0867a0ca1ac4fedc, type: 3}
   m_PlayOnAwake: 0
@@ -321,7 +321,7 @@ AudioSource:
   m_GameObject: {fileID: 3389232775915642373}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6886791897313741736, guid: 27c3562cab9b64d4fbacfba76bd79d2f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -450,7 +450,7 @@ AudioSource:
   m_GameObject: {fileID: 9195345207556685580}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2463184765836481469, guid: 27c3562cab9b64d4fbacfba76bd79d2f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 54ade2ecd0d4c4c25a236798d2758bc8, type: 3}
   m_Resource: {fileID: 8300000, guid: 54ade2ecd0d4c4c25a236798d2758bc8, type: 3}
   m_PlayOnAwake: 0
@@ -579,7 +579,7 @@ AudioSource:
   m_GameObject: {fileID: 9199407655859617882}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2463184765836481469, guid: 27c3562cab9b64d4fbacfba76bd79d2f, type: 2}
   m_audioClip: {fileID: 8300000, guid: ad05f8e30b09b4746be0b4b2ab1fbb22, type: 3}
   m_Resource: {fileID: 8300000, guid: ad05f8e30b09b4746be0b4b2ab1fbb22, type: 3}
   m_PlayOnAwake: 0
