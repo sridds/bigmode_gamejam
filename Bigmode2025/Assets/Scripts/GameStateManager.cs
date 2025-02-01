@@ -23,6 +23,7 @@ public class GameStateManager : MonoBehaviour
     TextMeshProUGUI scoreUI;
     RectTransform scoreUIContainer;
 
+    int ScoreGainedThisStage;
 
     private void Awake()
     {
@@ -37,6 +38,8 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    
+
     public void AddScore(int ScoreToAdd)
     {
         scoreUIContainer.DOComplete();
@@ -46,10 +49,12 @@ public class GameStateManager : MonoBehaviour
             if (EnemyManager.instance.Combo > 1)
             {
                 Score += ScoreToAdd + EnemyManager.instance.Combo * 10;
+                ScoreGainedThisStage +=  ScoreToAdd + EnemyManager.instance.Combo * 10;
             }
             else
             {
                 Score += ScoreToAdd;
+                ScoreGainedThisStage += ScoreToAdd;
             }
         }
         else
@@ -95,12 +100,24 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    bool hasRestartedStage = false;
     private void Update()
     {
         // update timer
         if(currentState == PlayerState.Playing)
         {
             currentTime += Time.deltaTime;
+        }
+
+        if (currentState == PlayerState.Dead)
+        {
+            hasRestartedStage = false;
+        }
+        if (currentState == PlayerState.Playing && hasRestartedStage == false)
+        {
+            hasRestartedStage = true;
+            Score -= ScoreGainedThisStage;
+            ScoreGainedThisStage = 0;
         }
     }
 }

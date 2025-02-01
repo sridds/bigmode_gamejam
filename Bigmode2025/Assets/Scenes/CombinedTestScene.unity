@@ -3256,6 +3256,10 @@ PrefabInstance:
       propertyPath: completeText
       value: 
       objectReference: {fileID: 2041468222}
+    - target: {fileID: 2228676573785771002, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
+      propertyPath: nextLevelBuildIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5331623540135842229, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: m_Name
       value: LevelTransition
@@ -7434,8 +7438,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxSource: {fileID: 1061707378}
-  _stageThemeLoop: {fileID: 0}
-  _stageThemeIsolated: {fileID: 0}
+  _introTrack: {fileID: 0}
+  _track1: {fileID: 0}
+  _track2: {fileID: 0}
 --- !u!4 &1061707380
 Transform:
   m_ObjectHideFlags: 0
