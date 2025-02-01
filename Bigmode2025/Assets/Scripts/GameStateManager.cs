@@ -87,7 +87,7 @@ public class GameStateManager : MonoBehaviour
 
         if (currentState == PlayerState.Dead)
         {
-            StartCoroutine(FindFirstObjectByType<LevelTransitions>().DeathAnimation(5));
+            StartCoroutine(FindFirstObjectByType<LevelTransitions>().DeathAnimation(1));
             TimescaleManager.instance.Slow();
         }
         else if (currentState == PlayerState.Paused)

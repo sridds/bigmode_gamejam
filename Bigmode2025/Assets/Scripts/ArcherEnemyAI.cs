@@ -250,8 +250,8 @@ public class ArcherEnemyAI : MonoBehaviour
             yield return new WaitForSeconds(fireWaitTime * 0.9f);
 
             //Actually point the aim direction that will be fired
-            predictedPosition = (player.transform.position);
-            targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;
+/*            predictedPosition = (player.transform.position);
+            targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;*/
 
             dir = (targetPosition - transform.position).normalized;
             lookRot = Quaternion.LookRotation(Vector3.forward, dir);

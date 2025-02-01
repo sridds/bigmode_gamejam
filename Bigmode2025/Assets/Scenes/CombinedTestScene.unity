@@ -3266,7 +3266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331623540135842229, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5845182993076314473, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: pauseManager
@@ -5572,7 +5572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 80, y: 10}
+  m_AnchoredPosition: {x: 158, y: 10}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831547130
@@ -6497,6 +6497,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6733068055184601224, guid: 6ab9d606c77484c039b33c325822c9c7, type: 3}
   m_PrefabInstance: {fileID: 1032526888}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &923305950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923305951}
+  - component: {fileID: 923305953}
+  - component: {fileID: 923305952}
+  m_Layer: 0
+  m_Name: speedtestr_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &923305951
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923305950}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1220353181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 9.100006, y: 6.699997}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &923305952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923305950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -5879491175189449455, guid: 60ec9b77eab1d49b9acefa1c92604f01, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &923305953
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923305950}
+  m_CullTransparentMesh: 1
 --- !u!4 &924566847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6733068055184601224, guid: 6ab9d606c77484c039b33c325822c9c7, type: 3}
@@ -13669,6 +13744,7 @@ RectTransform:
   - {fileID: 1352860592}
   - {fileID: 831547129}
   - {fileID: 1416388556}
+  - {fileID: 923305951}
   m_Father: {fileID: 1975627127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -17150,11 +17226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: maxEnemies
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: enemiesThisWave
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8002952505250903364, guid: 7e7136a723cb25046a58a7a8042d1be4, type: 3}
       propertyPath: EnemyTypes.Array.size
@@ -24806,10 +24882,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.09028961
-    y: 0.008174387
-    width: 0.8177172
-    height: 0.9809264
+    x: 0.125
+    y: 0
+    width: 0.75000006
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
