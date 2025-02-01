@@ -61,6 +61,12 @@ public class PanelController : MonoBehaviour
     [SerializeField]
     private TitleCard titleCard;
 
+    [SerializeField]
+    private float timeBeforePanel2 = 2.0f;
+
+    [SerializeField]
+    private float timeBeforeBeam = 0.5f;
+
     private void Start()
     {
         panel1.SetActive(false);
@@ -92,7 +98,7 @@ public class PanelController : MonoBehaviour
         yield return panel1.transform.DOScale(1.0f, 0.2f).SetEase(Ease.Linear).WaitForCompletion();
         yield return panel1.transform.DOShakePosition(0.4f, 6.0f, 40).WaitForCompletion();
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(timeBeforePanel2);
 
         panel2.SetActive(true);
         panel2.transform.localScale = new Vector3(1.5f, 1.5f, 3);
@@ -100,6 +106,8 @@ public class PanelController : MonoBehaviour
         panel1.transform.DOShakePosition(0.4f, 3.0f, 40);
         AudioManager.instance.PlaySound(panelAppearClip, 1.0f, 0.95f, 1.1f);
         yield return panel2.transform.DOShakePosition(0.4f, 6.0f, 40).WaitForCompletion();
+
+        yield return new WaitForSeconds(timeBeforeBeam);
 
         beam.SetActive(true);
         AudioManager.instance.PlaySound(beamClip, 0.7f, 1.0f, 1.0f);

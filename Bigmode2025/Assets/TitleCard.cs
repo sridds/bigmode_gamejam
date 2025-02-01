@@ -45,12 +45,15 @@ public class TitleCard : MonoBehaviour
         StartCoroutine(PlaySequence());
     }
 
+    public float timeBetweenEachWord = 0.5f;
+    public float delay = 1.0f;
+
     private IEnumerator PlaySequence()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(delay);
 
         // veni
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeBetweenEachWord);
         _veni.gameObject.SetActive(true);
         _audioSource.PlayOneShot(_slamSound);
 
@@ -61,23 +64,25 @@ public class TitleCard : MonoBehaviour
         _veni.transform.DOShakePosition(0.3f, 2f, 40, 90, false, true, ShakeRandomnessMode.Full);
 
         // vidi
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeBetweenEachWord);
         _vidi.gameObject.SetActive(true);
         _audioSource.PlayOneShot(_slamSound);
 
         _vidi.transform.localScale = new Vector3(4, 4);
         _vidi.transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.Linear);
 
+        yield return new WaitForSeconds(0.1f);
         _vidi.transform.DOShakePosition(0.3f, 2f, 40, 90, false, true, ShakeRandomnessMode.Full);
         _veni.transform.DOShakePosition(0.2f, 0.5f, 40, 90, false, true, ShakeRandomnessMode.Full);
 
         // vroom
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeBetweenEachWord);
         _audioSource.PlayOneShot(_slamSound);
         _vroom.transform.localScale = new Vector3(4, 4);
         _vroom.transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.Linear);
 
         _vroom.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
         _vroom.transform.DOShakePosition(0.3f, 3f, 40, 90, false, true, ShakeRandomnessMode.Full);
         _vidi.transform.DOShakePosition(0.2f, 0.5f, 40, 90, false, true, ShakeRandomnessMode.Full);
         _veni.transform.DOShakePosition(0.2f, 0.5f, 40, 90, false, true, ShakeRandomnessMode.Full);
