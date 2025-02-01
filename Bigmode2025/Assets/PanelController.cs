@@ -152,6 +152,9 @@ public class PanelController : MonoBehaviour
 
         titleCard.gameObject.SetActive(true);
 
+        yield return new WaitForSeconds(4.5f);
+        FindObjectOfType<MenuSpawners>().StartSpawning();
+
         yield return null;
     }
 

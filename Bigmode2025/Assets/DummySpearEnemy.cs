@@ -14,10 +14,11 @@ public class DummySpearEnemy : MonoBehaviour
         if (hasExploded) return;
 
         myBlood.SetActive(true);
+        myBlood.transform.SetParent(null);
         GameObject g = Instantiate(decapitatedHead, transform.position, Quaternion.identity);
         AudioManager.instance.PlaySound(deathSounds[Random.Range(0, deathSounds.Length - 1)], 1.0f, 0.95f, 1.1f);
 
-        Destroy(gameObject);
+        Destroy(gameObject, 0.01f);
         hasExploded = true;
 
         if (makeLogoBloody) MakeLogoBloody();
@@ -51,7 +52,7 @@ public class DummySpearEnemy : MonoBehaviour
                 yelling = true;
             }
 
-            if (GameObject.FindGameObjectWithTag("Player").transform.position.x > transform.position.x)
+            if (Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 3.0f)
             {
                 Explode();
             }
