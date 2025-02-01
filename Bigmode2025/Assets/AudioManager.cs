@@ -1,5 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
@@ -29,6 +31,25 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
+    }
+
+    public void DamageEffect()
+    {
+        StartCoroutine(IDamageEffect());
+    }
+
+    private IEnumerator IDamageEffect()
+    {
+        _track1.DOKill(true);
+        _track2.DOKill(true);
+
+        _track1.DOPitch(0.5f, 0.2f).SetUpdate(UpdateType.Normal, true);
+        _track2.DOPitch(0.5f, 0.2f).SetUpdate(UpdateType.Normal, true);
+
+        yield return new WaitForSecondsRealtime(0.2f);
+
+        _track1.DOPitch(1.0f, 0.8f).SetUpdate(UpdateType.Normal, true);
+        _track2.DOPitch(1.0f, 0.8f).SetUpdate(UpdateType.Normal, true);
     }
 
     public void PlayIntro()

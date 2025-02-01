@@ -162,7 +162,7 @@ public class CrowdMember : MonoBehaviour
         StartCoroutine(IYell());
     }
 
-    public void Yell()
+    public void Yell(int oldHealth, int newHealth)
     {
         if (crowdState != ECrowdMemberState.Bored && crowdState != ECrowdMemberState.Happy) return;
         // only some yell

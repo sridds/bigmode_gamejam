@@ -9,12 +9,12 @@ public class HealthBar : MonoBehaviour
     void Awake()
     {
         healthScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthScript>();
-        maxHealth = healthScript.health;
+        //maxHealth = healthScript.health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthSlider.value = healthScript.health/ maxHealth;
+        //healthSlider.value = healthScript.health/ maxHealth;
     }
 }
