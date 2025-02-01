@@ -18,13 +18,14 @@ public class Upgrade : MonoBehaviour
         {
             if (GameStateManager.instance.Score >= ScoreCost)
             {
-                //Remove Currency
+                canBuy = false;
+
                 GameStateManager.instance.AddScore(-ScoreCost);
                 PlayerUpgrades.instance.driftTurnDelta += driftTurnDelta;
                 PlayerUpgrades.instance.driftFriction += driftFriction;
                 PlayerUpgrades.instance.maxSpeed += maxSpeed;
                 PlayerUpgrades.instance.boostMultiplier += boostMultiplier;
-                StartCoroutine(Bought());
+                Bought();
             }
             else
             {
@@ -39,11 +40,10 @@ public class Upgrade : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         canBuy = true;
     }
-    IEnumerator Bought()
+    void Bought()
     {
         GameObject newEffect = Instantiate(powerUpText, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         newEffect.GetComponentInChildren<SpriteRenderer>().sprite = powerUpSprite;
-        yield return null;
         Destroy(gameObject);
 
     }

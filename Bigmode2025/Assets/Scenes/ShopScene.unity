@@ -16885,15 +16885,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.125
     y: 0
-    width: 1
+    width: 0.75000006
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.946092
+  orthographic size: 18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -25544,6 +25544,7 @@ GameObject:
   - component: {fileID: 2086970181}
   - component: {fileID: 2086970183}
   - component: {fileID: 2086970182}
+  - component: {fileID: 2086970184}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -25669,6 +25670,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086970180}
   m_CullTransparentMesh: 1
+--- !u!114 &2086970184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086970180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4203aa94542e94ebd6fbc7d1589998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisText: {fileID: 2086970182}
 --- !u!1 &2115086699
 GameObject:
   m_ObjectHideFlags: 0
