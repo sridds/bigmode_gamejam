@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class SteamAchievement : MonoBehaviour
 {
-
+    [SerializeField] AudioClip soundEffect;
     EnemyManager enemyManager;
     bool displayedAchievement = false;
     float timer = 0;
@@ -18,7 +18,7 @@ public class SteamAchievement : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (enemyManager.enemies.Count <= 4 && !displayedAchievement && timer >= 1)
+        if (enemyManager.enemies.Count <= 7 && !displayedAchievement && timer >= 1)
         {
             displayedAchievement = true;
             StartCoroutine(DisplayAchievement());
@@ -28,8 +28,11 @@ public class SteamAchievement : MonoBehaviour
     {
         float elapsed = 0.0f;
 
+        AudioManager.instance.PlaySound(soundEffect, 0.8f, 1, 1);
+
+
         Vector3 startPos = transform.localPosition;
-        Vector3 endPos = new Vector3(startPos.x, startPos.y + 52, startPos.z);
+        Vector3 endPos = new Vector3(startPos.x, startPos.y + 53, startPos.z);
         while (elapsed < 0.5f)
         {
             transform.localPosition = Vector3.Lerp(startPos, endPos, elapsed / 0.5f);
