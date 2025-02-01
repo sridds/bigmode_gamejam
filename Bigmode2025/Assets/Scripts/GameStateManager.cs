@@ -26,6 +26,8 @@ public class GameStateManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(scoreUIContainer.gameObject);
+
         if (instance != null && instance != this)
         {
             Destroy(this);

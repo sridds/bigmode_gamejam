@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = rb.linearVelocity.magnitude;
             MovementScreenShake();
 
-            float scaled = currentSpeed / maxSpeed;
+            float scaled = currentSpeed / maxSpeed + PlayerUpgrades.instance.maxSpeed;
             float pitch = (scaled - pitchMin) / (pitchMax - pitchMin);
 
             if (isDrifting && carMotor.clip != driftLoop)
@@ -136,13 +136,24 @@ public class PlayerMovement : MonoBehaviour
             carMotor.pitch = pitch;
         }
     }
-        
+
+    bool hasSet0 = false;
     void MovementScreenShake()
     {
         float speed = rb.linearVelocity.magnitude;
-        if (rb.linearVelocity.magnitude > MaxSpeed)
+        if (rb.linearVelocity.magnitude > MaxSpeed + 0.2f)
         {
+            hasSet0 = false;
+
             EffectController.instance.ContinousScreenShake(velocityShakeAmplitude * speed, velocityShakeFrequency * speed);
+        }
+        else
+        {
+            if (!hasSet0)
+            {
+                EffectController.instance.ContinousScreenShake(0, 0);
+                hasSet0 = true;
+            }
         }
     }
     private void LateUpdate()
@@ -162,11 +173,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 engineForceVector = carDirection * acceleration;
 
 
-        if (rb.linearVelocity.magnitude <= MaxSpeed)
+        if (rb.linearVelocity.magnitude <= MaxSpeed + PlayerUpgrades.instance.maxSpeed)
         {
             rb.linearVelocity += engineForceVector * Time.fixedDeltaTime;
         }
-        if (rb.linearVelocity.magnitude > MaxSpeed)
+        if (rb.linearVelocity.magnitude > MaxSpeed + PlayerUpgrades.instance.maxSpeed)
         {
             rb.linearVelocity -= decceleration * Time.fixedDeltaTime * engineForceVector;
         }
@@ -178,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, carDirection * velocity.magnitude, driftFriction);
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, carDirection * velocity.magnitude, driftFriction + PlayerUpgrades.instance.driftFriction);
         }
 
 
@@ -202,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
                         reachedTier3 = true;
                     }
 
-                    driftBoost = drift3Speed;
+                    driftBoost = drift3Speed * PlayerUpgrades.instance.boostMultiplier;
                     drift3Particle.Play();
                     drift2Particle.Stop();
 
@@ -215,14 +226,14 @@ public class PlayerMovement : MonoBehaviour
                         reachedTier2 = true;
                     }
 
-                    driftBoost = drift2Speed;
+                    driftBoost = drift2Speed * PlayerUpgrades.instance.boostMultiplier;
                     drift2Particle.Play();
                     drift1Particle.Stop();
 
                 }
                 else if (driftBoostTimer > drift1Time)
                 {
-                    driftBoost = drift1Speed;
+                    driftBoost = drift1Speed * PlayerUpgrades.instance.boostMultiplier;
                     drift1Particle.Play();
                 }
             }
@@ -262,16 +273,16 @@ public class PlayerMovement : MonoBehaviour
                     if (dotProduce > 0 && dotProduce > autoAimMinAngle)
                     {
                         float maxDistance = 0;
-                        if (driftBoost == drift3Speed)
+                        if (driftBoost == drift3Speed * PlayerUpgrades.instance.boostMultiplier)
                         {
                             maxDistance = 35;
                         }
-                        else if (driftBoost == drift2Speed)
+                        else if (driftBoost == drift2Speed * PlayerUpgrades.instance.boostMultiplier)
                         {
                             maxDistance = 22;
 
                         }
-                        else if (driftBoost == drift1Speed)
+                        else if (driftBoost == drift1Speed * PlayerUpgrades.instance.boostMultiplier)
                         {
                             maxDistance = 16;
                         }
@@ -340,7 +351,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDrifting)
         {
-            steeringFactor = (steeringInput / driftTurnDelta) + driftDirection;
+            steeringFactor = (steeringInput / driftTurnDelta * PlayerUpgrades.instance.driftTurnDelta) + driftDirection;
             rotationAngle -= steeringFactor * driftTurnSharpness * rb.linearVelocity.magnitude;
             visualRotationAngle -= steeringFactor * driftTurnSharpness * rb.linearVelocity.magnitude;
             foreach (ParticleSystem p in boostParticleSystem)
@@ -351,10 +362,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else if (rb.linearVelocity.magnitude > MaxSpeed) //if dashing
+        else if (rb.linearVelocity.magnitude > MaxSpeed + PlayerUpgrades.instance.maxSpeed) //if dashing
         {
             steeringFactor = steeringInput;
-            rotationAngle -= steeringFactor * turnSharpness * rb.linearVelocity.magnitude / (rb.linearVelocity.magnitude - MaxSpeed + 1);
+            rotationAngle -= steeringFactor * turnSharpness * rb.linearVelocity.magnitude / (rb.linearVelocity.magnitude - MaxSpeed + PlayerUpgrades.instance.maxSpeed + 1);
             visualRotationAngle = rotationAngle;
 
             foreach (ParticleSystem p in boostParticleSystem)
