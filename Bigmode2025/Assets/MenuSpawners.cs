@@ -32,7 +32,7 @@ public class MenuSpawners : MonoBehaviour
 
         if(timer > nextSpawnTime)
         {
-            GameObject g = Instantiate(dummyToSpawn, transform.position + new Vector3(70, Random.Range(-10, 10)), Quaternion.identity);
+            GameObject g = Instantiate(dummyToSpawn, transform.position + new Vector3(70, Random.Range(-17, 4)), Quaternion.identity);
             Destroy(g, lifetime);
 
             timer = 0.0f;

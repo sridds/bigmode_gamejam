@@ -45,6 +45,11 @@ public class TitleCard : MonoBehaviour
         StartCoroutine(PlaySequence());
     }
 
+    public void NoMoreSinPlease()
+    {
+        fullTitleRevealed = false;
+    }
+
     public float timeBetweenEachWord = 0.5f;
     public float delay = 1.0f;
 
