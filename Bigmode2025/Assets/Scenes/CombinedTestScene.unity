@@ -15086,7 +15086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1352860592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16710,6 +16710,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a628e2bdb2be5124a83d60ce01d62fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  driftTurnDelta: 0
+  driftFriction: 0
+  maxSpeed: 0
+  boostMultiplier: 1
 --- !u!4 &1560023675
 Transform:
   m_ObjectHideFlags: 0

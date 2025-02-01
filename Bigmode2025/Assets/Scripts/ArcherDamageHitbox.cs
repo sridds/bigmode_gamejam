@@ -16,7 +16,7 @@ public class ArcherDamageHitbox : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //healthScript.InvincibilityFrames(0.01f);
-            archerEnemyAIScript.StopLunge();
+            //archerEnemyAIScript.StopLunge();
             collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(damageToDeal);
         }
     }

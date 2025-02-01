@@ -28,6 +28,7 @@ public class ArcherEnemyAI : MonoBehaviour
     GameObject currentArrow;
 
     public Coroutine shooting;
+    public bool shootingBool = false;
 
     //If the player is right at the edge of the target distance, this prevents weird stuttering movement
     [SerializeField] float walkingCooldown = 0.1f;
@@ -224,8 +225,6 @@ public class ArcherEnemyAI : MonoBehaviour
 
     public IEnumerator ShootAttack()
     {
-        if (shooting == null)
-        {
             chargingLunge = true;
             canLunge = false;
 
@@ -287,18 +286,17 @@ public class ArcherEnemyAI : MonoBehaviour
                 }
             }
 
-        }
-
+        shootingBool = false;
         StartCoroutine(LungeEnding());
         yield return null;
     }
 
     IEnumerator LungeEnding()
     {
-        if (shooting != null)
+        if (shootingBool == false)
         {
-            //damageHitbox.SetActive(false);
             Destroy(currentArrow);
+            //damageHitbox.SetActive(false);
 
             shooting = null;
 
@@ -309,21 +307,39 @@ public class ArcherEnemyAI : MonoBehaviour
             canBeTerrified = true;
 
             //waiting before enemy can lunge again
-            yield return new WaitForSeconds(fireCooldown);
-
-            canLunge = true;
+            StartCoroutine(FireCooldown());
         }
 
         //back to normal
         yield return null;
     }
 
+    IEnumerator FireCooldown()
+    {
+        yield return new WaitForSeconds(fireCooldown);
+
+        canLunge = true;
+    }
+
     public void StopLunge()
     {
+        lunging = false;
+        shootingBool = false;
+
         StopAllCoroutines();
+
+        //damageHitbox.SetActive(false);
+        Destroy(currentArrow);
+
+        shooting = null;
+
         lunging = false;
 
-        StartCoroutine(LungeEnding());
+        //yield return new WaitForSeconds(standStillAfterFireTime);
+
+        canBeTerrified = true;
+
+        StartCoroutine(FireCooldown());
 
     }
 
