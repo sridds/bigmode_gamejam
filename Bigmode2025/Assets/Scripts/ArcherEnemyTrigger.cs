@@ -17,8 +17,9 @@ public class ArcherEnemyTrigger : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && archerEnemyAIScript.canLunge && !archerEnemyAIScript.isTerrified && !archerEnemyAIScript.knockedBack)
+        if (other.gameObject.CompareTag("Player") && archerEnemyAIScript.canLunge && !archerEnemyAIScript.isTerrified && !archerEnemyAIScript.knockedBack && !archerEnemyAIScript.shootingBool)
         {
+            archerEnemyAIScript.shootingBool = true;
             archerEnemyAIScript.shooting = StartCoroutine(archerEnemyAIScript.ShootAttack());
         }
     }

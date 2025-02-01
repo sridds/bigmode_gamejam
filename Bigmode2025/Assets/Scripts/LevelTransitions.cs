@@ -25,11 +25,13 @@ public class LevelTransitions : MonoBehaviour
 
     [SerializeField] GameObject blackWipe;
 
+    float wipeHalfTime = 1;
+
     [SerializeField] int nextLevelBuildIndex;
 
     private void Start()
     {
-        StartCoroutine(EndWipe(true, false, 1));
+        StartCoroutine(EndWipe(true, false));
     }
 
     public void StartTransition(bool doZoom = true)
@@ -38,14 +40,14 @@ public class LevelTransitions : MonoBehaviour
         StartCoroutine(LevelEnd(doZoom));
     }
 
-    public IEnumerator DeathAnimation(float wipeHalfTime, float waitTime)
+    public IEnumerator DeathAnimation(float waitTime)
     {
         TimescaleManager.instance.Slow();
         FindObjectOfType<CinematicBarController>().Focus(250, 0.5f, Ease.OutQuad, 5);
 
         yield return new WaitForSecondsRealtime(waitTime);
 
-        StartCoroutine(StartWipe(false, true, 0.2f));
+        StartCoroutine(StartWipe(false, true));
 
         yield return null;
     }
@@ -100,7 +102,7 @@ public class LevelTransitions : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator StartWipe(bool transition, bool dead, float wipeHalfTime)
+    public IEnumerator StartWipe(bool levelTransition, bool dead)
     {
         float elapsed = 0.0f;
 
@@ -110,11 +112,13 @@ public class LevelTransitions : MonoBehaviour
         {
             blackWipe.transform.localPosition = Vector3.Lerp(startPos, new Vector3(0, 0, 0), elapsed / wipeHalfTime);
 
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
 
-        if (transition)
+        blackWipe.transform.localPosition = new Vector3(0, 0, 0);
+
+        if (levelTransition)
         {
             cutsceneObjectsHolder.SetActive(false);
             SceneManager.LoadScene(nextLevelBuildIndex);
@@ -126,16 +130,17 @@ public class LevelTransitions : MonoBehaviour
         }
         else if (dead)
         {
+            GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Playing);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        StartCoroutine(EndWipe(false, dead, wipeHalfTime));
+        StartCoroutine(EndWipe(false, dead));
 
 
         yield return null;
     }
 
-    IEnumerator LevelTransitionCutscene(float wipeHalfTime)
+    IEnumerator LevelTransitionCutscene()
     {
 
         float elapsed = 0.0f;
@@ -150,11 +155,13 @@ public class LevelTransitions : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(StartWipe(true, false, wipeHalfTime));
+        blackWipe.transform.localPosition = new Vector3(0, 0, 0);
+
+        StartCoroutine(StartWipe(true, false));
         yield return null;
     }
 
-    IEnumerator EndWipe(bool startOfLevel, bool dead, float wipeHalfTime)
+    IEnumerator EndWipe(bool startOfLevel, bool dead)
     {
         float elapsed = 0.0f;
 
@@ -169,7 +176,7 @@ public class LevelTransitions : MonoBehaviour
         }
         if (!startOfLevel && !dead)
         {
-            StartCoroutine(LevelTransitionCutscene(wipeHalfTime));
+            StartCoroutine(LevelTransitionCutscene());
         }
         yield return null;
     }

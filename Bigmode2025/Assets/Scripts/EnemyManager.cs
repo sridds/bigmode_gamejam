@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] TMP_Text text;
+    //[SerializeField] TMP_Text text;
     public float _comboTime;
 
     [SerializeField]
@@ -86,7 +86,7 @@ public class EnemyManager : MonoBehaviour
 
     public void UpdateCount()
     {
-        text.text = (enemyContainer.childCount -1).ToString();
+        //text.text = (enemyContainer.childCount -1).ToString();
     }
 
     private void SpawnComboMeter(Vector2 pos)

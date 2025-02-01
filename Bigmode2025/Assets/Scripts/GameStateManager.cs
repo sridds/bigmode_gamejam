@@ -25,15 +25,18 @@ public class GameStateManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (instance != null && instance != this)
+        if (instance == null)
         {
-            Destroy(this);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            instance = this;
+            Destroy(this);
         }
+        
+
+
     }
 
     public void AddScore(int ScoreToAdd)
@@ -82,7 +85,7 @@ public class GameStateManager : MonoBehaviour
 
         if (currentState == PlayerState.Dead)
         {
-            StartCoroutine(FindFirstObjectByType<LevelTransitions>().DeathAnimation(0.2f, 5));
+            StartCoroutine(FindFirstObjectByType<LevelTransitions>().DeathAnimation(5));
             TimescaleManager.instance.Slow();
         }
         else if (currentState == PlayerState.Paused)

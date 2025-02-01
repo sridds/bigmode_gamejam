@@ -4,6 +4,11 @@ public class PlayerUpgrades : MonoBehaviour
 {
     public static PlayerUpgrades instance;
 
+    public float driftTurnDelta;
+    public float driftFriction;
+    public float maxSpeed;
+    public float boostMultiplier;
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
