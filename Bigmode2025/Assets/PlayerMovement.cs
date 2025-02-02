@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float autoAimMinAngle;
 
     public float MaxSpeed { get { return maxSpeed + additionalBoost; } }
+    public float CurrentSpeed { get { return currentSpeed; } }
 
     float driftBoost;
     float driftBoostTimer;
