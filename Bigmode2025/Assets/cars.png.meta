@@ -82,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,7 +120,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cars_0: 8282042346942556162
+      cars_1: 3142733431838295593
+      cars_10: 7320019043883677701
+      cars_11: -2087765825687968528
+      cars_12: -5291575126746715094
+      cars_13: -7306778691158437129
+      cars_14: -6130179860514461133
+      cars_15: -1814430334413362516
+      cars_2: -7084217537203443707
+      cars_3: -8290738097171246125
+      cars_4: 310401668172868728
+      cars_5: 2021047748083989851
+      cars_6: -4230369545664601909
+      cars_7: -5231122588367393095
+      cars_8: -348169527492270799
+      cars_9: 7553053229717567860
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
