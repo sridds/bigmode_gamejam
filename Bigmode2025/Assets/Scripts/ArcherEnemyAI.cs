@@ -278,16 +278,12 @@ public class ArcherEnemyAI : MonoBehaviour
 
         Vector3 startPos = currentArrow.transform.position;
         currentArrowCollider.enabled = true;
-
+        Rigidbody2D arrowCollider = currentArrow.GetComponent<Rigidbody2D>();
         if (currentArrow != null)
             {
-                while (elapsed < arrowTravelTime)
-                {
-                    currentArrow.transform.position = Vector3.Lerp(startPos, targetPosition, elapsed / arrowTravelTime);
-
-                    elapsed += Time.deltaTime;
-                    yield return null;
-                }
+            Vector2 direction = (startPos - targetPosition).normalized;
+            arrowCollider.AddForce(direction * arrowTravelTime);
+            Destroy(currentArrow, 4f);
             }
 
         shootingBool = false;
