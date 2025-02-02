@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.UI;
 using DG.Tweening.Core.Easing;
+using UnityEngine.SceneManagement;
 
 public class PanelController : MonoBehaviour
 {
@@ -13,6 +14,24 @@ public class PanelController : MonoBehaviour
     private GameObject panel2;
     [SerializeField]
     private GameObject panel3;
+
+    [SerializeField]
+    private GameObject blackWipe;
+
+    [SerializeField]
+    private Image text1;
+
+    [SerializeField]
+    private Image text2;
+
+    [SerializeField]
+    private Image text3;
+
+    [SerializeField]
+    private Image _aGameBy;
+
+    [SerializeField]
+    private Image[] names;
 
     [SerializeField]
     private GameObject flash;
@@ -154,25 +173,66 @@ public class PanelController : MonoBehaviour
         flash.GetComponent<SpriteRenderer>().DOFade(0.0f, 1.0f);
         yield return new WaitForSeconds(3);
 
+        blackWipe.transform.DOMoveX(0.0f, 0.8f, false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private IEnumerator ShowPanel()
     {
         yield return new WaitForSeconds(2.0f);
+
+        AudioManager.instance.PlaySound(pressStartSound, 1.0f, 1.0f, 1.0f);
+        _aGameBy.DOFade(1.0f, 0.4f);
+
+        yield return new WaitForSeconds(1.0f);
+
+        foreach (Image i in names)
+        {
+            i.transform.position = new Vector3(i.transform.position.x, i.transform.position.y - 3);
+
+            i.transform.DOMoveY(i.transform.position.y + 3, 0.4f, false);
+            i.DOFade(1.0f, 0.4f);
+
+            AudioManager.instance.PlaySound(pressStartSound, 1.0f, 1.0f, 1.0f);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(2.0f);
+
+        _aGameBy.DOFade(0.0f, 0.4f);
+        foreach (Image i in names)
+        {
+            i.DOFade(0.0f, 0.4f);
+        }
+        yield return new WaitForSeconds(2.0f);
+
         AudioManager.instance.PlayIntro();
         yield return new WaitForSeconds(2.0f);
 
         panel1.transform.localScale = new Vector3(1.5f, 1.5f, 3);
         panel1.SetActive(true);
         AudioManager.instance.PlaySound(panelAppearClip, 1.0f, 0.95f, 1.1f);
+
+        // fly in text
+        text1.transform.position = new Vector3(text1.transform.position.x - 5, text1.transform.position.y);
+        text1.transform.DOMoveX(text1.transform.position.x + 5, 0.4f, false).SetEase(Ease.OutQuad);
+        text1.DOFade(1.0f, 0.4f).SetEase(Ease.OutQuad);
+
         yield return panel1.transform.DOScale(1.0f, 0.2f).SetEase(Ease.Linear).WaitForCompletion();
         panelToScroll.transform.DOMoveY(panelToScroll.transform.position.y - 4.0f, timeBeforePanel2 + 0.4f, false).SetEase(Ease.Linear);
         yield return panel1.transform.DOShakePosition(0.4f, 6.0f, 40).WaitForCompletion();
+
 
         yield return new WaitForSeconds(timeBeforePanel2);
 
         panel2.SetActive(true);
         panel2.transform.localScale = new Vector3(1.5f, 1.5f, 3);
+
+        text2.transform.position = new Vector3(text2.transform.position.x - 5, text2.transform.position.y);
+        text2.transform.DOMoveX(text2.transform.position.x + 5, 0.4f, false).SetEase(Ease.OutQuad);
+        text2.DOFade(1.0f, 0.4f).SetEase(Ease.OutQuad);
+
         yield return panel2.transform.DOScale(1.0f, 0.2f).SetEase(Ease.Linear).WaitForCompletion();
         panel1.transform.DOShakePosition(0.4f, 3.0f, 40);
         AudioManager.instance.PlaySound(panelAppearClip, 1.0f, 0.95f, 1.1f);
@@ -195,6 +255,7 @@ public class PanelController : MonoBehaviour
         _trailRight.emitting = true;
         carMotorSource.enabled = true;
         carMotorSource.DOFade(0.0f, 4.0f);
+        text3.gameObject.SetActive(true);
 
 
         foreach (DummySpearEnemy spearEnemy in exploders)
@@ -205,6 +266,10 @@ public class PanelController : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         carAnimator.SetBool("Drive", true);
+
+        text1.DOFade(0.0f, 0.4f);
+        text2.DOFade(0.0f, 0.4f);
+        text3.DOFade(0.0f, 0.4f);
 
         panel3.SetActive(true);
         canMovePanel = true;
