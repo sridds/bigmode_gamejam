@@ -152,7 +152,8 @@ public class PanelController : MonoBehaviour
         titleCard.NoMoreSinPlease();
         flash.SetActive(true);
         flash.GetComponent<SpriteRenderer>().DOFade(0.0f, 1.0f);
-        yield return null;
+        yield return new WaitForSeconds(3);
+
     }
 
     private IEnumerator ShowPanel()

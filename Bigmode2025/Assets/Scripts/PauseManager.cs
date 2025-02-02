@@ -8,7 +8,7 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+      /*  if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
 
@@ -22,7 +22,7 @@ public class PauseManager : MonoBehaviour
                 pauseMenuObject.SetActive(false);
                 GameStateManager.instance.UpdateState(GameStateManager.PlayerState.Playing);
             }
-        }
+        }*/
     }
     public void Unpause()
     {

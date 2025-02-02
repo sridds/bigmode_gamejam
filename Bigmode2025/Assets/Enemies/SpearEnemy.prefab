@@ -148,7 +148,7 @@ MonoBehaviour:
   trail: {fileID: 3916152875794526599}
   targetStandDistance: 3
   moveSpeed: 2
-  lungeDistance: 7
+  lungeDistance: 8
   lungeWaitTime: 0.4
   lungeTravelTime: 0.16
   lungeCooldown: 3
@@ -273,6 +273,8 @@ MonoBehaviour:
   wilhelmScream: {fileID: 8300000, guid: b7e27278137f84e6a935004028883335, type: 3}
   scoreToAdd: 100
   health: 30
+  isShopkeeper: 0
+  isShieldEnemy: 0
 --- !u!61 &7623350287096019679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -639,6 +641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spearEnemyScript: {fileID: 6683965485657862818}
+  archerEnemyAI: {fileID: 0}
   rotationSpeed: 250
 --- !u!61 &2822949032564179957
 BoxCollider2D:

@@ -225,57 +225,61 @@ public class ArcherEnemyAI : MonoBehaviour
 
     public IEnumerator ShootAttack()
     {
-            chargingLunge = true;
-            canLunge = false;
+        chargingLunge = true;
+        canLunge = false;
 
-            rb.linearVelocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
 
-            canBeTerrified = false;
-            CancelTerrifiedState();
-            _renderer.sprite = _preChargeFace;
+        canBeTerrified = false;
+        CancelTerrifiedState();
+        _renderer.sprite = _preChargeFace;
 
-            currentArrow = Instantiate(arrowPrefab, arrowInstantiatePosition.position, arrowInstantiatePosition.rotation);
-            currentArrow.GetComponent<ArcherDamageHitbox>().healthScript = GetComponent<EnemyHealthScript>();
-            currentArrow.GetComponent<ArcherDamageHitbox>().archerEnemyAIScript = GetComponent<ArcherEnemyAI>();
+        currentArrow = Instantiate(arrowPrefab, arrowInstantiatePosition.position, arrowInstantiatePosition.rotation);
+        currentArrow.GetComponent<ArcherDamageHitbox>().healthScript = GetComponent<EnemyHealthScript>();
+        currentArrow.GetComponent<ArcherDamageHitbox>().archerEnemyAIScript = GetComponent<ArcherEnemyAI>();
+        Collider2D currentArrowCollider = currentArrow.GetComponent<Collider2D>();
+        currentArrowCollider.enabled = false;   
 
-            //Point arrow towards player on spawn with 360 degree spin
-            Vector3 predictedPosition = (player.transform.position);
-            Vector3 targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;
+        //Point arrow towards player on spawn with 360 degree spin
+        Vector3 predictedPosition = (player.transform.position);
+        Vector3 targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;
 
-            var dir = (targetPosition - transform.position).normalized;
-            Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
-            currentArrow.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), fireWaitTime * 0.7f, RotateMode.FastBeyond360);
+        var dir = (targetPosition - transform.position).normalized;
+        Quaternion lookRot = Quaternion.LookRotation(Vector3.forward, dir);
+        currentArrow.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z + 360.0f), fireWaitTime * 0.7f, RotateMode.FastBeyond360);
 
-            //Wait until 75% of the charge time has passed
-            yield return new WaitForSeconds(fireWaitTime * 0.9f);
+        //Wait until 75% of the charge time has passed
+        yield return new WaitForSeconds(fireWaitTime * 0.9f);
 
-            //Actually point the aim direction that will be fired
+        //Actually point the aim direction that will be fired
 /*            predictedPosition = (player.transform.position);
-            targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;*/
+        targetPosition = ((predictedPosition - transform.position).normalized * fireDistance) + transform.position;*/
 
-            dir = (targetPosition - transform.position).normalized;
-            lookRot = Quaternion.LookRotation(Vector3.forward, dir);
-            currentArrow.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z), fireWaitTime * 0.1f, RotateMode.Fast);
+        dir = (targetPosition - transform.position).normalized;
+        lookRot = Quaternion.LookRotation(Vector3.forward, dir);
+        currentArrow.transform.DOLocalRotate(new Vector3(lookRot.eulerAngles.x, lookRot.eulerAngles.y, lookRot.eulerAngles.z), fireWaitTime * 0.1f, RotateMode.Fast);
 
-            //finish charging the attack
-            yield return new WaitForSeconds(fireWaitTime * 0.1f);
+        //finish charging the attack
+        yield return new WaitForSeconds(fireWaitTime * 0.1f);
 
-            //Actually attack
+        //Actually attack
 
-            chargingLunge = false;
-            lunging = true;
-            canBeTerrified = true;
+        chargingLunge = false;
+        lunging = true;
+        canBeTerrified = true;
 
-            _renderer.sprite = _chargeFace;
-            //damageHitbox.SetActive(true);
+        _renderer.sprite = _chargeFace;
+        //damageHitbox.SetActive(true);
 
-            //healthScript.InvincibilityFrames(arrowTravelTime);
+        //healthScript.InvincibilityFrames(arrowTravelTime);
 
-            //Lunge lerp
-            float elapsed = 0.0f;
+        //Lunge lerp
+        float elapsed = 0.0f;
 
-            Vector3 startPos = currentArrow.transform.position;
-            if (currentArrow != null)
+        Vector3 startPos = currentArrow.transform.position;
+        currentArrowCollider.enabled = true;
+
+        if (currentArrow != null)
             {
                 while (elapsed < arrowTravelTime)
                 {

@@ -8,12 +8,45 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalScenes/MainMenu.unity
     guid: ce3692fefc975e740a709da4e117d6e7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CombinedTestScene.unity
-    guid: 6f31175a764823e408fe605ccf99c5f4
-  - enabled: 1
+    guid: 2cecbd2b8d2b70742b89be51c49af78e
+  - enabled: 0
     path: Assets/Scenes/ShopScene.unity
     guid: 22b5462f2a13098418fd68633b586990
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Level1.unity
+    guid: 2fba73bf9e8c5664ea996a7ecfe09a1d
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Shop1.unity
+    guid: 1132e70516af8ef4ab7304e4d438022a
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Level2.unity
+    guid: 7021ea1b343b3b64eafb56c12e633081
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Shop2.unity
+    guid: 836840508879eab4eaef987fefbc6045
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Level3.unity
+    guid: 30bfb9eb625838546b20c9cd997596aa
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Shop3.unity
+    guid: 777c7ef2213ecf64aa059d33197dd54f
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Level4(Spartacus).unity
+    guid: 2934eb3b5d07f7740aff0321470dc66f
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Shop4.unity
+    guid: 402866c0b968fd04897ab97a1b5fcb6a
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Level5(Catapult).unity
+    guid: 459bd99c57ca87e4d971883a82836283
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Shop5.unity
+    guid: e6bed034dc89a5f4e9aaae716d8290a9
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Level6(Final.unity
+    guid: 88fa7a1672ae04b4187e59ecf35e9b8b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

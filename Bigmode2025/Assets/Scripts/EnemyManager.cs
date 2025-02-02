@@ -66,6 +66,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        instance = null;
+    }
+
     public void RegisterEnemyDeath(GameObject enemy)
     {
         Vector2 spawnPos = enemy.transform.position;
