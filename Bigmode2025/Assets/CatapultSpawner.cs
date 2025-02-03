@@ -32,14 +32,8 @@ public class CatapultSpawner : MonoBehaviour
     void SpawnProjectile()
     {
         Vector3 spawnPos = Vector2.zero;
-        if (Random.Range(0,2) == 0)
-        {
-            spawnPos = (Vector2)player.transform.position + playerRb.linearVelocity;
-        }
-        else
-        {
-            spawnPos = (Vector2)player.transform.position + Random.insideUnitCircle * 2;
-        }
+        spawnPos = (Vector2)player.transform.position + Random.insideUnitCircle * 2;
+
         Instantiate(projectile, spawnPos, Quaternion.identity) ;
     }
 }
