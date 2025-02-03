@@ -230,6 +230,7 @@ MonoBehaviour:
   boostMultiplier: 0
   powerUpText: {fileID: 1578129748263404359, guid: 3ef10364f24f1d042893b14ad10c8ad7, type: 3}
   powerUpSprite: {fileID: -2632856698254994109, guid: fa665fcb729d49a448ce7d1860595f73, type: 3}
+  audio: {fileID: 8300000, guid: d1ad0267c7ba24fce8835cc391506897, type: 3}
 --- !u!58 &24415502
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1019,6 +1020,7 @@ MonoBehaviour:
   boostMultiplier: 0.3
   powerUpText: {fileID: 1578129748263404359, guid: 3ef10364f24f1d042893b14ad10c8ad7, type: 3}
   powerUpSprite: {fileID: -9149342080983288311, guid: fa665fcb729d49a448ce7d1860595f73, type: 3}
+  audio: {fileID: 8300000, guid: d1ad0267c7ba24fce8835cc391506897, type: 3}
 --- !u!58 &348176617
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2341,6 +2343,7 @@ MonoBehaviour:
   boostMultiplier: 0
   powerUpText: {fileID: 1578129748263404359, guid: 3ef10364f24f1d042893b14ad10c8ad7, type: 3}
   powerUpSprite: {fileID: 4492822704288207482, guid: fa665fcb729d49a448ce7d1860595f73, type: 3}
+  audio: {fileID: 8300000, guid: d1ad0267c7ba24fce8835cc391506897, type: 3}
 --- !u!58 &742797478
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15440,15 +15443,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.384375
-    y: 0.027777778
-    width: 0.5
-    height: 0.6666666
+    x: 0.125
+    y: 0
+    width: 0.75000006
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.946092
+  orthographic size: 18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

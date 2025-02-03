@@ -12,6 +12,8 @@ public class Upgrade : MonoBehaviour
     bool canBuy = true;
     public GameObject powerUpText;
     public Sprite powerUpSprite;
+    public AudioClip audio;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && canBuy)
@@ -25,6 +27,7 @@ public class Upgrade : MonoBehaviour
                 PlayerUpgrades.instance.driftFriction += driftFriction;
                 PlayerUpgrades.instance.maxSpeed += maxSpeed;
                 PlayerUpgrades.instance.boostMultiplier += boostMultiplier;
+                
                 Bought();
             }
             else
@@ -44,6 +47,8 @@ public class Upgrade : MonoBehaviour
     {
         GameObject newEffect = Instantiate(powerUpText, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         newEffect.GetComponentInChildren<SpriteRenderer>().sprite = powerUpSprite;
+        AudioManager.instance.PlaySound(audio, 0.7f, 0.95f, 1.1f);
+
         Destroy(gameObject);
 
     }
