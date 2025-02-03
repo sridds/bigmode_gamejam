@@ -158,13 +158,16 @@ public class EnemyManager : MonoBehaviour
 
     }
 
+    bool HELPME;
+
     private void LateUpdate()
     {
-        if (!relaxIllHandleIt && FindObjectsOfType<EnemyHealthScript>().Length == 0 && _endLevelOnKillingEverythingOrShouldILetSomethingElseHandleItLikeMaybeTheSpartacusScriptInstead)
+        if (!relaxIllHandleIt && FindObjectsOfType<EnemyHealthScript>().Length == 0 && !_endLevelOnKillingEverythingOrShouldILetSomethingElseHandleItLikeMaybeTheSpartacusScriptInstead && !HELPME)
         {
 
             Debug.Log("i am the angry pumkin");
             GameObject.Find("LevelTransition").GetComponent<LevelTransitions>().StartTransition();
+            HELPME = true;
         }
 
     }
