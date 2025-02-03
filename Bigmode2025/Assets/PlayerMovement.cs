@@ -22,14 +22,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float drift2Speed;
     [SerializeField] float drift3Speed;
 
-    [SerializeField] float maxAdditionalBoost = 6.0f;
-    [SerializeField] float additionalSpeedBoost = 2.0f;
-
     [SerializeField] float driftRotationSpeed; //How fast the car turns 90 degrees at the start of a drift
 
     [SerializeField] float autoAimMinAngle;
 
-    public float MaxSpeed { get { return maxSpeed + additionalBoost; } }
+    public float MaxSpeed { get { return maxSpeed; } }
     public float CurrentSpeed { get { return currentSpeed; } }
 
     float driftBoost;
@@ -86,18 +83,6 @@ public class PlayerMovement : MonoBehaviour
     Tween collisionShake;
 
     Transform enemyContainer;
-
-    public void AddSpeedBoost()
-    {
-        additionalBoost += additionalSpeedBoost;
-
-        if (additionalBoost > maxAdditionalBoost) additionalBoost = additionalSpeedBoost;
-    }
-
-    public void CancelSpeedBoost()
-    {
-        additionalBoost = 0.0f;
-    }
 
     private void Awake()
     {

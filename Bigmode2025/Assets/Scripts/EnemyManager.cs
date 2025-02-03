@@ -86,8 +86,11 @@ public class EnemyManager : MonoBehaviour
         if (enemyContainer.childCount-1 == 0 && _endLevelOnKillingEverythingOrShouldILetSomethingElseHandleItLikeMaybeTheSpartacusScriptInstead)
         {
             GameObject.Find("LevelTransition").GetComponent<LevelTransitions>().StartTransition();
+            relaxIllHandleIt = true;
         }
     }
+
+    private bool relaxIllHandleIt;
 
     public void UpdateCount()
     {
@@ -126,8 +129,6 @@ public class EnemyManager : MonoBehaviour
 
                 onesSpr.DelayedHop(0.1f);
             }
-
-            FindFirstObjectByType<PlayerMovement>().AddSpeedBoost();
         }
     }
 
@@ -153,13 +154,24 @@ public class EnemyManager : MonoBehaviour
         {
             comboTimer += Time.deltaTime;
         }
+
+
+    }
+
+    private void LateUpdate()
+    {
+        if (!relaxIllHandleIt && FindObjectsOfType<EnemyHealthScript>().Length == 0 && _endLevelOnKillingEverythingOrShouldILetSomethingElseHandleItLikeMaybeTheSpartacusScriptInstead)
+        {
+
+            Debug.Log("i am the angry pumkin");
+            GameObject.Find("LevelTransition").GetComponent<LevelTransitions>().StartTransition();
+        }
+
     }
 
     public void StopCombo()
     {
         Debug.Log("Combo ended");
-
-        FindObjectOfType<PlayerMovement>().CancelSpeedBoost();
 
         OnComboEnded?.Invoke(combo);
         isComboInitiated = false;

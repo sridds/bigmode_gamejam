@@ -174,6 +174,8 @@ public class PanelController : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         blackWipe.transform.DOMoveX(0.0f, 0.8f, false);
+
+        yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
