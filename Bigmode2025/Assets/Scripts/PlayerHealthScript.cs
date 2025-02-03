@@ -59,7 +59,7 @@ public class PlayerHealthScript : MonoBehaviour
                 Instantiate(healParticle, transform.position, Quaternion.identity, transform);
                 //healthIncrements += comboHealAmount;
                 int oldHealth = healthIncrements;
-                healthIncrements += 2;
+                healthIncrements ++;
                 if (healthIncrements > maxHealthIncrements)
                 {
                     healthIncrements = maxHealthIncrements;

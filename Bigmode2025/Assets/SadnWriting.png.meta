@@ -1,0 +1,459 @@
+fileFormatVersion: 2
+guid: c2e2e0fe0c6d72b44afac0bb585a86d1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2983737803598256615
+    second: SadnWriting_0
+  - first:
+      213: 6384919506802784507
+    second: SadnWriting_1
+  - first:
+      213: -8637117567948070072
+    second: SadnWriting_2
+  - first:
+      213: -4986555773973231913
+    second: SadnWriting_3
+  - first:
+      213: 5846362981508734436
+    second: SadnWriting_4
+  - first:
+      213: 6322673709098716801
+    second: SadnWriting_5
+  - first:
+      213: -2464332832253425391
+    second: SadnWriting_6
+  - first:
+      213: -5760977676184976809
+    second: SadnWriting_7
+  - first:
+      213: 7792137368611689995
+    second: SadnWriting_8
+  - first:
+      213: 8791668802439243468
+    second: SadnWriting_9
+  - first:
+      213: -3242488130579940354
+    second: SadnWriting_10
+  - first:
+      213: 732729275252021713
+    second: SadnWriting_11
+  - first:
+      213: -7323307756105090262
+    second: SadnWriting_12
+  - first:
+      213: 8942232644711269633
+    second: SadnWriting_13
+  - first:
+      213: -6114829018735800399
+    second: SadnWriting_14
+  - first:
+      213: -8204277010700191391
+    second: SadnWriting_15
+  - first:
+      213: -6253388659355401056
+    second: SadnWriting_16
+  - first:
+      213: 4206207779281475204
+    second: SadnWriting_17
+  - first:
+      213: -4247565161739652782
+    second: SadnWriting_18
+  - first:
+      213: 8228263861008213651
+    second: SadnWriting_19
+  - first:
+      213: -2899975289128382813
+    second: SadnWriting_20
+  - first:
+      213: -6099714152001175957
+    second: SadnWriting_21
+  - first:
+      213: -3827405656291810639
+    second: SadnWriting_22
+  - first:
+      213: 693046058013004603
+    second: SadnWriting_23
+  - first:
+      213: 3185677896024793133
+    second: SadnWriting_24
+  - first:
+      213: -3152897836405770286
+    second: SadnWriting_25
+  - first:
+      213: -2628796695416809639
+    second: SadnWriting_26
+  - first:
+      213: 2251768912606098264
+    second: SadnWriting_27
+  - first:
+      213: -3607852803386170765
+    second: SadnWriting_28
+  - first:
+      213: 4847726395265680886
+    second: SadnWriting_29
+  - first:
+      213: -6954367821674556643
+    second: SadnWriting_30
+  - first:
+      213: -7276120638557132061
+    second: SadnWriting_31
+  - first:
+      213: -95143311661199216
+    second: SadnWriting_32
+  - first:
+      213: -4396292868794628520
+    second: SadnWriting_33
+  - first:
+      213: -2199539106677306373
+    second: SadnWriting_34
+  - first:
+      213: 6663817060476886420
+    second: SadnWriting_35
+  - first:
+      213: 3123491272134746593
+    second: SadnWriting_36
+  - first:
+      213: 100069855708087737
+    second: SadnWriting_37
+  - first:
+      213: 2371432670950660863
+    second: SadnWriting_38
+  - first:
+      213: -3010757884963838595
+    second: SadnWriting_39
+  - first:
+      213: 212230630241759755
+    second: SadnWriting_40
+  - first:
+      213: 254694900309371040
+    second: SadnWriting_41
+  - first:
+      213: 6597809854171784011
+    second: SadnWriting_42
+  - first:
+      213: -1640824424696782583
+    second: SadnWriting_43
+  - first:
+      213: 2147097999428290474
+    second: SadnWriting_44
+  - first:
+      213: 8101875371346079897
+    second: SadnWriting_45
+  - first:
+      213: 3853328564623008857
+    second: SadnWriting_46
+  - first:
+      213: -1046276744699942882
+    second: SadnWriting_47
+  - first:
+      213: 8032071986770071602
+    second: SadnWriting_48
+  - first:
+      213: 7326795316279026141
+    second: SadnWriting_49
+  - first:
+      213: 6598814186125181631
+    second: SadnWriting_50
+  - first:
+      213: -3214668196954489759
+    second: SadnWriting_51
+  - first:
+      213: -3568280050148202162
+    second: SadnWriting_52
+  - first:
+      213: -5273703986124885720
+    second: SadnWriting_53
+  - first:
+      213: -5776816473876578331
+    second: SadnWriting_54
+  - first:
+      213: 7761898432887356412
+    second: SadnWriting_55
+  - first:
+      213: -483621196783755705
+    second: SadnWriting_56
+  - first:
+      213: 8895571704670980665
+    second: SadnWriting_57
+  - first:
+      213: -6483067159132212127
+    second: SadnWriting_58
+  - first:
+      213: 7168144459343321148
+    second: SadnWriting_59
+  - first:
+      213: -3323137757447308703
+    second: SadnWriting_60
+  - first:
+      213: -1084519520036919763
+    second: SadnWriting_61
+  - first:
+      213: -1589300612119787445
+    second: SadnWriting_62
+  - first:
+      213: -5362846433882279910
+    second: SadnWriting_63
+  - first:
+      213: 3319529277433037000
+    second: SadnWriting_64
+  - first:
+      213: 7927430514688726303
+    second: SadnWriting_65
+  - first:
+      213: 6756293477037010461
+    second: SadnWriting_66
+  - first:
+      213: 4497198336157319009
+    second: SadnWriting_67
+  - first:
+      213: -3695482948928516924
+    second: SadnWriting_68
+  - first:
+      213: 7597456307396606689
+    second: SadnWriting_69
+  - first:
+      213: -7789750200684837046
+    second: SadnWriting_70
+  - first:
+      213: -5505847339763939478
+    second: SadnWriting_71
+  - first:
+      213: 2411270321804212792
+    second: SadnWriting_72
+  - first:
+      213: 4063895428118455077
+    second: SadnWriting_73
+  - first:
+      213: -7100211514096055403
+    second: SadnWriting_74
+  - first:
+      213: -4197415237080844726
+    second: SadnWriting_75
+  - first:
+      213: 199288914243573077
+    second: SadnWriting_76
+  - first:
+      213: -799387918680840924
+    second: SadnWriting_77
+  - first:
+      213: -2237455782031573757
+    second: SadnWriting_78
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SadnWriting_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 101
+        width: 254
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9162f91b642a796d0800000000000000
+      internalID: -2983737803598256615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SadnWriting_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 60
+        width: 242
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73faeed422f47e046b0c596b00b588b0
+      internalID: 6384919506802784507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SadnWriting_2
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 127
+        width: 144
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def9c82d57f856448a0bbea0b6eda5f7
+      internalID: -8637117567948070072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SadnWriting_3
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 194
+        width: 200
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ed2a78f44f9594b8e919cd5ad6c77c
+      internalID: -4986555773973231913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4f88e070acd1d084cadb1b7091b4acc4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SadnWriting_0: -2983737803598256615
+      SadnWriting_1: 6384919506802784507
+      SadnWriting_2: -8637117567948070072
+      SadnWriting_3: -4986555773973231913
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

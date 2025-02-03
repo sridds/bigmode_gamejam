@@ -445,9 +445,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1246840953
+  m_SortingLayer: 1
+  m_SortingOrder: -2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.8117647}
   m_FlipX: 0
@@ -584,10 +584,8 @@ MonoBehaviour:
   drift1Speed: 20
   drift2Speed: 27
   drift3Speed: 40
-  maxAdditionalBoost: 12
-  additionalSpeedBoost: 4
   driftRotationSpeed: 0.15
-  autoAimMinAngle: 0.85
+  autoAimMinAngle: 0.8
   rb: {fileID: 6026991223852364711}
   sprite: {fileID: 1698824936063049756}
   ghostTrailBoost: {fileID: 1216862205616998793}
@@ -645,7 +643,7 @@ MonoBehaviour:
   - {fileID: 460394958696149377}
   hurtSound: {fileID: 8300000, guid: b70f6d03b082f40bb899345e0acdda13, type: 3}
   deathSound: {fileID: 8300000, guid: eb2ebe96a3b354a65ac0df8a2657bdd2, type: 3}
-  comboBeforeHeal: 10
+  comboBeforeHeal: 5
   comboHealAmount: 50
   healParticle: {fileID: 8925482381524897392, guid: e96d7970233bfbe4f8fa85c544cdb335, type: 3}
   explosionPrefab: {fileID: 8925482381524897392, guid: 04b325519b4c9084ba675ece5e7ae9fc, type: 3}

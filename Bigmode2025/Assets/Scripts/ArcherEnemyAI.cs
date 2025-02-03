@@ -223,6 +223,7 @@ public class ArcherEnemyAI : MonoBehaviour
         }
     }
 
+
     public IEnumerator ShootAttack()
     {
         chargingLunge = true;
@@ -347,5 +348,6 @@ public class ArcherEnemyAI : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
+        Destroy(currentArrow);
     }
 }
