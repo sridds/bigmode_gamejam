@@ -3,6 +3,7 @@ using UnityEngine;
 public class AudioStarter : MonoBehaviour
 {
     public bool isShopTheme;
+    public bool isSpartacusLevel;
 
     private void Start()
     {
@@ -12,6 +13,11 @@ public class AudioStarter : MonoBehaviour
         {
             AudioManager.instance.StartStageTheme();
             AudioManager.instance.SwitchToMain();
+        }
+
+        if (isSpartacusLevel)
+        {
+            AudioManager.instance.StopAll();
         }
     }
 }
