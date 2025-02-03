@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
+        //GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
     }
 
     public void DamageEffect()

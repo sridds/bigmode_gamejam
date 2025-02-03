@@ -21680,6 +21680,10 @@ PrefabInstance:
       propertyPath: zoomer
       value: 
       objectReference: {fileID: 1911779680}
+    - target: {fileID: 2228676573785771002, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
+      propertyPath: nextLevelBuildIndex
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5331623540135842229, guid: b9c1b2132a9ca5d44a7490f2083a8413, type: 3}
       propertyPath: m_Name
       value: LevelTransition
@@ -25573,10 +25577,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.09028961
-    y: 0.008174387
-    width: 0.8177172
-    height: 0.9809264
+    x: 0.125
+    y: 0
+    width: 0.75000006
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
