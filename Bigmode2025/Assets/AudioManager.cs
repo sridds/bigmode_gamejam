@@ -28,6 +28,12 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public void StopAll()
+    {
+        _track1.Stop();
+        _track2.Stop();
+        _shopTheme.Stop();
+    }
     private void Start()
     {
         GameStateManager.instance.OnGameStateUpdated += GameStateUpdate;
