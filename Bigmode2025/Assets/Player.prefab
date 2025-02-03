@@ -632,9 +632,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthIncrements: 4
   maxHealthIncrements: 4
-  invincibilityTime: 0.2
+  invincibilityTime: 0.55
   sprite: {fileID: 1698824936063049756}
-  damageShakeAmount: 0.5
+  damageShakeAmount: 0.53
   damageShakeVibrado: 35
   whiteFlashDuration: 0.1
   whiteFlashMaterial: {fileID: -876546973899608171, guid: d5955b62bf2b70e4cb0581f49d12eae8, type: 3}
