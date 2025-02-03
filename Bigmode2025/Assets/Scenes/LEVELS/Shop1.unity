@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066573c368bb79e488ab8c094eea6617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreCost: 2000
+  ScoreCost: 1000
   driftTurnDelta: 0.25
   driftFriction: 0.8
   maxSpeed: 0
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2000
+  m_text: 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f70957f697118b4988e8df4cb8fa9b2, type: 2}
   m_sharedMaterial: {fileID: 2846710316606748222, guid: 7f70957f697118b4988e8df4cb8fa9b2, type: 2}
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066573c368bb79e488ab8c094eea6617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreCost: 3500
+  ScoreCost: 2500
   driftTurnDelta: 0
   driftFriction: 0
   maxSpeed: 0
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3500
+  m_text: 2500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f70957f697118b4988e8df4cb8fa9b2, type: 2}
   m_sharedMaterial: {fileID: 2846710316606748222, guid: 7f70957f697118b4988e8df4cb8fa9b2, type: 2}
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3500
+  m_text: 2500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c0cb92db4092554db972531ebc3075b, type: 2}
   m_sharedMaterial: {fileID: -6248996125729258072, guid: 8c0cb92db4092554db972531ebc3075b, type: 2}
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2500
+  m_text: 1750
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f70957f697118b4988e8df4cb8fa9b2, type: 2}
   m_sharedMaterial: {fileID: 2846710316606748222, guid: 7f70957f697118b4988e8df4cb8fa9b2, type: 2}
@@ -2094,7 +2094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2000
+  m_text: 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c0cb92db4092554db972531ebc3075b, type: 2}
   m_sharedMaterial: {fileID: -6248996125729258072, guid: 8c0cb92db4092554db972531ebc3075b, type: 2}
@@ -2336,7 +2336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066573c368bb79e488ab8c094eea6617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreCost: 2500
+  ScoreCost: 1750
   driftTurnDelta: 0
   driftFriction: 0
   maxSpeed: 3.5
@@ -9501,7 +9501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2500
+  m_text: 1750
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c0cb92db4092554db972531ebc3075b, type: 2}
   m_sharedMaterial: {fileID: -6248996125729258072, guid: 8c0cb92db4092554db972531ebc3075b, type: 2}

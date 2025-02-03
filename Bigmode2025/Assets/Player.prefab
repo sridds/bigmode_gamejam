@@ -174,7 +174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865351682897575559}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.009165119, w: 0.99995804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.64968824, y: 0.64968824, z: 0.6496882}
   m_ConstrainProportionsScale: 0
@@ -225,7 +225,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3, y: 1.6}
+  m_Size: {x: 3.54, y: 4.97}
   m_EdgeRadius: 0
 --- !u!114 &7145902770553197632
 MonoBehaviour:
@@ -682,7 +682,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.8
+  m_Radius: 1
 --- !u!58 &4996619900881277986
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -718,7 +718,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.9
+  m_Radius: 1.1
 --- !u!114 &1216862205616998793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20127,7 +20127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5261265721898055118}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.009165119, w: 0.99995804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

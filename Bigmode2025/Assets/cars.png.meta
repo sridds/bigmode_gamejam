@@ -141,6 +141,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -148,10 +161,10 @@ TextureImporter:
       name: cars_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 1010
-        width: 33
-        height: 38
+        x: 16
+        y: 1011
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +185,8 @@ TextureImporter:
         serializedVersion: 2
         x: 11
         y: 943
-        width: 44
-        height: 35
+        width: 42
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +205,10 @@ TextureImporter:
       name: cars_2
       rect:
         serializedVersion: 2
-        x: 8
+        x: 9
         y: 877
-        width: 50
-        height: 35
+        width: 49
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +227,10 @@ TextureImporter:
       name: cars_3
       rect:
         serializedVersion: 2
-        x: 5
-        y: 812
-        width: 54
-        height: 35
+        x: 7
+        y: 813
+        width: 52
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,9 +250,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 10
-        y: 748
-        width: 47
-        height: 34
+        y: 749
+        width: 45
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,9 +272,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 679
-        width: 52
-        height: 37
+        y: 680
+        width: 50
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +293,10 @@ TextureImporter:
       name: cars_6
       rect:
         serializedVersion: 2
-        x: 8
-        y: 612
-        width: 50
-        height: 38
+        x: 9
+        y: 613
+        width: 48
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,9 +316,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 11
-        y: 544
+        y: 545
         width: 44
-        height: 40
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,10 +337,10 @@ TextureImporter:
       name: cars_8
       rect:
         serializedVersion: 2
-        x: 17
-        y: 476
-        width: 33
-        height: 43
+        x: 18
+        y: 477
+        width: 31
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +359,10 @@ TextureImporter:
       name: cars_9
       rect:
         serializedVersion: 2
-        x: 13
-        y: 411
+        x: 11
+        y: 412
         width: 44
-        height: 40
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,9 +382,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 10
-        y: 346
-        width: 50
-        height: 38
+        y: 348
+        width: 48
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +403,10 @@ TextureImporter:
       name: cars_11
       rect:
         serializedVersion: 2
-        x: 8
-        y: 280
-        width: 52
-        height: 37
+        x: 9
+        y: 281
+        width: 50
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +425,10 @@ TextureImporter:
       name: cars_12
       rect:
         serializedVersion: 2
-        x: 11
-        y: 216
-        width: 47
-        height: 34
+        x: 9
+        y: 217
+        width: 45
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,9 +448,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 9
-        y: 147
-        width: 54
-        height: 35
+        y: 148
+        width: 52
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,8 +471,8 @@ TextureImporter:
         serializedVersion: 2
         x: 10
         y: 79
-        width: 50
-        height: 35
+        width: 49
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,10 +491,10 @@ TextureImporter:
       name: cars_15
       rect:
         serializedVersion: 2
-        x: 13
+        x: 11
         y: 12
-        width: 44
-        height: 35
+        width: 42
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,7 +513,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cfe078b3615ec4c4cb2c82ac4bf39784
     internalID: 0
     vertices: []
     indices: 
