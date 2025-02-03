@@ -180,7 +180,7 @@ MonoBehaviour:
   moveSpeed: 4
   fireDistance: 60
   fireWaitTime: 0.8
-  arrowTravelTime: 3
+  arrowTravelTime: 18
   fireCooldown: 3
   arrowInstantiatePosition: {fileID: 7541511649700580338}
   arrowPrefab: {fileID: 4969550384301074248, guid: 98d08e3d223ecae4e8f649f6325ef756, type: 3}
@@ -306,6 +306,7 @@ MonoBehaviour:
   scoreToAdd: 100
   health: 30
   isShopkeeper: 0
+  isShieldEnemy: 0
 --- !u!61 &7623350287096019679
 BoxCollider2D:
   m_ObjectHideFlags: 0

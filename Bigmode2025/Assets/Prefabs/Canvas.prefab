@@ -982,6 +982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAngle: 12
   maxAngle: -86.055
+  arrow: {fileID: 1653271175342430830}
 --- !u!1 &6882312625980938519
 GameObject:
   m_ObjectHideFlags: 0

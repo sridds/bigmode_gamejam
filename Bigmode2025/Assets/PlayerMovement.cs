@@ -261,16 +261,16 @@ public class PlayerMovement : MonoBehaviour
                         float maxDistance = 0;
                         if (driftBoost == drift3Speed * PlayerUpgrades.instance.boostMultiplier)
                         {
-                            maxDistance = 35;
+                            maxDistance = 35 * PlayerUpgrades.instance.boostMultiplier;
                         }
                         else if (driftBoost == drift2Speed * PlayerUpgrades.instance.boostMultiplier)
                         {
-                            maxDistance = 22;
+                            maxDistance = 22 * PlayerUpgrades.instance.boostMultiplier;
 
                         }
                         else if (driftBoost == drift1Speed * PlayerUpgrades.instance.boostMultiplier)
                         {
-                            maxDistance = 16;
+                            maxDistance = 16 * PlayerUpgrades.instance.boostMultiplier;
                         }
 
                         if (dotProduce > smallestAngle && Mathf.Abs((enemy.transform.position - transform.position).magnitude) < maxDistance)

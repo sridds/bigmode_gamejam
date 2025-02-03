@@ -281,11 +281,12 @@ public class ArcherEnemyAI : MonoBehaviour
         Rigidbody2D arrowCollider = currentArrow.GetComponent<Rigidbody2D>();
         if (currentArrow != null)
             {
-            Vector2 direction = (startPos - targetPosition).normalized;
-            arrowCollider.AddForce(direction * arrowTravelTime);
+            Debug.Log("Fire");
+            Vector2 direction = (targetPosition - startPos).normalized;
+            arrowCollider.AddForce(direction * arrowTravelTime, ForceMode2D.Impulse);
             Destroy(currentArrow, 4f);
             }
-
+        yield return new WaitForSeconds(4);
         shootingBool = false;
         StartCoroutine(LungeEnding());
         yield return null;
