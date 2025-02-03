@@ -25,6 +25,10 @@ public class ArcherEnemyAI : MonoBehaviour
     //[SerializeField] float standStillAfterFireTime = 0.2f;
     [SerializeField] Transform arrowInstantiatePosition;
     [SerializeField] GameObject arrowPrefab;
+
+    [SerializeField] AudioClip bowDrawClip;
+    [SerializeField] AudioClip shootClip;
+
     GameObject currentArrow;
 
     public Coroutine shooting;
@@ -235,6 +239,8 @@ public class ArcherEnemyAI : MonoBehaviour
         CancelTerrifiedState();
         _renderer.sprite = _preChargeFace;
 
+        AudioManager.instance.PlaySound(bowDrawClip, 1.0f, 0.95f, 1.1f);
+
         currentArrow = Instantiate(arrowPrefab, arrowInstantiatePosition.position, arrowInstantiatePosition.rotation);
         currentArrow.GetComponent<ArcherDamageHitbox>().healthScript = GetComponent<EnemyHealthScript>();
         currentArrow.GetComponent<ArcherDamageHitbox>().archerEnemyAIScript = GetComponent<ArcherEnemyAI>();
@@ -262,6 +268,7 @@ public class ArcherEnemyAI : MonoBehaviour
 
         //finish charging the attack
         yield return new WaitForSeconds(fireWaitTime * 0.1f);
+        AudioManager.instance.PlaySound(shootClip, 1.0f, 0.95f, 1.1f);
 
         //Actually attack
 

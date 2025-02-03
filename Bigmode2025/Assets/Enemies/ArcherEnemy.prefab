@@ -184,6 +184,8 @@ MonoBehaviour:
   fireCooldown: 3
   arrowInstantiatePosition: {fileID: 7541511649700580338}
   arrowPrefab: {fileID: 4969550384301074248, guid: 98d08e3d223ecae4e8f649f6325ef756, type: 3}
+  bowDrawClip: {fileID: 8300000, guid: a2a9a8238c6834b35bef0dca7ab4b9a4, type: 3}
+  shootClip: {fileID: 8300000, guid: 4328d571ba4344e1cace049d19450313, type: 3}
   shootingBool: 0
   walkingCooldown: 0
   lunging: 0

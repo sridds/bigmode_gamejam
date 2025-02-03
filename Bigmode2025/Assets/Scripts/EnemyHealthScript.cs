@@ -80,16 +80,19 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (destroyFlag) return;
 
+        bool flying = false;
+
         if (!isShopkeeper)
         {
             if (Random.Range(5, 14) == 7 || FindObjectOfType<EnemyManager>().EnemiesRemaining == 1)
             {
                 ScreenJumper j = Instantiate(jumper, transform.position, Quaternion.identity);
+                flying = true;
             }
         }
 
 
-        if (canDecapitate)
+        if (canDecapitate && !flying)
         {
             GameObject g = Instantiate(decapitatedHead, transform.position, Quaternion.identity);
         }
