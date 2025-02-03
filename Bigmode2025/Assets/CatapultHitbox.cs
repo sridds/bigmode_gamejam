@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CatapultHitbox : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         Debug.Log("Colliding");
         if (collision.gameObject.tag == "Player")
